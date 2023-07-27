@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vvdm232t6ckc"
+path="res://.godot/imported/hammer.obj-228b21b06fb099c14936c84229671a12.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hammer.obj-228b21b06fb099c14936c84229671a12.mesh"]
+
+source_file="res://assets/models/hammer.obj"
+dest_files=["res://.godot/imported/hammer.obj-228b21b06fb099c14936c84229671a12.mesh", "res://.godot/imported/hammer.obj-228b21b06fb099c14936c84229671a12.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

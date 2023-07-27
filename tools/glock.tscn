@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cerf0lcwevfoe"]
+
+[ext_resource type="PackedScene" uid="uid://ujfwbf6yvk3c" path="res://Scenes/Tool.tscn" id="1_hwnxd"]
+[ext_resource type="ArrayMesh" uid="uid://sjqm61xvyj3w" path="res://assets/models/glock.obj" id="2_iujwb"]
+[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="3_o7eqf"]
+[ext_resource type="Texture2D" uid="uid://xdvjil4uubk8" path="res://assets/textures/glock.png" id="4_f8x24"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvyr6"]
+render_priority = 0
+shader = ExtResource("3_o7eqf")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("4_f8x24")
+
+[node name="Tool" instance=ExtResource("1_hwnxd")]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform3D(-7.43094e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.43094e-08, 0.631082, -0.00316226, -0.00530714)
+mesh = ExtResource("2_iujwb")
+surface_material_override/0 = SubResource("ShaderMaterial_hvyr6")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ce0tmoqar7u4g"
+path="res://.godot/imported/hand.obj-8958efadfaa07217f908ca5feaf3c800.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hand.obj-8958efadfaa07217f908ca5feaf3c800.mesh"]
+
+source_file="res://assets/models/hand.obj"
+dest_files=["res://.godot/imported/hand.obj-8958efadfaa07217f908ca5feaf3c800.mesh", "res://.godot/imported/hand.obj-8958efadfaa07217f908ca5feaf3c800.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

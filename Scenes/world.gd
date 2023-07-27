@@ -1,0 +1,83 @@
+extends Node
+
+@onready var main_menu = $CanvasLayer/MainMenu
+@onready var address_enter = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEnter
+@onready var name_enter = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/NameEnter
+@onready var game_manager = $GameManager
+
+var bloodexp = preload("res://Scenes/blood_explosion.tscn")
+
+const Player = preload("res://Scenes/player.tscn")
+const PORT = 9999
+var enet_peer = ENetMultiplayerPeer.new()
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
+
+func _on_host_button_pressed():
+	main_menu.hide()
+	
+	enet_peer.create_server(PORT)
+	multiplayer.multiplayer_peer = enet_peer
+	multiplayer.peer_connected.connect(add_player)
+	multiplayer.peer_disconnected.connect(remove_player)
+	
+	add_player(multiplayer.get_unique_id())
+	game_manager.start_wait()
+
+func _on_join_button_pressed():
+	main_menu.hide()
+	
+	enet_peer.create_client(address_enter.text, PORT)
+	multiplayer.multiplayer_peer = enet_peer
+
+func add_player(peer_id):
+	var player = Player.instantiate()
+	player.name = str(peer_id)
+	add_child(player)
+	rpc_id(peer_id,"set_wave", game_manager.state, game_manager.wave, game_manager.timer.wait_time)
+
+func create_blood(n, pos):
+	var blood = bloodexp.instantiate()
+	add_child(blood)
+	blood.global_position = pos
+	blood.boom(n)
+
+func remove_player(peer_id):
+	var player = get_node_or_null(str(peer_id))
+	if player:
+		create_blood(15, player.global_position)
+		player.queue_free()
+		
+@rpc("call_local")
+func set_wave(s,w,t):
+	game_manager.timer.wait_time = t
+	game_manager.state = s
+	game_manager.wave = w
+	game_manager.set_round_info(s,w,t)
+	game_manager.start_round()
+		
+func kill_player(peer_id):
+	var player = get_node_or_null(str(peer_id))
+	if player:
+		player.get_node("CollisionShape3D").disabled = true
+		player.set_physics_process(false)
+		player.hide()
+
+func upnp_setup():
+	var upnp = UPNP.new()
+	
+	var discover_result = upnp.discover()
+	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
+		"UPNP Discover Failed! Error %s" % discover_result)
+	
+	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
+		"UPNP Invalid Gateway!")
+		
+	var map_result = upnp.add_port_mapping(PORT)
+	
+	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
+		"UPNP Discover Failed! Error %s" % discover_result)
+		
+	print("Success! Join Address: %s" % upnp.query_external_address())
