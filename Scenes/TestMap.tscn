@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="3_yffhn"]
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_a80cx"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_87wyk"]
-[ext_resource type="PackedScene" uid="uid://cisfy1dg603e0" path="res://Scenes/zombie.tscn" id="6_auknj"]
+[ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="7_hbkm3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_by1po"]
 render_priority = 0
@@ -39,5 +39,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)
 
 [node name="Death" parent="." instance=ExtResource("5_87wyk")]
 
-[node name="Zombie" parent="." instance=ExtResource("6_auknj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.946919, 1.60861, -1.27866)
+[node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("7_hbkm3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
+
+[node name="Sigil2" parent="." groups=["sigil"] instance=ExtResource("7_hbkm3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
+
+[node name="Sigil3" parent="." groups=["sigil"] instance=ExtResource("7_hbkm3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7034, 0.5, -2.54509)
