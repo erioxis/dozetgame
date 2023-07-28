@@ -23,6 +23,7 @@ var health:float = 100
 
 var tool : Object
 var world
+var game_manager
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -32,6 +33,7 @@ func _enter_tree():
 func _ready():
 	dead = false
 	world = get_tree().get_root().get_node("World")
+	game_manager = get_tree().get_root().get_node("World").get_node("GameManager")
 	
 	if not is_multiplayer_authority():
 		ui.hide()
@@ -63,6 +65,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	ui.set_health(health)
 	ui.emit_signal("set", points)
+	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta

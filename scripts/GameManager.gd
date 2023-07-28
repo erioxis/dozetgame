@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var timer = $Timer
+@onready var timer: Timer = $Timer
 
 var wave: int = 1;
 var max_wave: int = 6;
@@ -18,25 +18,27 @@ enum ROUND_STATE
 var state: ROUND_STATE
 
 func _physics_process(delta):
-	if not is_multiplayer_authority(): return
+	pass
 
 func start_wait():
 	state = ROUND_STATE.WAIT
 	timer.wait_time = wait_time
 	timer.start()
 
+@rpc
 func start_round():
 	start_wait()
 	
 func start_wave():
-	timer.wait_time = wave_time
-	timer.start()
+	pass
 
 func start_chill():
 	pass
 	
-func get_wave():
-	return wave
-	
-func get_time():
-	return timer.time_left
+@rpc("call_local")
+func set_round_info(s,w,t):
+	state = s
+	wave = w
+	if (t>0):
+		timer.wait_time = t
+	timer.start()

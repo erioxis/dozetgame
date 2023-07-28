@@ -24,7 +24,7 @@ func _on_host_button_pressed():
 	multiplayer.peer_disconnected.connect(remove_player)
 	
 	add_player(multiplayer.get_unique_id())
-	game_manager.start_wait()
+	game_manager.start_round()
 
 func _on_join_button_pressed():
 	main_menu.hide()
@@ -36,6 +36,7 @@ func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
 	add_child(player)
+	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
 
 func create_blood(n, pos):
 	var blood = bloodexp.instantiate()
