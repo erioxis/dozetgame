@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqreoke861ul1" path="res://ui/player_ui.tscn" id="5_ipw78"]
 [ext_resource type="Texture2D" uid="uid://cg64kgqyv6mcx" path="res://assets/textures/face.png" id="5_vl1te"]
 [ext_resource type="ArrayMesh" uid="uid://sjxtf6ut3wf8" path="res://assets/models/body.obj" id="6_b44yw"]
-[ext_resource type="FontFile" uid="uid://wgqohxsh3aa3" path="res://assets/font/Zombie Queen.ttf" id="7_r1hph"]
+[ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="7_ecrbp"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="7_touqe"]
 [ext_resource type="Texture2D" uid="uid://b3y431k7l5qt7" path="res://assets/textures/tcloth.jpg" id="8_e7ol0"]
 
@@ -204,7 +204,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3
 billboard = 1
 shaded = true
 text = "test"
-font = ExtResource("7_r1hph")
+font = ExtResource("7_ecrbp")
 font_size = 44
 uppercase = true
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://wgqohxsh3aa3"
-path="res://.godot/imported/Zombie Queen.ttf-785312ea6a517c212a89bef3102d4939.fontdata"
+uid="uid://cy70efx6hnu4t"
+path="res://.godot/imported/ghoulfriaoe_upd.ttf-635a9d593959d3a47a195e547a09b541.fontdata"
 
 [deps]
 
-source_file="res://assets/font/Zombie Queen.ttf"
-dest_files=["res://.godot/imported/Zombie Queen.ttf-785312ea6a517c212a89bef3102d4939.fontdata"]
+source_file="res://assets/font/ghoulfriaoe_upd.ttf"
+dest_files=["res://.godot/imported/ghoulfriaoe_upd.ttf-635a9d593959d3a47a195e547a09b541.fontdata"]
 
 [params]
 

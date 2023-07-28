@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqreoke861ul1"]
 
 [ext_resource type="Script" path="res://ui/player_ui.gd" id="1_4ev7n"]
-[ext_resource type="FontFile" uid="uid://wgqohxsh3aa3" path="res://assets/font/Zombie Queen.ttf" id="2_e1jng"]
+[ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="2_s56xn"]
 
 [node name="player_ui" type="CanvasLayer"]
 script = ExtResource("1_4ev7n")
@@ -31,7 +31,7 @@ size_flags_vertical = 0
 
 [node name="Wave" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_e1jng")
+theme_override_fonts/font = ExtResource("2_s56xn")
 theme_override_font_sizes/font_size = 45
 text = "Wave"
 horizontal_alignment = 1
@@ -41,7 +41,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_e1jng")
+theme_override_fonts/font = ExtResource("2_s56xn")
 theme_override_font_sizes/font_size = 45
 text = "Points"
 
@@ -52,7 +52,7 @@ alignment = 2
 
 [node name="Health" type="Label" parent="MarginContainer/down"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_e1jng")
+theme_override_fonts/font = ExtResource("2_s56xn")
 theme_override_font_sizes/font_size = 45
 text = "Health"
 vertical_alignment = 2

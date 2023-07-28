@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxg3v4dqcjupl"]
+[gd_scene load_steps=8 format=3 uid="uid://dxg3v4dqcjupl"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_gba76"]
 [ext_resource type="PackedScene" uid="uid://ek87mtildol5" path="res://Scenes/TestMap.tscn" id="1_oi4k3"]
 [ext_resource type="PackedScene" uid="uid://udhgs1mvvntt" path="res://Scenes/game_manager.tscn" id="2_j27st"]
+[ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="4_hyq7g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1tvc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -64,25 +65,35 @@ theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hyq7g")
+theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hyq7g")
+theme_override_font_sizes/font_size = 20
 text = "Host"
 
 [node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hyq7g")
+theme_override_font_sizes/font_size = 20
 text = "Join"
 
 [node name="AddressEnter" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hyq7g")
+theme_override_font_sizes/font_size = 20
 placeholder_text = "localhost"
 alignment = 1
 
 [node name="NameEnter" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hyq7g")
+theme_override_font_sizes/font_size = 20
 placeholder_text = "name"
 alignment = 1
 
