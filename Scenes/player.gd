@@ -63,9 +63,7 @@ func _physics_process(delta):
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
-	ui.set_health(health)
-	ui.emit_signal("set", points)
-	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
+	set_ui()
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -95,6 +93,11 @@ func _physics_process(delta):
 		dead = true
 
 	move_and_slide()
+
+func set_ui():
+	ui.set_health(health)
+	ui.emit_signal("set", points)
+	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
 
 @rpc("any_peer","call_local","reliable")
 func set_tool(t: Resource):

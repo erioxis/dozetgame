@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cfxaved34ul3e"
+path="res://.godot/imported/zombiehead.obj-760f70496fca0069a6c34a15c445a260.mesh"
+
+[deps]
+
+files=["res://.godot/imported/zombiehead.obj-760f70496fca0069a6c34a15c445a260.mesh"]
+
+source_file="res://assets/models/zombiehead.obj"
+dest_files=["res://.godot/imported/zombiehead.obj-760f70496fca0069a6c34a15c445a260.mesh", "res://.godot/imported/zombiehead.obj-760f70496fca0069a6c34a15c445a260.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
