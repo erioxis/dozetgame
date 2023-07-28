@@ -2,21 +2,26 @@ extends Node3D
 
 @onready var timer = $Timer
 
-@onready var round_info = get_node("/root/RoundInfo")
-
 var wave: int = 1;
 var max_wave: int = 6;
 var wave_time: int = 60;
 var chill_time: int = 30;
 var wait_time: int = 120;
-var state: RoundInfo.round_state
+
+enum ROUND_STATE
+{
+	WAIT,
+	WAVE,
+	CHILL
+}
+
+var state: ROUND_STATE
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
-	round_info.set_info(state, wave, timer.time_left)
 
 func start_wait():
-	state = RoundInfo.round_state.WAIT
+	state = ROUND_STATE.WAIT
 	timer.wait_time = wait_time
 	timer.start()
 

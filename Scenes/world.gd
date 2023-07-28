@@ -36,7 +36,6 @@ func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
 	add_child(player)
-	rpc_id(peer_id,"set_wave", game_manager.state, game_manager.wave, game_manager.timer.wait_time)
 
 func create_blood(n, pos):
 	var blood = bloodexp.instantiate()
@@ -50,13 +49,6 @@ func remove_player(peer_id):
 		create_blood(15, player.global_position)
 		player.queue_free()
 		
-@rpc("call_local")
-func set_wave(s,w,t):
-	game_manager.timer.wait_time = t
-	game_manager.state = s
-	game_manager.wave = w
-	game_manager.set_round_info(s,w,t)
-	game_manager.start_round()
 		
 func kill_player(peer_id):
 	var player = get_node_or_null(str(peer_id))

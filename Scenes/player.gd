@@ -9,10 +9,7 @@ class_name Player
 @onready var ui = $player_ui
 @onready var hand = $Camera3D/hand
 
-var spectator = preload("res://Scenes/Spectator.tscn")
-
 @onready var anim_player = $AnimationPlayer
-@onready var round_info = get_node("/root/RoundInfo")
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
@@ -64,7 +61,6 @@ func _physics_process(delta):
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
-	ui.set_wave(round_info.state, round_info.wave, round_info.time)
 	ui.set_health(health)
 	ui.emit_signal("set", points)
 	
@@ -118,11 +114,6 @@ func kill():
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
-
-@rpc("call_local")
-func send_wave(s,w,t):
-	Log.info(name, t)
-	ui.set_wave(s, w, t)
 
 func set_username(n):
 	_label.text = n
