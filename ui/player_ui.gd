@@ -27,3 +27,6 @@ func set_health(h):
 
 func _ready():
 	set.connect(set_func)
+	
+func dead():
+	wavelabel.text = "You are dead!"

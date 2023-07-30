@@ -115,6 +115,7 @@ func damage(d):
 func kill():
 	world.create_blood(20, global_position)
 	world.kill_player(name)
+	ui.dead()
 	
 @rpc("call_local")
 func play_shoot_effects():

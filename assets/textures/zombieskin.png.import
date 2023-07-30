@@ -3,15 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2nsjx0e8f5ip"
-path="res://.godot/imported/zombieskin.png-2d9f0b1326fdc71193a4a66c2045efb3.ctex"
+path.s3tc="res://.godot/imported/zombieskin.png-2d9f0b1326fdc71193a4a66c2045efb3.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/zombieskin.png"
-dest_files=["res://.godot/imported/zombieskin.png-2d9f0b1326fdc71193a4a66c2045efb3.ctex"]
+dest_files=["res://.godot/imported/zombieskin.png-2d9f0b1326fdc71193a4a66c2045efb3.s3tc.ctex"]
 
 [params]
 

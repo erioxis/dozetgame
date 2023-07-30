@@ -7,6 +7,6 @@ func boom(p):
 	part.emitting = true
 	part.restart()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if (part.emitting == false):
 		queue_free()

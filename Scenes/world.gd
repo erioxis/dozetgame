@@ -11,7 +11,7 @@ const Player = preload("res://Scenes/player.tscn")
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
@@ -68,7 +68,7 @@ func upnp_setup():
 	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
 		"UPNP Invalid Gateway!")
 		
-	var map_result = upnp.add_port_mapping(PORT)
+	var _map_result = upnp.add_port_mapping(PORT)
 	
 	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
 		"UPNP Discover Failed! Error %s" % discover_result)
