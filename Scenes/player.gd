@@ -43,8 +43,6 @@ func _ready():
 	_label.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 	camera.current = true
-	
-	set_username(OS.get_environment("USERNAME"))
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
@@ -121,6 +119,3 @@ func kill():
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
-
-func set_username(n):
-	_label.text = n
