@@ -10,12 +10,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5hs2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1yfp"]
 render_priority = 0
 shader = ExtResource("3_wej66")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
-shader_parameter/jitter_depth_independent = true
+shader_parameter/jitter_depth_independent = false
 shader_parameter/affine_texture_mapping = false
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
@@ -32,14 +32,15 @@ script = ExtResource("1_oat25")
 shape = SubResource("BoxShape3D_n5sbf")
 
 [node name="Flat" type="MeshInstance3D" parent="floor"]
+material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_a80cx")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_v5hs2")
 
 [node name="Spawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)
 
 [node name="Death" parent="." instance=ExtResource("5_87wyk")]
+transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, 0, 0)
 
 [node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("7_hbkm3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)

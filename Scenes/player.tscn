@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://o8xkgf8k8qiv"]
+[gd_scene load_steps=25 format=3 uid="uid://o8xkgf8k8qiv"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_e0slr"]
 [ext_resource type="ArrayMesh" uid="uid://48qh33iiniw7" path="res://assets/models/head.obj" id="2_mw7wf"]
@@ -10,6 +10,8 @@
 [ext_resource type="ArrayMesh" uid="uid://sjxtf6ut3wf8" path="res://assets/models/body.obj" id="6_b44yw"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="7_ecrbp"]
 [ext_resource type="Texture2D" uid="uid://b3y431k7l5qt7" path="res://assets/textures/tcloth.jpg" id="8_e7ol0"]
+[ext_resource type="ArrayMesh" uid="uid://cdj6xi676jpl7" path="res://assets/models/boot.obj" id="11_7gggb"]
+[ext_resource type="Texture2D" uid="uid://dh4hpryuudumo" path="res://assets/textures/boot.jpg" id="12_v6rtr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxqxt"]
 radius = 0.296552
@@ -175,11 +177,38 @@ _data = {
 "shoot": SubResource("Animation_ls66c")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_le8ik"]
+render_priority = 0
+shader = ExtResource("5_w7r00")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("12_v6rtr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvngl"]
+render_priority = 0
+shader = ExtResource("5_w7r00")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("12_v6rtr")
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_e0slr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0104337, 0)
 shape = SubResource("CapsuleShape3D_pxqxt")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -227,3 +256,13 @@ playback_default_blend_time = 0.05
 libraries = {
 "": SubResource("AnimationLibrary_l0w6b")
 }
+
+[node name="foot" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.46392e-09, 0, 0.125, 0, 0.125, 0, -0.125, 0, -5.46392e-09, 0.2, -0.792488, 0)
+mesh = ExtResource("11_7gggb")
+surface_material_override/0 = SubResource("ShaderMaterial_le8ik")
+
+[node name="foot2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.46392e-09, 0, 0.125, 0, 0.125, 0, -0.125, 0, -5.46392e-09, -0.2, -0.792488, 0)
+mesh = ExtResource("11_7gggb")
+surface_material_override/0 = SubResource("ShaderMaterial_vvngl")

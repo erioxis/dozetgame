@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cisfy1dg603e0"]
+[gd_scene load_steps=16 format=3 uid="uid://cisfy1dg603e0"]
 
+[ext_resource type="Script" path="res://scripts/zombie.gd" id="1_2ndm8"]
 [ext_resource type="ArrayMesh" uid="uid://oj08edbhgco1" path="res://assets/models/zombiehand.obj" id="1_8ctoe"]
 [ext_resource type="ArrayMesh" uid="uid://cfxaved34ul3e" path="res://assets/models/zombiehead.obj" id="2_dc8mw"]
 [ext_resource type="Texture2D" uid="uid://d2nsjx0e8f5ip" path="res://assets/textures/zombieskin.png" id="3_hk66d"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="3_jt858"]
 [ext_resource type="ArrayMesh" uid="uid://bk4lwu1jl6h3u" path="res://assets/models/zombiebody.obj" id="5_j8dgm"]
 [ext_resource type="Texture2D" uid="uid://cmajsqubopwd3" path="res://assets/textures/zombieface.png" id="5_pmv7o"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="6_wrjv5"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="7_xcw8c"]
 [ext_resource type="Texture2D" uid="uid://c4qui3iejki8r" path="res://assets/textures/cloth.png" id="9_jp3rl"]
 
@@ -14,22 +15,28 @@ radius = 0.296552
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ktax4"]
 render_priority = 0
-shader = ExtResource("3_jt858")
+shader = ExtResource("6_wrjv5")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_hk66d")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q8d38"]
 render_priority = 0
-shader = ExtResource("3_jt858")
+shader = ExtResource("6_wrjv5")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("5_pmv7o")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3dn2"]
@@ -48,12 +55,15 @@ properties/2/watch = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7beap"]
 render_priority = 0
-shader = ExtResource("3_jt858")
+shader = ExtResource("6_wrjv5")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("9_jp3rl")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hi1hr"]
@@ -64,6 +74,7 @@ properties/0/watch = false
 
 [node name="Zombie" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
+script = ExtResource("1_2ndm8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_pxqxt")
