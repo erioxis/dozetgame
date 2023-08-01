@@ -6,9 +6,9 @@
 [ext_resource type="ArrayMesh" uid="uid://ce0tmoqar7u4g" path="res://assets/models/hand.obj" id="3_2keax"]
 [ext_resource type="PackedScene" uid="uid://cqreoke861ul1" path="res://ui/player_ui.tscn" id="5_ipw78"]
 [ext_resource type="Texture2D" uid="uid://cg64kgqyv6mcx" path="res://assets/textures/face.png" id="5_vl1te"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="5_w7r00"]
 [ext_resource type="ArrayMesh" uid="uid://sjxtf6ut3wf8" path="res://assets/models/body.obj" id="6_b44yw"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="7_ecrbp"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="7_touqe"]
 [ext_resource type="Texture2D" uid="uid://b3y431k7l5qt7" path="res://assets/textures/tcloth.jpg" id="8_e7ol0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxqxt"]
@@ -16,22 +16,28 @@ radius = 0.296552
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m8pri"]
 render_priority = 0
-shader = ExtResource("7_touqe")
+shader = ExtResource("5_w7r00")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("2_wxjlc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b20iy"]
 render_priority = 0
-shader = ExtResource("7_touqe")
+shader = ExtResource("5_w7r00")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("5_vl1te")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3dn2"]
@@ -50,12 +56,15 @@ properties/2/watch = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8shkg"]
 render_priority = 0
-shader = ExtResource("7_touqe")
+shader = ExtResource("5_w7r00")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("8_e7ol0")
 
 [sub_resource type="Animation" id="Animation_5fbv7"]

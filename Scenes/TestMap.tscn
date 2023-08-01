@@ -2,37 +2,39 @@
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_oat25"]
 [ext_resource type="Texture2D" uid="uid://bfyaec11fwhmd" path="res://assets/textures/grass.jpg" id="2_5c37x"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="3_yffhn"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_wej66"]
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_a80cx"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_87wyk"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="7_hbkm3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_by1po"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
+size = Vector3(57.3245, 1, 57.1686)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5hs2"]
 render_priority = 0
-shader = ExtResource("3_yffhn")
+shader = ExtResource("3_wej66")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = false
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("2_5c37x")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
-size = Vector3(57.3245, 1, 56.734)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_oat25")
 
 [node name="floor" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("4_a80cx")
-surface_material_override/0 = SubResource("ShaderMaterial_by1po")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor"]
+mesh = ExtResource("4_a80cx")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v5hs2")
 
 [node name="Spawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)

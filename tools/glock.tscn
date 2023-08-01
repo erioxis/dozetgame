@@ -2,17 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://ujfwbf6yvk3c" path="res://Scenes/Tool.tscn" id="1_hwnxd"]
 [ext_resource type="ArrayMesh" uid="uid://sjqm61xvyj3w" path="res://assets/models/glock.obj" id="2_iujwb"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="3_o7eqf"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_4kq3y"]
 [ext_resource type="Texture2D" uid="uid://xdvjil4uubk8" path="res://assets/textures/glock.png" id="4_f8x24"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvyr6"]
 render_priority = 0
-shader = ExtResource("3_o7eqf")
+shader = ExtResource("3_4kq3y")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("4_f8x24")
 
 [node name="Tool" instance=ExtResource("1_hwnxd")]

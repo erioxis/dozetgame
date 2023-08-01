@@ -1,19 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://wnd1prjtuey8"]
 
 [ext_resource type="PackedScene" uid="uid://ujfwbf6yvk3c" path="res://Scenes/Tool.tscn" id="1_f15ce"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="2_3rke2"]
 [ext_resource type="ArrayMesh" uid="uid://vvdm232t6ckc" path="res://assets/models/hammer.obj" id="2_7112t"]
 [ext_resource type="Script" path="res://scripts/hammer.gd" id="2_dohss"]
 [ext_resource type="Texture2D" uid="uid://btjkdf71ap72h" path="res://assets/textures/hammer.jpg" id="3_ocna1"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="6_tw3ds"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2w5af"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylyvn"]
 render_priority = 0
-shader = ExtResource("2_3rke2")
+shader = ExtResource("6_tw3ds")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_ocna1")
 
 [node name="Tool" instance=ExtResource("1_f15ce")]
@@ -21,5 +24,5 @@ script = ExtResource("2_dohss")
 
 [node name="Mesh" parent="." index="0"]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0.00905204, -0.00316226, -0.00530714)
-material_override = SubResource("ShaderMaterial_2w5af")
 mesh = ExtResource("2_7112t")
+surface_material_override/0 = SubResource("ShaderMaterial_ylyvn")
