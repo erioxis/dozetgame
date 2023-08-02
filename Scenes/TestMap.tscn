@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ek87mtildol5"]
+[gd_scene load_steps=10 format=3 uid="uid://ek87mtildol5"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_oat25"]
 [ext_resource type="Texture2D" uid="uid://bfyaec11fwhmd" path="res://assets/textures/grass.jpg" id="2_5c37x"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_a80cx"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_87wyk"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="7_hbkm3"]
+[ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_v7gqm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -40,7 +41,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)
 
 [node name="Death" parent="." instance=ExtResource("5_87wyk")]
-transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, 0, 0)
+transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, -0.706749, 0)
 
 [node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("7_hbkm3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
@@ -50,3 +51,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
 
 [node name="Sigil3" parent="." groups=["sigil"] instance=ExtResource("7_hbkm3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7034, 0.5, -2.54509)
+
+[node name="box4" parent="." instance=ExtResource("7_v7gqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34534, 9.28797, -1.77282)
+
+[node name="box3" parent="." instance=ExtResource("7_v7gqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13326, 8.18188, -1.05276)
+
+[node name="box2" parent="." instance=ExtResource("7_v7gqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.862, 5.38249, 0.112446)
+
+[node name="box" parent="." instance=ExtResource("7_v7gqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)

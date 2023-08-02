@@ -50,13 +50,12 @@ func remove_player(peer_id):
 		create_blood(15, player.global_position)
 		player.queue_free()
 		
-		
 func kill_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
 	if player:
-		player.get_node("CollisionShape3D").disabled = true
 		player.set_physics_process(false)
 		player.hide()
+		player.sleeping = true
 
 func upnp_setup():
 	var upnp = UPNP.new()
