@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d24vbswh4xlj8"]
+
+[ext_resource type="ArrayMesh" uid="uid://bx25m2ibiy1hw" path="res://assets/models/why.obj" id="1_6d8ff"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_343ma"]
+
+[node name="someone" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_6d8ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.61593, 0, 0, 0, 5.75248, 0, 0, 0, 2.0659, 0, 0.607834, 0)
+shape = SubResource("CapsuleShape3D_343ma")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

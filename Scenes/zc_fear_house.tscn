@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=12 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_4tei5"]
 [ext_resource type="PackedScene" uid="uid://cisfy1dg603e0" path="res://Scenes/zombie.tscn" id="8_0pqma"]
+[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -139,6 +140,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.016
 shape = SubResource("BoxShape3D_n5sbf")
 
 [node name="Flat" type="MeshInstance3D" parent="floor3"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="someone" parent="." instance=ExtResource("9_fvj40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3967, 8.61742, -160.314)
+
+[node name="floor5" type="StaticBody3D" parent="."]
+transform = Transform3D(1.45046, 0, 0, 0, -0.0457291, -1.93038, 0, 0.998954, -0.0883669, 0, 45.6817, -150.099)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor5"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="floor6" type="StaticBody3D" parent="."]
+transform = Transform3D(1.45046, 0, 0, 0, 1, 0, 0, 0, 1.9324, 67.5122, -0.141148, -150.099)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor6"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.45058e-09, 0, 1.86265e-09, 1, 0.00952387, -0.022049, 0.0167332)
+visible = false
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor6"]
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")

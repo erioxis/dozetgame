@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bx25m2ibiy1hw"
+path="res://.godot/imported/why.obj-46b18c2398d31549fc515c82865e9cd6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/why.obj-46b18c2398d31549fc515c82865e9cd6.mesh"]
+
+source_file="res://assets/models/why.obj"
+dest_files=["res://.godot/imported/why.obj-46b18c2398d31549fc515c82865e9cd6.mesh", "res://.godot/imported/why.obj-46b18c2398d31549fc515c82865e9cd6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
