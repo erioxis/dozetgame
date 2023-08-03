@@ -8,8 +8,17 @@ extends Node
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 const Player = preload("res://Scenes/player.tscn")
-const PORT = 9999
+const PORT = 3120
 var enet_peer = ENetMultiplayerPeer.new()
+
+func _ready():
+	if "--server" in OS.get_cmdline_args():
+		enet_peer.create_server(PORT)
+		multiplayer.multiplayer_peer = enet_peer
+		multiplayer.peer_connected.connect(add_player)
+		multiplayer.peer_disconnected.connect(remove_player)
+		game_manager.start_round()
+		print("Server on")
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
@@ -37,6 +46,7 @@ func add_player(peer_id):
 	player.name = str(peer_id)
 	add_child(player)
 	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
+	print("Player "+str(peer_id)+" is connected")
 
 func create_blood(n, pos):
 	var blood = bloodexp.instantiate()
@@ -49,13 +59,15 @@ func remove_player(peer_id):
 	if player:
 		create_blood(15, player.global_position)
 		player.queue_free()
-		
+	print("Player "+str(peer_id)+" has removed")
+	
 func kill_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
 	if player:
 		player.set_physics_process(false)
 		player.hide()
 		player.sleeping = true
+	print("Player "+str(peer_id)+" died")
 
 func upnp_setup():
 	var upnp = UPNP.new()
