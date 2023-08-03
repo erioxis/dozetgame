@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c102cadhjifb6"
+path="res://.godot/imported/ame_dozet.obj-23b9aca00a366665f964f3258ce5d1ba.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ame_dozet.obj-23b9aca00a366665f964f3258ce5d1ba.mesh"]
+
+source_file="res://assets/models/ame_dozet.obj"
+dest_files=["res://.godot/imported/ame_dozet.obj-23b9aca00a366665f964f3258ce5d1ba.mesh", "res://.godot/imported/ame_dozet.obj-23b9aca00a366665f964f3258ce5d1ba.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

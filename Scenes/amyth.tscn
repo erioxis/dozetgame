@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://hx43qw30upy1"]
+
+[ext_resource type="ArrayMesh" uid="uid://c102cadhjifb6" path="res://assets/models/ame_dozet.obj" id="1_yco3b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc8j0"]
+size = Vector3(1.66075, 1.44636, 2.0343)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_t3kl4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath(".:linear_velocity")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+properties/3/path = NodePath(".:angular_velocity")
+properties/3/spawn = true
+properties/3/sync = true
+properties/3/watch = false
+
+[node name="amyth" type="RigidBody3D" groups=["prop"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.447901, 0, 0, 0, 0.447901, 0, 0, 0, 0.447901, 0.0127949, 0.161572, -0.0200752)
+mesh = ExtResource("1_yco3b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.445, 0, 0, 0, 0.394699, 0, 0, 0, 0.415346, -0.00261578, 3.8147e-06, -0.00431698)
+shape = SubResource("BoxShape3D_uc8j0")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_t3kl4")
