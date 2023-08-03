@@ -104,6 +104,7 @@ spawn_path = NodePath("..")
 
 [node name="amyth" parent="." instance=ExtResource("5_upi6y")]
 transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0, 5.63606, 1.51773)
+mass = 1000.0
 inertia = Vector3(1000, 0, 0)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
