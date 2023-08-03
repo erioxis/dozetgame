@@ -42,7 +42,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)
 
 [node name="Death" parent="." instance=ExtResource("5_qniop")]
-transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, -0.706749, 0)
+transform = Transform3D(8.63331, 0, 0, 0, 1, 0, 0, 0, 8.02808, 0, -0.706749, 0)
 
 [node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7382, 4.89272, -2.53189)
 
 [node name="box4" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34534, 9.28797, -1.77282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31522, 9.28797, -1.83168)
 
 [node name="box3" parent="." instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13326, 8.18188, -1.05276)
@@ -99,4 +99,21 @@ transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, 50.686, 0)
 transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, -31.4832)
 
 [node name="Death4" parent="." instance=ExtResource("5_qniop")]
-transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, 27.6172)
+transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, 82.1054)
+
+[node name="floor4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.0198)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor4"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="box6" parent="." instance=ExtResource("7_4tei5")]
+transform = Transform3D(25.4039, 0, 0, 0, 23.5977, 0, 0, 0, 17.0174, 5.862, 10.3405, 45.3151)
+mass = 240.41
+gravity_scale = 0.1
