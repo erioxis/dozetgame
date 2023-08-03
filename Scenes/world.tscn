@@ -103,7 +103,22 @@ spawn_path = NodePath("..")
 [node name="Level" parent="." instance=ExtResource("4_epgrf")]
 
 [node name="amyth" parent="." instance=ExtResource("5_upi6y")]
-transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0, 5.63606, 1.51773)
+transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0532303, 5.63607, 1.75493)
+mass = 1000.0
+inertia = Vector3(1000, 0, 0)
+
+[node name="amyth" parent="amyth" instance=ExtResource("5_upi6y")]
+transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0532303, 5.63607, 1.75493)
+mass = 1000.0
+inertia = Vector3(1000, 0, 0)
+
+[node name="amyth" parent="amyth/amyth" instance=ExtResource("5_upi6y")]
+transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0532303, -5.93468, 1.75493)
+mass = 1000.0
+inertia = Vector3(1000, 0, 0)
+
+[node name="amyth" parent="amyth/amyth/amyth" instance=ExtResource("5_upi6y")]
+transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0198427, 0.607605, -1.88068)
 mass = 1000.0
 inertia = Vector3(1000, 0, 0)
 
