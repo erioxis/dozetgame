@@ -4,9 +4,10 @@ extends Node3D
 
 var wave: int = 1;
 var max_wave: int = 6;
-var wave_time: int = 60;
-var chill_time: int = 30;
-var wait_time: int = 60;
+var wave_time: int = 220;
+var chill_time: int = 60;
+var added_per_wave: int = 15;
+var wait_time: int = 150;
 
 enum ROUND_STATE
 {
@@ -31,7 +32,7 @@ func start_round():
 	
 func start_wave():
 	state = ROUND_STATE.WAVE
-	timer.wait_time = wait_time
+	timer.wait_time = wait_time + (added_per_wave-1) * wave
 	timer.start()
 
 func start_chill():

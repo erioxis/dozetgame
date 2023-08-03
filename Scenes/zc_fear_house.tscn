@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=11 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_4tei5"]
+[ext_resource type="PackedScene" uid="uid://cisfy1dg603e0" path="res://Scenes/zombie.tscn" id="8_0pqma"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -39,10 +40,10 @@ mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
 [node name="Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77651, 0)
 
 [node name="Death" parent="." instance=ExtResource("5_qniop")]
-transform = Transform3D(8.63331, 0, 0, 0, 1, 0, 0, 0, 8.02808, 0, -0.706749, 0)
+transform = Transform3D(18.387, 0, 0, 0, 1, 0, 0, 0, 21.425, 0, -0.706749, 0)
 
 [node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
@@ -68,41 +69,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)
 [node name="box5" parent="." instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2314, 3.56467, -1.77282)
 
-[node name="floor2" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.497156, 0.867661, 0, -0.867661, -0.497156, 0, 0, 0, 1, -15.5267, 24.4387, 0)
+[node name="wall1" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.497156, 0.867661, 0, -0.867661, -0.497156, 0, 0, 0, 5.18658, -15.5267, 24.4387, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
 shape = SubResource("BoxShape3D_n5sbf")
 
-[node name="Flat" type="MeshInstance3D" parent="floor2"]
+[node name="Flat" type="MeshInstance3D" parent="wall1"]
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
-[node name="floor3" type="StaticBody3D" parent="."]
-transform = Transform3D(0.500015, -0.866017, 0, 0.866017, 0.500015, 0, 0, 0, 1, 42.0091, 24.4387, 0)
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.500015, -0.866017, 0, 0.866017, 0.500015, 0, 0, 0, 4.04604, 42.0091, 24.4387, -28.5844)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
 shape = SubResource("BoxShape3D_n5sbf")
 
-[node name="Flat" type="MeshInstance3D" parent="floor3"]
+[node name="Flat" type="MeshInstance3D" parent="wall2"]
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
-
-[node name="Death2" parent="." instance=ExtResource("5_qniop")]
-transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, 50.686, 0)
-
-[node name="Death3" parent="." instance=ExtResource("5_qniop")]
-transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, -31.4832)
-
-[node name="Death4" parent="." instance=ExtResource("5_qniop")]
-transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, 82.1054)
 
 [node name="floor4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.0198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 56.8698)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
@@ -114,6 +106,39 @@ mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
 [node name="box6" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(25.4039, 0, 0, 0, 23.5977, 0, 0, 0, 17.0174, 5.862, 10.3405, 45.3151)
+transform = Transform3D(1.492, 0, 0, 0, 1.387, 0, 0, 0, 1, 5.862, 10.3405, 45.3151)
 mass = 240.41
 gravity_scale = 0.1
+
+[node name="Spawn2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77651, 15.739)
+
+[node name="Zombie" parent="." instance=ExtResource("8_0pqma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.66004, 23.6407)
+
+[node name="Zombie2" parent="." instance=ExtResource("8_0pqma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75394, 9.66004, 23.6407)
+
+[node name="floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.14212, 0, 0, -117.822)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor2"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="floor3" type="StaticBody3D" parent="."]
+transform = Transform3D(2.23818, 0, 0, 0, 1, 0, 0, 0, 11.071, 0, 25.9591, -7.66543)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor3"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
