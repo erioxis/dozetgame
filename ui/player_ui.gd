@@ -13,17 +13,30 @@ func set_func(p):
 
 func set_wave(s,w,t):
 	var nam: String
+	var remainder = fmod(int(t),3)
+	var hehe : bool = true
+	#print(remainder)
 	match s:
 		0:
-			nam = "WAIT"
+			match remainder:
+				0.0:
+					nam = "Waiting players..."
+				1.0: 
+					nam = "Waiting players.."
+				2.0: 
+					nam = "Waiting players."
+			hehe = false
 		1:
-			nam = "WAVE"
+			nam = "Wave"
 		2:
-			nam = "CHILL"
-	wavelabel.text = nam + " "+str(w)+": "+str(int(t))
+			nam = "Just chill"
+	if hehe: 
+		wavelabel.text = nam + " "+str(w)+": "+str(int(t))
+	else:
+		wavelabel.text = nam + " "+str(int(t))
 
 func set_health(h):
-	healthlabel.text = "Health: "+str(h)
+	healthlabel.text = "Health: "+str(clamp(h,0,9999))
 
 func _ready():
 	set.connect(set_func)

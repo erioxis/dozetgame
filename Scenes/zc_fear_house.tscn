@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://ig18jglq27rs"]
+
+[ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
+[ext_resource type="Texture2D" uid="uid://bfyaec11fwhmd" path="res://assets/textures/grass.jpg" id="3_oi0s0"]
+[ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_32rhn"]
+[ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
+[ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
+[ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_4tei5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
+size = Vector3(57.3245, 1, 57.1686)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1yfp"]
+render_priority = 0
+shader = ExtResource("2_njjey")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = false
+shader_parameter/affine_texture_mapping = false
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("3_oi0s0")
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_6sltn")
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="Spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05051, 0)
+
+[node name="Death" parent="." instance=ExtResource("5_qniop")]
+transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, -0.706749, 0)
+
+[node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
+
+[node name="Sigil2" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
+
+[node name="Sigil3" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7382, 4.89272, -2.53189)
+
+[node name="box4" parent="." instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34534, 9.28797, -1.77282)
+
+[node name="box3" parent="." instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13326, 8.18188, -1.05276)
+
+[node name="box2" parent="." instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.862, 5.38249, 0.112446)
+
+[node name="box" parent="." instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)
+
+[node name="box5" parent="." instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2314, 3.56467, -1.77282)
+
+[node name="floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.497156, 0.867661, 0, -0.867661, -0.497156, 0, 0, 0, 1, -15.5267, 24.4387, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor2"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="floor3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.500015, -0.866017, 0, 0.866017, 0.500015, 0, 0, 0, 1, 42.0091, 24.4387, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor3"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="Death2" parent="." instance=ExtResource("5_qniop")]
+transform = Transform3D(3.18772, 0, 0, 0, 1, 0, 0, 0, 3.11279, 0, 50.686, 0)
+
+[node name="Death3" parent="." instance=ExtResource("5_qniop")]
+transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, -31.4832)
+
+[node name="Death4" parent="." instance=ExtResource("5_qniop")]
+transform = Transform3D(3.18772, 0, 0, 0, 0.0186914, 3.11225, 0, -0.999825, 0.0581824, 0, 50.686, 27.6172)

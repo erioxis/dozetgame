@@ -24,7 +24,7 @@ shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("2_5c37x")
 
-[node name="Level" type="Node3D"]
+[node name="Level2" type="Node3D"]
 script = ExtResource("1_oat25")
 
 [node name="floor" type="StaticBody3D" parent="."]
@@ -63,3 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.862, 5.38249, 0.112446)
 
 [node name="box" parent="." instance=ExtResource("7_v7gqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)
+
+[node name="box5" parent="." instance=ExtResource("7_v7gqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2314, 3.56467, -1.77282)

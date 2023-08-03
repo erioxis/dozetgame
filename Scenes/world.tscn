@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dxg3v4dqcjupl"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_gba76"]
-[ext_resource type="PackedScene" uid="uid://ek87mtildol5" path="res://Scenes/TestMap.tscn" id="1_oi4k3"]
 [ext_resource type="PackedScene" uid="uid://udhgs1mvvntt" path="res://Scenes/game_manager.tscn" id="2_j27st"]
+[ext_resource type="PackedScene" uid="uid://ig18jglq27rs" path="res://Scenes/zc_fear_house.tscn" id="4_epgrf"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="4_hyq7g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1tvc"]
@@ -31,8 +31,6 @@ script = ExtResource("1_gba76")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hxlte")
-
-[node name="Level" parent="." instance=ExtResource("1_oi4k3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -100,6 +98,8 @@ alignment = 1
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Scenes/player.tscn")
 spawn_path = NodePath("..")
+
+[node name="Level" parent="." instance=ExtResource("4_epgrf")]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
