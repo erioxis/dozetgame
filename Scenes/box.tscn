@@ -38,7 +38,7 @@ properties/3/spawn = true
 properties/3/sync = true
 properties/3/watch = false
 
-[node name="box" type="RigidBody3D"]
+[node name="box" type="RigidBody3D" groups=["prop"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0, 0, 0)

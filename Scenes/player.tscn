@@ -114,15 +114,15 @@ properties/6/spawn = true
 properties/6/sync = true
 properties/6/watch = false
 
-[node name="RigidBody3D" type="RigidBody3D" groups=["player"]]
+[node name="Player" type="RigidBody3D" groups=["player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_r4hfm")
 script = ExtResource("1_e0slr")
-acceleration = 10
-speed = 30
-max_speed = 40
+acceleration = 20
+speed = 20
+max_speed = 20
 stop_speed = 0.2
 
 [node name="bodycol" type="CollisionShape3D" parent="."]
@@ -169,7 +169,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="RayCast" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -2)
-collision_mask = 8
 
 [node name="hand" type="MeshInstance3D" parent="Head/Camera3D"]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.381594, -0.263052, -0.513103)
@@ -181,7 +180,12 @@ transform = Transform3D(-1.26763e-08, 0, 0.29, 0, 0.29, 0, -0.29, 0, -1.26763e-0
 material_override = SubResource("ShaderMaterial_b20iy")
 mesh = ExtResource("2_mw7wf")
 
+[node name="hold" type="Marker3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045042, -1.36751)
+
 [node name="feet" type="RayCast3D" parent="."]
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_u24kw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

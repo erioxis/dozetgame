@@ -13,6 +13,7 @@ class_name Player
 #@onready var anim_player = $AnimationPlayer
 @onready var body = $bodycol
 @onready var feet = $feet
+@onready var hold_position = $Head/Camera3D/hold
 @export var view_sensitivity = 10.0
 var is_on_floor = false
 var move_input
@@ -70,6 +71,11 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 
+	if (held_object):
+		var direct: Vector3 = hold_position.global_position - held_object.global_position
+		var dist: float = direct.length()
+		held_object.linear_velocity = direct * dist * 12
+
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
 	set_ui()
@@ -104,6 +110,8 @@ func move(delta):
 		accel_multiplier = 0.1
 		is_on_floor = false
 		apply_central_impulse(Vector3.UP * jump_velocity)
+	if Input.is_action_just_pressed("interact"):
+		rpc("interact")
 	#view and rotation
 	camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x,-80,80)
@@ -143,6 +151,15 @@ func set_tool(t: Resource):
 		tool.queue_free()
 	tool = t.instantiate()
 	hand.add_child(tool,true)
+
+@rpc("call_local","any_peer")
+func interact():
+	if (held_object):
+		held_object = null
+		return
+	elif _raycast.get_collider():
+		if _raycast.get_collider().is_in_group("prop"):
+			held_object = _raycast.get_collider()
 
 @rpc("any_peer")
 func damage(d):
