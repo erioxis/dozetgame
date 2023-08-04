@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://wnd1prjtuey8"]
+[gd_scene load_steps=8 format=3 uid="uid://cb8rfrmnm2130"]
 
-[ext_resource type="PackedScene" uid="uid://ujfwbf6yvk3c" path="res://Scenes/Tool.tscn" id="1_f15ce"]
-[ext_resource type="ArrayMesh" uid="uid://vvdm232t6ckc" path="res://assets/models/hammer.obj" id="2_7112t"]
-[ext_resource type="Script" path="res://scripts/hammer.gd" id="2_dohss"]
-[ext_resource type="Texture2D" uid="uid://btjkdf71ap72h" path="res://assets/textures/hammer.jpg" id="3_ocna1"]
-[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="6_tw3ds"]
+[ext_resource type="PackedScene" uid="uid://0hkcayqkwf1b" path="res://Scenes/Tool.tscn" id="1_chdno"]
+[ext_resource type="Script" path="res://tools/hammer.gd" id="2_6day0"]
+[ext_resource type="ArrayMesh" uid="uid://vvdm232t6ckc" path="res://assets/models/hammer.obj" id="2_25aa0"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_4dsn8"]
+[ext_resource type="Texture2D" uid="uid://btjkdf71ap72h" path="res://assets/models/hammer.jpg" id="4_chh6h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylyvn"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_kf4xo"]
+size = Vector3(0.586113, 2.5168, 1.33171)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc4pk"]
 render_priority = 0
-shader = ExtResource("6_tw3ds")
+shader = ExtResource("3_4dsn8")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
@@ -17,12 +20,16 @@ shader_parameter/alpha_scissor = 1.0
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
-shader_parameter/albedo = ExtResource("3_ocna1")
+shader_parameter/albedo = ExtResource("4_chh6h")
 
-[node name="Tool" instance=ExtResource("1_f15ce")]
-script = ExtResource("2_dohss")
+[node name="RigidBody3D" instance=ExtResource("1_chdno")]
+script = ExtResource("2_6day0")
 
-[node name="Mesh" parent="." index="0"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0.00905204, -0.00316226, -0.00530714)
-mesh = ExtResource("2_7112t")
-surface_material_override/0 = SubResource("ShaderMaterial_ylyvn")
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-1.15835e-08, 0, 0.265, 0, 0.265, 0, -0.265, 0, -1.15835e-08, 0.00905204, 0.0574984, -0.00530714)
+shape = SubResource("BoxShape3D_kf4xo")
+
+[node name="Mesh" parent="." index="1"]
+transform = Transform3D(-1.83588e-08, 0, 0.42, 0, 0.42, 0, -0.42, 0, -1.83588e-08, 0.00905204, -0.00316226, -0.00530714)
+mesh = ExtResource("2_25aa0")
+surface_material_override/0 = SubResource("ShaderMaterial_qc4pk")

@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://jwi3lrcbvsiy" path="res://assets/models/sigil.obj" id="1_k4syh"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_whial"]
-[ext_resource type="Texture2D" uid="uid://bffq36lec7ulw" path="res://assets/textures/sigil.png" id="3_lfjhj"]
+[ext_resource type="Texture2D" uid="uid://bffq36lec7ulw" path="res://assets/models/sigil.png" id="3_lfjhj"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="4_8ifyw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0d1ss"]
