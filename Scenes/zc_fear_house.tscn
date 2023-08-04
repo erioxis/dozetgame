@@ -272,3 +272,6 @@ transform = Transform3D(1.53293, 0, 0, 0, 69.3564, 0, 0, 0, 1.10288, 0, 130.548,
 
 [node name="bochka2" parent="." instance=ExtResource("15_xqmop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23236, -176.014)
+
+[node name="glock2" parent="." instance=ExtResource("14_e5f2t")]
+transform = Transform3D(0.880075, -0.411077, 0.237665, -0.211116, 0.10958, 0.971299, -0.425322, -0.904991, 0.00965331, -23.7397, 26.4496, -55.4763)

@@ -117,6 +117,41 @@ properties/7/path = NodePath("AnimationPlayer:current_animation")
 properties/7/spawn = true
 properties/7/sync = true
 properties/7/watch = false
+properties/8/path = NodePath(".")
+properties/8/spawn = true
+properties/8/sync = true
+properties/8/watch = false
+properties/9/path = NodePath("Label3D:text")
+properties/9/spawn = true
+properties/9/sync = true
+properties/9/watch = false
+
+[sub_resource type="Animation" id="Animation_8jn3s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/foot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.678, -2.686, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/foot2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.678, -2.686, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_iscec"]
 resource_name = "walk"
@@ -145,33 +180,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.678, -2.686, 0), Vector3(-0.678, -2.35206, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8jn3s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/foot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.678, -2.686, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/foot2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.678, -2.686, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jm4uj"]

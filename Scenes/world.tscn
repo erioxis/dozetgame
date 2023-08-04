@@ -27,6 +27,9 @@ fog_density = 0.03
 [node name="World" type="Node"]
 script = ExtResource("1_gba76")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965514, 0.260353, 0, -0.260353, 0.965514, -22.6672, 32.7564, -46.6993)
+
 [node name="GameManager" parent="." instance=ExtResource("2_j27st")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -92,7 +95,7 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hyq7g")
 theme_override_font_sizes/font_size = 20
-placeholder_text = "name"
+placeholder_text = "Name"
 alignment = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
