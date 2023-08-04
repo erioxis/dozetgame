@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
 [ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="14_tlktg"]
-[ext_resource type="PackedScene" uid="uid://1e237y58hbav" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
+[ext_resource type="PackedScene" uid="uid://bpraqik1ro8k" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
