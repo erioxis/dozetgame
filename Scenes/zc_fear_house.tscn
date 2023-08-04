@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=17 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -234,3 +234,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
 
 [node name="glock" parent="." instance=ExtResource("12_3ofvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)
+
+[node name="bochka" parent="." instance=ExtResource("14_e5f2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0574, 5.23886, 0)
