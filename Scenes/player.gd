@@ -81,12 +81,12 @@ func _physics_process(delta):
 		if dist > 2.5: 
 			held_object = null
 			return
-		#if kickprop:
-			#var bruh: Vector3 = angle_to(camera.global_rotation)
-			#bruh.y = min(60,bruh.y)
-			#held_object.apply_impulse(bruh)
-			#kickprop = false
-			#held_object = null
+		if kickprop:
+			var bruh: Vector3 = camera.global_rotation
+			bruh.y = min(60,bruh.y)
+			held_object.apply_central_impulse(bruh)
+			kickprop = false
+			held_object = null
 		if rotate:
 			print("hihi")
 		else:
@@ -155,8 +155,8 @@ func _integrate_forces(state):
 #mouse input
 func _input(event):
 	if not is_multiplayer_authority(): return
-	#if event is InputEventMouseButton:
-		#kickprop = true
+	if event is InputEventMouseButton:
+		kickprop = true
 	if event is InputEventMouseMotion:
 		mouse_input = event.relative;
 
