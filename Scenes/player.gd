@@ -10,7 +10,7 @@ class_name Player
 @onready var hand = $Head/Camera3D/hand
 @onready var head = $Head
 @onready var headmesh = $Head/Camera3D/head
-#@onready var anim_player = $AnimationPlayer
+@onready var anim_player = $AnimationPlayer
 @onready var body = $bodycol
 @onready var feet = $feet
 @onready var hold_position = $Head/Camera3D/hold
@@ -107,10 +107,10 @@ func _physics_process(delta):
 	
 	#if anim_player.current_animation == "shoot":
 	#	pass
-	#elif move_input != Vector2.ZERO and feet.is_colliding():
-	#	anim_player.play("move")
-	#else:
-	#	anim_player.play("idle")
+	if move_input != Vector2.ZERO and feet.is_colliding():
+		anim_player.play("walk")
+	else:
+		anim_player.play("RESET")
 		
 	if (health<=0 and dead==false):
 		rpc("kill")

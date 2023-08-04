@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1e237y58hbav"]
+[gd_scene load_steps=9 format=3 uid="uid://1e237y58hbav"]
 
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_i22hu"]
 [ext_resource type="ArrayMesh" uid="uid://dep2e3dod5o7v" path="res://assets/models/bochka.obj" id="2_a33vv"]
@@ -33,6 +33,16 @@ shader_parameter/alpha_scissor = 1.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jfr0e"]
 height = 2.94645
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_nmgss"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
 [node name="bochka" type="RigidBody3D" groups=["prop"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -45,3 +55,4 @@ transform = Transform3D(1.96354, 0, 0, 0, 1.27736, 0, 0, 0, 1.89299, 0, -0.02566
 shape = SubResource("CylinderShape3D_jfr0e")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_nmgss")

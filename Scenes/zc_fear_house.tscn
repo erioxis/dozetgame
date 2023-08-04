@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
-[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/props/someone.tscn" id="9_fvj40"]
+[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
-[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
+[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
-[ext_resource type="PackedScene" path="res://tools/glock.tscn" id="14_e5f2t"]
+[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="14_tlktg"]
-[ext_resource type="PackedScene" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
+[ext_resource type="PackedScene" uid="uid://1e237y58hbav" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
