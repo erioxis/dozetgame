@@ -19,7 +19,7 @@ shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("4_mc60x")
 
-[node name="RigidBody3D" instance=ExtResource("1_sks2q")]
+[node name="Glock" instance=ExtResource("1_sks2q")]
 script = ExtResource("2_pu11r")
 
 [node name="CollisionShape3D" parent="." index="0"]

@@ -184,14 +184,13 @@ func interact():
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
-		rpc("pick_up", t)
+		pick_up(t)
 
 @rpc("any_peer")
 func damage(d):
 	health-=d
 	world.create_blood(d, global_position)
 
-@rpc("call_local", "any_peer")
 func pick_up(t: Tool):
 	if currentTool == null:
 		currentTool = t
