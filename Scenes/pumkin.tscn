@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnyj5fwfw63ej"]
+
+[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_kc82k"]
+[ext_resource type="ArrayMesh" uid="uid://cndayguefv0kr" path="res://assets/models/pumkin.obj" id="2_uqeww"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv6eh"]
+render_priority = 0
+shader = ExtResource("1_kc82k")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ykpxv"]
+radius = 1.0
+
+[node name="pumkin" type="RigidBody3D" groups=["prop"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_rv6eh")
+transparency = 1.0
+mesh = ExtResource("2_uqeww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0256618, 0)
+shape = SubResource("SphereShape3D_ykpxv")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

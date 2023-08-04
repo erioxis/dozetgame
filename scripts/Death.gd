@@ -5,3 +5,5 @@ func _on_body_entered(body):
 		var player = body as Player
 		if (player):
 			player.damage(101)
+#	elif (body.is_in_group("prop")):
+	#	var prop = body as

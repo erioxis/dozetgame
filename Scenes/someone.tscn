@@ -14,7 +14,7 @@ shader_parameter/alpha_scissor = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_343ma"]
 
-[node name="someone" type="RigidBody3D"]
+[node name="someone" type="RigidBody3D" groups=["prop"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_rv6eh")
