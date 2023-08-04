@@ -32,6 +32,7 @@ var velocity = Vector3()
 
 var tools: Array[Tool]
 var currentTool: Tool
+var currentSlot: int = 1
 
 var mouse_input = Vector2()
 
@@ -177,7 +178,7 @@ func throw():
 		held_object.apply_central_impulse(dir*dist*3)
 		held_object=null
 
-@rpc("authority", "call_local")
+@rpc("any_peer", "call_local")
 func interact():
 	if (held_object):
 		held_object = null
