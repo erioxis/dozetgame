@@ -189,7 +189,8 @@ func interact():
 @rpc("any_peer")
 func damage(d):
 	health-=d
-	world.create_blood(d, global_position)
+	if d > 0:
+		world.create_blood(d, global_position)
 
 func pick_up(t: Tool):
 	if currentTool == null:

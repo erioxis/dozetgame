@@ -6,14 +6,14 @@
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_32rhn"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
-[ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_4tei5"]
-[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
-[ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/amyth.tscn" id="9_v2eck"]
-[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
+[ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
+[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/props/someone.tscn" id="9_fvj40"]
+[ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
+[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
 [ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="12_3ofvq"]
-
+[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://Scenes/props/bochka.tscn" id="14_e5f2t"]
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
 
@@ -234,3 +234,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
 
 [node name="glock" parent="." instance=ExtResource("12_3ofvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)
+
+[node name="bochka" parent="." instance=ExtResource("14_e5f2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0574, 5.23886, 0)
