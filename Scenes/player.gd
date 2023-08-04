@@ -26,6 +26,7 @@ var accel_multiplier = 1.0
 @export var speed = 25
 @export var max_speed = 50
 @export var stop_speed = 0.1
+@export var rotate = false
 
 var velocity = Vector3()
 
@@ -74,7 +75,17 @@ func _physics_process(delta):
 	if (held_object):
 		var direct: Vector3 = hold_position.global_position - held_object.global_position
 		var dist: float = direct.length()
-		held_object.linear_velocity = direct * dist * 12
+		held_object.linear_velocity = direct * min(1.2,dist) * 12
+		rotate = Input.is_action_pressed("alt")
+		if dist > 2.5: 
+			held_object = null
+			return
+		if rotate:
+			print("hihi")
+		else:
+			print("ne_hihi")
+		
+			
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.

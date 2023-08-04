@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxg3v4dqcjupl"]
+[gd_scene load_steps=8 format=3 uid="uid://dxg3v4dqcjupl"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_gba76"]
 [ext_resource type="PackedScene" uid="uid://udhgs1mvvntt" path="res://Scenes/game_manager.tscn" id="2_j27st"]
 [ext_resource type="PackedScene" uid="uid://ig18jglq27rs" path="res://Scenes/zc_fear_house.tscn" id="4_epgrf"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="4_hyq7g"]
-[ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/amyth.tscn" id="5_upi6y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1tvc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -101,26 +100,6 @@ _spawnable_scenes = PackedStringArray("res://Scenes/player.tscn")
 spawn_path = NodePath("..")
 
 [node name="Level" parent="." instance=ExtResource("4_epgrf")]
-
-[node name="amyth" parent="." instance=ExtResource("5_upi6y")]
-transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0532303, 6.15399, 1.75493)
-mass = 1000.0
-inertia = Vector3(1000, 0, 0)
-
-[node name="amyth" parent="amyth" instance=ExtResource("5_upi6y")]
-transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0532303, 5.63607, 1.75493)
-mass = 1000.0
-inertia = Vector3(1000, 0, 0)
-
-[node name="amyth" parent="amyth/amyth" instance=ExtResource("5_upi6y")]
-transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0532303, -5.93468, 1.75493)
-mass = 1000.0
-inertia = Vector3(1000, 0, 0)
-
-[node name="amyth" parent="amyth/amyth/amyth" instance=ExtResource("5_upi6y")]
-transform = Transform3D(1.04575, 0, 0, 0, 1.04575, 0, 0, 0, 1.04575, 0.0198427, 0.607605, -1.88068)
-mass = 1000.0
-inertia = Vector3(1000, 0, 0)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

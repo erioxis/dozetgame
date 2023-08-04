@@ -113,6 +113,10 @@ properties/6/path = NodePath(".:rotation")
 properties/6/spawn = true
 properties/6/sync = true
 properties/6/watch = false
+properties/7/path = NodePath(".")
+properties/7/spawn = true
+properties/7/sync = true
+properties/7/watch = false
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
 axis_lock_angular_x = true
