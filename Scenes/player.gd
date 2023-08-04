@@ -193,8 +193,6 @@ func damage(d):
 func pick_up(t: Tool):
 	if currentTool == null:
 		currentTool = t
-		t.get_parent().remove_child(t)
-		hand.add_child(t)
 		t.global_position = hand.global_position
 		t.global_rotation = hand.global_rotation
 		t.pickup()

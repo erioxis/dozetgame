@@ -22,7 +22,7 @@ shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("4_chh6h")
 
-[node name="RigidBody3D" instance=ExtResource("1_chdno")]
+[node name="Hammer" instance=ExtResource("1_chdno")]
 script = ExtResource("2_6day0")
 
 [node name="CollisionShape3D" parent="." index="0"]
