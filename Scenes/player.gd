@@ -81,9 +81,7 @@ func _physics_process(delta):
 			held_object = null
 			return
 		if rotate:
-			print("hihi")
-		else:
-			print("ne_hihi")
+			pass
 		
 			
 
@@ -167,7 +165,11 @@ func set_tool(t: Resource):
 
 @rpc("call_local", "any_peer")
 func throw():
-	print("throw")
+	if (held_object):
+		var dir:Vector3 = hold_position.global_position - camera.global_position
+		var dist:float = dir.length()
+		held_object.apply_central_impulse(dir*dist*3)
+		held_object=null
 
 @rpc("call_local","any_peer")
 func interact():
