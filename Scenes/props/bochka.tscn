@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1e237y58hbav"]
+[gd_scene load_steps=8 format=3 uid="uid://bpraqik1ro8k"]
 
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_i22hu"]
 [ext_resource type="ArrayMesh" uid="uid://dep2e3dod5o7v" path="res://assets/models/bochka.obj" id="2_a33vv"]
