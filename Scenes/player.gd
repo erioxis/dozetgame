@@ -70,6 +70,11 @@ func _unhandled_input(event):
 		
 	pass
 
+func _process(delta):
+	if (currentTool):
+		currentTool.global_position = hand.global_position
+		currentTool.global_rotation = hand.global_rotation
+
 func _physics_process(delta):
 
 	if (held_object):
