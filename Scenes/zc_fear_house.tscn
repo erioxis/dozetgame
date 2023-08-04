@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=14 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/amyth.tscn" id="9_v2eck"]
 [ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
+[ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -29,9 +30,6 @@ shader_parameter/albedo = ExtResource("3_oi0s0")
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_6sltn")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.458076, 0.888913, 1.36517e-08, -0.794151, 0.409242, 0.449272, 0.399364, -0.205801, 0.893395, 0, 7.08671, 3.98595)
 
 [node name="floor" type="StaticBody3D" parent="."]
 
@@ -185,5 +183,46 @@ skeleton = NodePath("../..")
 [node name="amyth" parent="." instance=ExtResource("9_v2eck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79424, -12.922)
 
+[node name="floor10" type="StaticBody3D" parent="."]
+transform = Transform3D(-2.51386e-08, 0.575105, 0.818079, -3.57594e-08, 0.818079, -0.575105, -1, -4.37114e-08, 1.91069e-15, 0.673639, 23.6766, -68.6662)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor10"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../../floor10")
+
 [node name="pumkin" parent="." instance=ExtResource("10_vxakc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84573, 3.40029)
+
+[node name="floor9" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15.1248, 0, -61.6341)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor9"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../../floor9")
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("11_njdd8")]
+volume_db = -9.5
+pitch_scale = 0.77
+autoplay = true
+max_polyphony = 3
+
+[node name="floor8" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.0219, 0, -80.6651)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor8"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
