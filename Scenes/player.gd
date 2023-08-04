@@ -68,13 +68,7 @@ func _ready():
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 		
-	if Input.is_action_pressed("right_click"):
-		if (currentTool):
-			currentTool.rpc("use")
-		#rpc("play_shoot_effects")
-	if Input.is_action_pressed("left_click"):
-		if (currentTool):
-			currentTool.rpc("shoot")
+	pass
 
 func _physics_process(delta):
 
@@ -96,6 +90,14 @@ func _physics_process(delta):
 	set_ui()
 	
 	move(delta)
+	
+	if Input.is_action_pressed("right_click"):
+		if (currentTool):
+			currentTool.rpc("use")
+		#rpc("play_shoot_effects")
+	if Input.is_action_pressed("left_click"):
+		if (currentTool):
+			currentTool.rpc("shoot")
 	
 	#if anim_player.current_animation == "shoot":
 	#	pass
@@ -193,6 +195,8 @@ func damage(d):
 func pick_up(t: Tool):
 	if currentTool == null:
 		currentTool = t
+		t.get_parent().remove_child(t)
+		hand.add_child(t)
 		t.global_position = hand.global_position
 		t.global_rotation = hand.global_rotation
 		t.pickup()
