@@ -7,7 +7,7 @@ class_name Player
 @onready var _label = $Label3D
 @onready var bodymesh = $body
 @onready var ui = $player_ui
-@onready var hand = $Head/Camera3D/hand
+@onready var hand = $Head/Camera3D/head
 @onready var head = $Head
 @onready var headmesh = $Head/Camera3D/head
 #@onready var anim_player = $AnimationPlayer
@@ -30,9 +30,6 @@ var accel_multiplier = 1.0
 
 var velocity = Vector3()
 
-var tools: Array[Tool]
-var currentTool: Tool
-
 var mouse_input = Vector2()
 
 var dead: bool
@@ -40,6 +37,7 @@ var held_object: RigidBody3D
 var points:int = 15
 var health:float = 100
 
+var tool : Object
 var world
 var game_manager
 
@@ -47,7 +45,6 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-	tools.resize(3)
 	dead = false
 	world = get_tree().get_root().get_node("World")
 	game_manager = get_tree().get_root().get_node("World").get_node("GameManager")
@@ -68,9 +65,9 @@ func _ready():
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 		
-	if Input.is_action_just_pressed("right_click"):
-		if (currentTool):
-			currentTool.use()
+	if Input.is_action_just_pressed("left_click"):
+		if (tool):
+			tool.use()
 		rpc("play_shoot_effects")
 
 func _physics_process(delta):
@@ -159,6 +156,13 @@ func set_ui():
 	ui.emit_signal("set", points)
 	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
 
+@rpc("any_peer","call_local","reliable")
+func set_tool(t: Resource):
+	if (tool):
+		tool.queue_free()
+	tool = t.instantiate()
+	hand.add_child(tool,true)
+
 @rpc("call_local", "any_peer")
 func throw():
 	if (held_object):
@@ -172,29 +176,14 @@ func interact():
 	if (held_object):
 		held_object = null
 		return
-	if (!_raycast.get_collider()):
-		return
-	if _raycast.get_collider().is_in_group("prop"):
-		held_object = _raycast.get_collider()
-	elif _raycast.get_collider() is Tool:
-		var t:Tool = _raycast.get_collider() as Tool
-		if (t.pickuped): return
-		rpc("pick_up", t)
+	elif _raycast.get_collider():
+		if _raycast.get_collider().is_in_group("prop"):
+			held_object = _raycast.get_collider()
 
 @rpc("any_peer")
 func damage(d):
 	health-=d
 	world.create_blood(d, global_position)
-
-@rpc("call_local", "any_peer")
-func pick_up(t: Tool):
-	if currentTool == null:
-		currentTool = t
-		t.get_parent().remove_child(t)
-		hand.add_child(t)
-		t.global_position = hand.global_position
-		t.global_rotation = hand.global_rotation
-		t.pickup()
 
 @rpc("any_peer", "call_local")
 func kill():
