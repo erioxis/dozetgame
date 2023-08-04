@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=16 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -6,14 +6,14 @@
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_32rhn"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
-[ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_4tei5"]
-[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
-[ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/amyth.tscn" id="9_v2eck"]
-[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
+[ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
+[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/props/someone.tscn" id="9_fvj40"]
+[ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
+[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
 [ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="12_3ofvq"]
-
+[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://Scenes/props/bochka.tscn" id="14_e5f2t"]
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
 
