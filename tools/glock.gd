@@ -10,7 +10,7 @@ func shoot():
 	if nextshoot > 5:
 		print("a")
 		var ameth = amy.instantiate()
-		world.add_child(ameth)
+		world.add_child(ameth, true)
 		ameth.global_position = global_position
 		var dir:Vector3 = global_position - ameth.global_position
 		var dist:float = dir.length()
