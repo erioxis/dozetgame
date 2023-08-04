@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bihe3vjkrm26t"]
+[gd_scene load_steps=8 format=3 uid="uid://bihe3vjkrm26t"]
 
+[ext_resource type="Script" path="res://scripts/box.gd" id="1_te8ye"]
 [ext_resource type="ArrayMesh" uid="uid://3tx7oflbox6c" path="res://assets/models/box.obj" id="1_u8n5t"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_f0pim"]
 [ext_resource type="Texture2D" uid="uid://c8m44uqmluvj6" path="res://assets/models/box.jpg" id="3_a18au"]
@@ -39,6 +40,7 @@ properties/3/sync = true
 properties/3/watch = false
 
 [node name="box" type="RigidBody3D" groups=["prop"]]
+script = ExtResource("1_te8ye")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0, 0, 0)

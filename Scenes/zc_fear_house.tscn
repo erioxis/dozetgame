@@ -1,4 +1,5 @@
 [gd_scene load_steps=14 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=15 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/amyth.tscn" id="9_v2eck"]
 [ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
+[ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
+[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="12_3ofvq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -226,3 +229,8 @@ shape = SubResource("BoxShape3D_n5sbf")
 [node name="Flat" type="MeshInstance3D" parent="floor8"]
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
+[node name="RigidBody3D" parent="." instance=ExtResource("11_dhaxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("12_3ofvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)

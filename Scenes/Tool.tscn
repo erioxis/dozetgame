@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/tool.gd" id="1_bnp81"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8a5dw"]
-size = Vector3(2.77812, 13.0379, 4.02516)
+size = Vector3(0.480708, 1.11203, 1.54188)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvdox"]
 resource_name = "Material.001"

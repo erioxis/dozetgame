@@ -8,7 +8,12 @@ var pickuped: bool
 func _ready():
 	pickuped = false
 
+@rpc("call_local","any_peer")
 func use():
+	pass
+
+@rpc("call_local","any_peer")
+func shoot():
 	pass
 	
 func pickup():
