@@ -27,7 +27,6 @@ var accel_multiplier = 1.0
 @export var max_speed = 50
 @export var stop_speed = 0.1
 @export var rotate = false
-@export var kickprop = false
 
 var velocity = Vector3()
 
@@ -81,12 +80,6 @@ func _physics_process(delta):
 		if dist > 2.5: 
 			held_object = null
 			return
-		if kickprop:
-			var bruh: Vector3 = camera.global_rotation
-			bruh.y = min(60,bruh.y)
-			held_object.apply_central_impulse(bruh)
-			kickprop = false
-			held_object = null
 		if rotate:
 			print("hihi")
 		else:
@@ -156,7 +149,7 @@ func _integrate_forces(state):
 func _input(event):
 	if not is_multiplayer_authority(): return
 	if event is InputEventMouseButton:
-		kickprop = true
+		rpc("throw")
 	if event is InputEventMouseMotion:
 		mouse_input = event.relative;
 
@@ -171,6 +164,10 @@ func set_tool(t: Resource):
 		tool.queue_free()
 	tool = t.instantiate()
 	hand.add_child(tool,true)
+
+@rpc("call_local", "any_peer")
+func throw():
+	print("throw")
 
 @rpc("call_local","any_peer")
 func interact():
