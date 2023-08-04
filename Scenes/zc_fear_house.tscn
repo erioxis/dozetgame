@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=11 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/box.tscn" id="7_4tei5"]
-[ext_resource type="PackedScene" uid="uid://cisfy1dg603e0" path="res://Scenes/zombie.tscn" id="8_0pqma"]
 [ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
@@ -28,6 +27,9 @@ shader_parameter/albedo = ExtResource("3_oi0s0")
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_6sltn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.458076, 0.888913, 1.36517e-08, -0.794151, 0.409242, 0.449272, 0.399364, -0.205801, 0.893395, 0, 7.08671, 3.98595)
 
 [node name="floor" type="StaticBody3D" parent="."]
 
@@ -114,24 +116,6 @@ gravity_scale = 0.1
 [node name="Spawn2" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77651, 15.739)
 
-[node name="Zombie" parent="." instance=ExtResource("8_0pqma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.66004, 23.6407)
-
-[node name="Zombie2" parent="." instance=ExtResource("8_0pqma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75394, 9.66004, 23.6407)
-
-[node name="floor2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.14212, 0, 0, -117.822)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
-shape = SubResource("BoxShape3D_n5sbf")
-
-[node name="Flat" type="MeshInstance3D" parent="floor2"]
-material_override = SubResource("ShaderMaterial_x1yfp")
-mesh = ExtResource("4_32rhn")
-skeleton = NodePath("../..")
-
 [node name="floor3" type="StaticBody3D" parent="."]
 transform = Transform3D(2.23818, 0, 0, 0, 1, 0, 0, 0, 11.071, 0, 25.9591, -7.66543)
 
@@ -145,7 +129,7 @@ mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
 [node name="someone" parent="." instance=ExtResource("9_fvj40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3967, 8.61742, -160.314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110016, 8.61742, -160.314)
 
 [node name="floor5" type="StaticBody3D" parent="."]
 transform = Transform3D(1.45046, 0, 0, 0, -0.0457291, -1.93038, 0, 0.998954, -0.0883669, 0, 45.6817, -150.099)
@@ -169,6 +153,29 @@ visible = false
 shape = SubResource("BoxShape3D_n5sbf")
 
 [node name="Flat" type="MeshInstance3D" parent="floor6"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="floor7" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4.97995e-06, 0, -181.658)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor7"]
+material_override = SubResource("ShaderMaterial_x1yfp")
+mesh = ExtResource("4_32rhn")
+
+[node name="floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -56.964)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Flat" type="MeshInstance3D" parent="floor2"]
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
