@@ -32,6 +32,7 @@ var velocity = Vector3()
 
 var tools: Array[Tool]
 var currentTool: Tool
+var currentSlot: int = 1
 
 var mouse_input = Vector2()
 
@@ -134,6 +135,8 @@ func move(delta):
 		apply_central_impulse(Vector3.UP * jump_velocity)
 	if Input.is_action_just_pressed("interact"):
 		rpc("interact")
+	if Input.is_action_just_pressed("slot1"):
+		rpc("change_tool", 1)
 	#view and rotation
 	camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x,-80,80)
@@ -169,6 +172,10 @@ func set_ui():
 	ui.emit_signal("set", points)
 	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
 
+@rpc("any_peer", "call_local")
+func change_tool(s):
+	pass
+
 @rpc("call_local", "any_peer")
 func throw():
 	if (held_object):
@@ -177,7 +184,7 @@ func throw():
 		held_object.apply_central_impulse(dir*dist*3)
 		held_object=null
 
-@rpc("authority", "call_local")
+@rpc("any_peer", "call_local")
 func interact():
 	if (held_object):
 		held_object = null
