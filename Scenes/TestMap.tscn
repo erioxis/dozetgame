@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ek87mtildol5"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_oat25"]
-[ext_resource type="Texture2D" uid="uid://bfyaec11fwhmd" path="res://assets/textures/grass.jpg" id="2_5c37x"]
+[ext_resource type="Texture2D" uid="uid://bfyaec11fwhmd" path="res://assets/models/grass.jpg" id="2_5c37x"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_wej66"]
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_a80cx"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_87wyk"]

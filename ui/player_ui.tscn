@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/player_ui.gd" id="1_4ev7n"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="2_s56xn"]
-[ext_resource type="Texture2D" uid="uid://b7nsdxc7hvajv" path="res://assets/textures/point.png" id="3_cwta1"]
+[ext_resource type="Texture2D" uid="uid://b7nsdxc7hvajv" path="res://assets/models/point.png" id="3_cwta1"]
 
 [node name="player_ui" type="CanvasLayer"]
 script = ExtResource("1_4ev7n")

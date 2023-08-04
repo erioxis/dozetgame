@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/blood_explosion.gd" id="1_gpg30"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_4nipx"]
 [ext_resource type="ArrayMesh" uid="uid://df0jvhel1prx8" path="res://assets/models/meat.obj" id="3_cgw31"]
-[ext_resource type="Texture2D" uid="uid://de4tevh5orkib" path="res://assets/textures/meat.jpg" id="3_tifry"]
+[ext_resource type="Texture2D" uid="uid://de4tevh5orkib" path="res://assets/models/meat.jpg" id="3_tifry"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2bnjp"]
 render_priority = 0

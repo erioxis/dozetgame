@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://3tx7oflbox6c" path="res://assets/models/box.obj" id="1_u8n5t"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_f0pim"]
-[ext_resource type="Texture2D" uid="uid://c8m44uqmluvj6" path="res://assets/textures/box.jpg" id="3_a18au"]
+[ext_resource type="Texture2D" uid="uid://c8m44uqmluvj6" path="res://assets/models/box.jpg" id="3_a18au"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ibjqo"]
 render_priority = 0

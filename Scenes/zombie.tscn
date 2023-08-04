@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_2ndm8"]
 [ext_resource type="ArrayMesh" uid="uid://oj08edbhgco1" path="res://assets/models/zombiehand.obj" id="1_8ctoe"]
 [ext_resource type="ArrayMesh" uid="uid://cfxaved34ul3e" path="res://assets/models/zombiehead.obj" id="2_dc8mw"]
-[ext_resource type="Texture2D" uid="uid://d2nsjx0e8f5ip" path="res://assets/textures/zombieskin.png" id="3_hk66d"]
+[ext_resource type="Texture2D" uid="uid://d2nsjx0e8f5ip" path="res://assets/models/zombieskin.png" id="3_hk66d"]
 [ext_resource type="ArrayMesh" uid="uid://bk4lwu1jl6h3u" path="res://assets/models/zombiebody.obj" id="5_j8dgm"]
-[ext_resource type="Texture2D" uid="uid://cmajsqubopwd3" path="res://assets/textures/zombieface.png" id="5_pmv7o"]
+[ext_resource type="Texture2D" uid="uid://cmajsqubopwd3" path="res://assets/models/zombieface.png" id="5_pmv7o"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="6_wrjv5"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="7_xcw8c"]
-[ext_resource type="Texture2D" uid="uid://c4qui3iejki8r" path="res://assets/textures/cloth.png" id="9_jp3rl"]
+[ext_resource type="Texture2D" uid="uid://c4qui3iejki8r" path="res://assets/models/cloth.png" id="9_jp3rl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxqxt"]
 radius = 0.296552
