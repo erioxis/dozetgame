@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
-[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="12_3ofvq"]
-[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://Scenes/props/bochka.tscn" id="14_e5f2t"]
+[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
 
@@ -232,7 +232,7 @@ mesh = ExtResource("4_32rhn")
 [node name="hammer" parent="." instance=ExtResource("11_dhaxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
 
-[node name="glock" parent="." instance=ExtResource("12_3ofvq")]
+[node name="glock" parent="." instance=ExtResource("14_e5f2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)
 
 [node name="bochka" parent="." instance=ExtResource("14_e5f2t")]

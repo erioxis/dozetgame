@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfa8pq5onhov"]
+[gd_scene load_steps=6 format=3 uid="uid://bnyj5fwfw63ej"]
 
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_kc82k"]
 [ext_resource type="ArrayMesh" uid="uid://cndayguefv0kr" path="res://assets/models/pumkin.obj" id="2_uqeww"]

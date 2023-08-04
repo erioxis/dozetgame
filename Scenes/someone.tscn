@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyx40gck74xic"]
+[gd_scene load_steps=6 format=3 uid="uid://d24vbswh4xlj8"]
 
 [ext_resource type="ArrayMesh" uid="uid://bx25m2ibiy1hw" path="res://assets/models/why.obj" id="1_6d8ff"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_762bk"]
