@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=21 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
-[ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
+[ext_resource type="PackedScene" path="res://tools/glock.tscn" id="14_e5f2t"]
+[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="14_tlktg"]
+[ext_resource type="PackedScene" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -26,9 +28,24 @@ shader_parameter/jitter_depth_independent = false
 shader_parameter/affine_texture_mapping = false
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
-shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(0.152941, 0.513726, 0.470588, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_oi0s0")
+
+[sub_resource type="Gradient" id="Gradient_lcucv"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qkwun"]
+gradient = SubResource("Gradient_lcucv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_da44b"]
+render_priority = 0
+shader = ExtResource("14_tlktg")
+shader_parameter/jitter = 0.783
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = SubResource("GradientTexture1D_qkwun")
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_6sltn")
@@ -237,3 +254,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)
 
 [node name="bochka" parent="." instance=ExtResource("14_e5f2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0574, 5.23886, 0)
+
+[node name="fire" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0863559, -0.996264, 0, 0.996264, -0.0863559, 0, 8.22106, -197.404)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.0167322)
+shape = SubResource("BoxShape3D_n5sbf")
+
+[node name="Fire" type="MeshInstance3D" parent="fire"]
+material_override = SubResource("ShaderMaterial_da44b")
+mesh = ExtResource("4_32rhn")
+skeleton = NodePath("../..")
+
+[node name="Death2" parent="." instance=ExtResource("5_qniop")]
+transform = Transform3D(1.53293, 0, 0, 0, 69.3564, 0, 0, 0, 1.10288, 0, 130.548, -212.69)
+
+[node name="bochka2" parent="." instance=ExtResource("15_xqmop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23236, -176.014)
