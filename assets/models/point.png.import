@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de4tevh5orkib"
-path.s3tc="res://.godot/imported/meat.jpg-c3b8deb7f044d669084259d8367dbba0.s3tc.ctex"
+uid="uid://b7nsdxc7hvajv"
+path="res://.godot/imported/point.png-fd7d326e85d7181b46ec364df42e0a00.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/meat.jpg"
-dest_files=["res://.godot/imported/meat.jpg-c3b8deb7f044d669084259d8367dbba0.s3tc.ctex"]
+source_file="res://assets/models/point.png"
+dest_files=["res://.godot/imported/point.png-fd7d326e85d7181b46ec364df42e0a00.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

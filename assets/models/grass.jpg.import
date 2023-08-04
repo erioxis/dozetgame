@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmajsqubopwd3"
-path.s3tc="res://.godot/imported/zombieface.png-869582a3440bd807c9383f809c71604e.s3tc.ctex"
+uid="uid://bfyaec11fwhmd"
+path.s3tc="res://.godot/imported/grass.jpg-7c0a909998e922dd961e9da5594284c4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/zombieface.png"
-dest_files=["res://.godot/imported/zombieface.png-869582a3440bd807c9383f809c71604e.s3tc.ctex"]
+source_file="res://assets/models/grass.jpg"
+dest_files=["res://.godot/imported/grass.jpg-7c0a909998e922dd961e9da5594284c4.s3tc.ctex"]
 
 [params]
 

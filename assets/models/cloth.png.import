@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh4hpryuudumo"
-path.s3tc="res://.godot/imported/boot.jpg-a25e91f33a15290ea2d788f53c112cbd.s3tc.ctex"
+uid="uid://c4qui3iejki8r"
+path.s3tc="res://.godot/imported/cloth.png-e4fa11189897bd4969a45c086f320fc8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/boot.jpg"
-dest_files=["res://.godot/imported/boot.jpg-a25e91f33a15290ea2d788f53c112cbd.s3tc.ctex"]
+source_file="res://assets/models/cloth.png"
+dest_files=["res://.godot/imported/cloth.png-e4fa11189897bd4969a45c086f320fc8.s3tc.ctex"]
 
 [params]
 

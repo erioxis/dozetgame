@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4qui3iejki8r"
-path.s3tc="res://.godot/imported/cloth.png-a022da6196cb0ffd35dccab04d2db681.s3tc.ctex"
+uid="uid://btjkdf71ap72h"
+path.s3tc="res://.godot/imported/hammer.jpg-0726b5158d0311aac59ffcf170366f9b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/cloth.png"
-dest_files=["res://.godot/imported/cloth.png-a022da6196cb0ffd35dccab04d2db681.s3tc.ctex"]
+source_file="res://assets/models/hammer.jpg"
+dest_files=["res://.godot/imported/hammer.jpg-0726b5158d0311aac59ffcf170366f9b.s3tc.ctex"]
 
 [params]
 

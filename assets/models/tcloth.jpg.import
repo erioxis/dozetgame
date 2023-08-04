@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2uhs3ox31o1v"
-path.s3tc="res://.godot/imported/skin.jpg-ef1e3af7bda8494793f5aba933511727.s3tc.ctex"
+uid="uid://b3y431k7l5qt7"
+path.s3tc="res://.godot/imported/tcloth.jpg-3d21022c2fb7bd1ba6012bb43d85a198.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/skin.jpg"
-dest_files=["res://.godot/imported/skin.jpg-ef1e3af7bda8494793f5aba933511727.s3tc.ctex"]
+source_file="res://assets/models/tcloth.jpg"
+dest_files=["res://.godot/imported/tcloth.jpg-3d21022c2fb7bd1ba6012bb43d85a198.s3tc.ctex"]
 
 [params]
 
