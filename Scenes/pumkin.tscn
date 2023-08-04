@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnyj5fwfw63ej"]
+[gd_scene load_steps=6 format=3 uid="uid://bnyj5fwfw63ej"]
 
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_kc82k"]
 [ext_resource type="ArrayMesh" uid="uid://cndayguefv0kr" path="res://assets/models/pumkin.obj" id="2_uqeww"]
@@ -15,6 +15,16 @@ shader_parameter/alpha_scissor = 1.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_ykpxv"]
 radius = 1.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_eofas"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
 [node name="pumkin" type="RigidBody3D" groups=["prop"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -27,3 +37,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0256618, 0)
 shape = SubResource("SphereShape3D_ykpxv")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_eofas")
