@@ -172,7 +172,7 @@ func throw():
 		held_object.apply_central_impulse(dir*dist*3)
 		held_object=null
 
-@rpc("call_local","any_peer")
+@rpc("call_local","authority")
 func interact():
 	if (held_object):
 		held_object = null
