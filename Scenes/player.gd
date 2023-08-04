@@ -68,10 +68,13 @@ func _ready():
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 		
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_pressed("right_click"):
 		if (currentTool):
-			currentTool.use()
-		rpc("play_shoot_effects")
+			currentTool.rpc("use")
+		#rpc("play_shoot_effects")
+	if Input.is_action_pressed("left_click"):
+		if (currentTool):
+			currentTool.rpc("shoot")
 
 func _physics_process(delta):
 

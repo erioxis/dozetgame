@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dme07410n8fhi"]
+
+[ext_resource type="PackedScene" uid="uid://0hkcayqkwf1b" path="res://Scenes/Tool.tscn" id="1_sks2q"]
+[ext_resource type="ArrayMesh" uid="uid://sjqm61xvyj3w" path="res://assets/models/glock.obj" id="2_auwgd"]
+[ext_resource type="Script" path="res://tools/glock.gd" id="2_pu11r"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_2025k"]
+[ext_resource type="Texture2D" uid="uid://xdvjil4uubk8" path="res://assets/models/glock.png" id="4_mc60x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kf060"]
+render_priority = 0
+shader = ExtResource("3_2025k")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("4_mc60x")
+
+[node name="RigidBody3D" instance=ExtResource("1_sks2q")]
+script = ExtResource("2_pu11r")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-1.15835e-08, 0, 0.265, 0, 0.265, 0, -0.265, 0, -1.15835e-08, 0.0928111, 0.040983, -0.00530714)
+
+[node name="Mesh" parent="." index="1"]
+transform = Transform3D(-1.28949e-08, 0, -0.295, 0, 0.295, 0, 0.295, 0, -1.28949e-08, 0.0978111, 0.0161454, -0.00530714)
+mesh = ExtResource("2_auwgd")
+surface_material_override/0 = SubResource("ShaderMaterial_kf060")
