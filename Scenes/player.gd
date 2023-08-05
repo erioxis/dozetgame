@@ -56,6 +56,8 @@ func _ready():
 		ui.hide()
 		return
 
+	_label.text = Utils.nickname
+
 	linear_damp = 1.0
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
