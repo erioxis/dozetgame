@@ -55,8 +55,15 @@ func _ready():
 	if not is_multiplayer_authority():
 		ui.hide()
 		return
-
-	_label.text = Utils.nickname
+	if Utils.nickname == "":
+		#_label.modulate = Color(1,0,1,1)
+		pass
+	else:
+		#add_theme_color_override("font_color", Color(1,0,0))
+		_label.text = Utils.nickname
+		#_label.modulate = Color(0,0,0,1)
+		
+	
 
 	linear_damp = 1.0
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
