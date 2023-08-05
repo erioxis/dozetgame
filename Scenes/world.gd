@@ -44,14 +44,7 @@ func _on_join_button_pressed():
 func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
-	if str(name_enter) == "":
-		pass
-	else:
-		player.get_node("Label3D").text = str(name_enter.text)
-#	print(player.name)
-	print("Player has ID "+str(peer_id)+" But with nick"+str(name_enter.text))
 	add_child(player)
-	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
 	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
 	print("Player "+str(peer_id)+" is connected")
 

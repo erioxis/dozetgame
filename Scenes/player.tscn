@@ -117,14 +117,10 @@ properties/7/path = NodePath("AnimationPlayer:current_animation")
 properties/7/spawn = true
 properties/7/sync = true
 properties/7/watch = false
-properties/8/path = NodePath(".")
+properties/8/path = NodePath("Label3D:text")
 properties/8/spawn = true
 properties/8/sync = true
 properties/8/watch = false
-properties/9/path = NodePath("Label3D:text")
-properties/9/spawn = true
-properties/9/sync = true
-properties/9/watch = false
 
 [sub_resource type="Animation" id="Animation_8jn3s"]
 length = 0.001
