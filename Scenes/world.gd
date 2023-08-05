@@ -19,6 +19,7 @@ func _ready():
 		multiplayer.peer_disconnected.connect(remove_player)
 		game_manager.start_round()
 		print("Server on")
+	Utils.world = self
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):

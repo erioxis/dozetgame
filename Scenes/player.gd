@@ -41,7 +41,6 @@ var held_object: RigidBody3D
 var points:int = 15
 var health:float = 100
 
-var world
 var game_manager
 
 func _enter_tree():
@@ -50,7 +49,7 @@ func _enter_tree():
 func _ready():
 	tools.resize(3)
 	dead = false
-	world = get_tree().get_root().get_node("World")
+	Utils.world = get_tree().get_root().get_node("World")
 	game_manager = get_tree().get_root().get_node("World").get_node("GameManager")
 	
 	if not is_multiplayer_authority():
@@ -202,7 +201,7 @@ func interact():
 func damage(d):
 	health-=d
 	if d > 0:
-		world.create_blood(d, global_position)
+		Utils.world.create_blood(d, global_position)
 
 func pick_up(t: Tool):
 	if currentTool == null:
@@ -213,8 +212,8 @@ func pick_up(t: Tool):
 
 @rpc("any_peer", "call_local")
 func kill():
-	world.create_blood(20, global_position)
-	world.kill_player(name)
+	Utils.world.create_blood(20, global_position)
+	Utils.world.kill_player(name)
 	ui.dead()
 	
 @rpc("call_local")

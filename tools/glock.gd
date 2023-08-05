@@ -2,7 +2,6 @@ extends Tool
 var amy = preload("res://Scenes/amyth.tscn")
 
 @onready var nextshoot = 0
-@onready var world = get_tree().get_root().get_node("World")
 @rpc("call_local","any_peer")
 func shoot():
 	nextshoot += 1
@@ -10,7 +9,7 @@ func shoot():
 	if nextshoot > 5:
 		print("a")
 		var ameth = amy.instantiate()
-		world.add_child(ameth, true)
+		Utils.world.add_child(ameth, true)
 		ameth.global_position = global_position
 		var dir:Vector3 = global_position - ameth.global_position
 		var dist:float = dir.length()
