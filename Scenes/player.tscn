@@ -121,6 +121,10 @@ properties/8/path = NodePath("Label3D:text")
 properties/8/spawn = true
 properties/8/sync = true
 properties/8/watch = false
+properties/9/path = NodePath(".:rotating")
+properties/9/spawn = true
+properties/9/sync = true
+properties/9/watch = false
 
 [sub_resource type="Animation" id="Animation_8jn3s"]
 length = 0.001

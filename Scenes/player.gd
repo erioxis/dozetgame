@@ -27,7 +27,7 @@ var accel_multiplier = 1.0
 @export var max_speed = 50
 @export var stop_speed = 0.1
 
-var rotating: bool = false
+@export var rotating: bool = false
 
 var velocity = Vector3()
 
@@ -94,13 +94,8 @@ func _physics_process(delta):
 		if dist > 2.5: 
 			held_object = null
 			return
-		if !Input.is_action_pressed("alt"):
-			rotating = false
-		else:
-			rotating = true
-		var rotat = mouse_input
-		held_object.rotate_y(rotat.x * .1 * delta)
-		held_object.rotate_z(-rotat.y * .1 * delta)
+		if rotating:
+			rpc("rotate_prop", mouse_input, delta)
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
@@ -148,6 +143,10 @@ func move(delta):
 		rpc("interact")
 	if Input.is_action_just_pressed("slot1"):
 		rpc("change_tool", 1)
+	if Input.is_action_pressed("alt"):
+		rotating = true
+	else:
+		rotating = false
 	#view and rotation
 	if (!rotating):
 		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
@@ -195,6 +194,12 @@ func throw():
 		var dist:float = dir.length()
 		held_object.apply_central_impulse(dir*dist*3)
 		held_object=null
+
+@rpc("call_local", "any_peer")
+func rotate_prop(rotat, delta):
+	held_object.rotate_y(rotat.x * .1 * delta)
+	held_object.rotate_z(-rotat.y * .1 * delta)
+	held_object.angular_velocity = Vector3.ZERO
 
 @rpc("any_peer", "call_local")
 func interact():
