@@ -231,6 +231,7 @@ func interact():
 		held_object.hold = false
 		held_object = null
 		rotating = false
+		last_pos = hold_position
 		return
 	if (!_raycast.get_collider()):
 		return
