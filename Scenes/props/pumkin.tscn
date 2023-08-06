@@ -1,29 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnyj5fwfw63ej"]
+[gd_scene load_steps=7 format=3 uid="uid://bnyj5fwfw63ej"]
 
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_kc82k"]
-[ext_resource type="ArrayMesh" uid="uid://cndayguefv0kr" path="res://assets/models/pumkin.obj" id="2_uqeww"]
+[ext_resource type="PackedScene" uid="uid://di3c05utxrbmd" path="res://Scenes/prop.tscn" id="1_2pg3g"]
+[ext_resource type="ArrayMesh" uid="uid://cndayguefv0kr" path="res://assets/models/pumkin.obj" id="2_35xi2"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_75hk3"]
+[ext_resource type="Texture2D" uid="uid://cmajsqubopwd3" path="res://assets/models/zombieface.png" id="4_v0wj3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv6eh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7d5g"]
 render_priority = 0
-shader = ExtResource("1_kc82k")
+shader = ExtResource("3_75hk3")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("4_v0wj3")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ykpxv"]
-radius = 1.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_65sds"]
 
-[node name="pumkin" type="RigidBody3D" groups=["prop"]]
+[node name="Prop" instance=ExtResource("1_2pg3g")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_rv6eh")
-transparency = 1.0
-mesh = ExtResource("2_uqeww")
+[node name="MeshInstance3D" parent="." index="0"]
+mesh = ExtResource("2_35xi2")
+surface_material_override/0 = SubResource("ShaderMaterial_p7d5g")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0256618, 0)
-shape = SubResource("SphereShape3D_ykpxv")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_65sds")

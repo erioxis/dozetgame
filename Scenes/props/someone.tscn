@@ -1,27 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://d24vbswh4xlj8"]
+[gd_scene load_steps=6 format=3 uid="uid://d24vbswh4xlj8"]
 
-[ext_resource type="ArrayMesh" uid="uid://bx25m2ibiy1hw" path="res://assets/models/why.obj" id="1_6d8ff"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_762bk"]
+[ext_resource type="PackedScene" uid="uid://di3c05utxrbmd" path="res://Scenes/prop.tscn" id="1_ysnf0"]
+[ext_resource type="ArrayMesh" uid="uid://bx25m2ibiy1hw" path="res://assets/models/why.obj" id="2_x1v3r"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_pap8b"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv6eh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r26bt"]
 render_priority = 0
-shader = ExtResource("1_762bk")
+shader = ExtResource("3_pap8b")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_343ma"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vkpwx"]
 
-[node name="someone" type="RigidBody3D" groups=["prop"]]
+[node name="Prop" instance=ExtResource("1_ysnf0")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_rv6eh")
-mesh = ExtResource("1_6d8ff")
+[node name="MeshInstance3D" parent="." index="0"]
+mesh = ExtResource("2_x1v3r")
+surface_material_override/1 = SubResource("ShaderMaterial_r26bt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2.61593, 0, 0, 0, 5.75248, 0, 0, 0, 2.0659, 0, 0.607834, 0)
-shape = SubResource("CapsuleShape3D_343ma")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(2.54117, 0, 0, 0, 5.34655, 0, 0, 0, 2.55443, 0, 0.560596, 0)
+shape = SubResource("CapsuleShape3D_vkpwx")

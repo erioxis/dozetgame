@@ -1,48 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://hx43qw30upy1"]
 
+[ext_resource type="PackedScene" uid="uid://di3c05utxrbmd" path="res://Scenes/prop.tscn" id="1_vkmpw"]
 [ext_resource type="ArrayMesh" uid="uid://c102cadhjifb6" path="res://assets/models/ame_dozet.obj" id="1_yco3b"]
-[ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="2_g4sr0"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_pqi55"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_475af"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7rknr"]
 render_priority = 0
-shader = ExtResource("2_g4sr0")
-shader_parameter/jitter = 0.5
+shader = ExtResource("3_pqi55")
+shader_parameter/jitter = 0.47
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uc8j0"]
-size = Vector3(1.66075, 1.44636, 2.0343)
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcinf"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_t3kl4"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/sync = true
-properties/0/watch = false
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/sync = true
-properties/1/watch = false
-properties/2/path = NodePath(".:linear_velocity")
-properties/2/spawn = true
-properties/2/sync = true
-properties/2/watch = false
-properties/3/path = NodePath(".:angular_velocity")
-properties/3/spawn = true
-properties/3/sync = true
-properties/3/watch = false
+[node name="Prop" instance=ExtResource("1_vkmpw")]
 
-[node name="amyth" type="RigidBody3D" groups=["prop"]]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.447901, 0, 0, 0, 0.447901, 0, 0, 0, 0.447901, 0.0127949, 0.161572, -0.0200752)
+[node name="MeshInstance3D" parent="." index="0"]
 mesh = ExtResource("1_yco3b")
-surface_material_override/1 = SubResource("ShaderMaterial_475af")
+surface_material_override/1 = SubResource("ShaderMaterial_7rknr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.500017, 0, 0, 0, 0.358288, 0, 0, 0, 0.415346, 0.0133986, -0.0273133, -0.0192729)
-shape = SubResource("BoxShape3D_uc8j0")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_t3kl4")
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(2.04712, 0, 0, 0, 1.18119, 0, 0, 0, 1.82434, 0, -0.36685, 0)
+shape = SubResource("BoxShape3D_pcinf")
