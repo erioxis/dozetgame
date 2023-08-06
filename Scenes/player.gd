@@ -171,8 +171,9 @@ func move(delta):
 		rotating = false
 	if Input.is_action_just_pressed("shift"):
 		last_pos = hold_position.global_position
+	if Input.is_action_pressed("shift"):
 		shift = true
-	elif Input.is_action_just_released("shift"):
+	else:
 		shift = false
 	#view and rotation
 	if (!rotating or !held_object):
