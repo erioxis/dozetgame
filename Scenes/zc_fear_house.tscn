@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
 [ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
-[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
+[ext_resource type="PackedScene" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
 [ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
