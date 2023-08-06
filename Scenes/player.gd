@@ -148,7 +148,7 @@ func move(delta):
 	else:
 		rotating = false
 	#view and rotation
-	if (!rotating):
+	if (!rotating or !held_object):
 		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x,-80,80)
 		head.rotation_degrees.y -= mouse_input.x * view_sensitivity * delta;
@@ -197,9 +197,10 @@ func throw():
 
 @rpc("call_local", "any_peer")
 func rotate_prop(rotat, delta):
-	held_object.rotate_y(rotat.x * .1 * delta)
-	held_object.rotate_z(-rotat.y * .1 * delta)
-	held_object.angular_velocity = Vector3.ZERO
+	if held_object:
+		held_object.rotate_y(rotat.x * .1 * delta)
+		held_object.rotate_z(-rotat.y * .1 * delta)
+		held_object.angular_velocity = Vector3.ZERO
 
 @rpc("any_peer", "call_local")
 func interact():
