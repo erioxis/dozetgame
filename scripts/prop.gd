@@ -5,6 +5,7 @@ class_name Prop
 var health: float
 var durability: float
 var nails: int
+var hold: bool = false
 
 func _ready():
 	health = mass * global_transform.basis.x.length() * global_transform.basis.y.length() * global_transform.basis.z.length() / 10

@@ -38,7 +38,7 @@ var currentSlot: int = 1
 @export var mouse_input = Vector2()
 
 var dead: bool
-var held_object: RigidBody3D
+var held_object: Prop
 var points:int = 15
 var health:float = 100
 
@@ -203,12 +203,15 @@ func throw():
 @rpc("any_peer", "call_local")
 func interact():
 	if (held_object):
+		held_object.hold = false
 		held_object = null
 		return
 	if (!_raycast.get_collider()):
 		return
 	if _raycast.get_collider().is_in_group("prop"):
-		held_object = _raycast.get_collider()
+		if (!_raycast.get_collider().hold):
+			held_object = _raycast.get_collider()
+			held_object.hold = true
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
