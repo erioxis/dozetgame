@@ -33,3 +33,4 @@ script = ExtResource("1_p707n")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_4ox0l")
+visibility_update_mode = 1

@@ -26,7 +26,8 @@ var accel_multiplier = 1.0
 @export var speed = 25
 @export var max_speed = 50
 @export var stop_speed = 0.1
-@export var rotate = false
+
+var rotating: bool = false
 
 var velocity = Vector3()
 
@@ -89,15 +90,17 @@ func _physics_process(delta):
 	if (held_object):
 		var direct: Vector3 = hold_position.global_position - held_object.global_position
 		var dist: float = direct.length()
-		held_object.linear_velocity = direct * min(1.2,dist) * 12
-		rotate = Input.is_action_pressed("alt")
+		held_object.linear_velocity = direct * min(1.2,dist) * 1000 * delta
 		if dist > 2.5: 
 			held_object = null
 			return
-		if rotate:
-			pass
-		
-			
+		if !Input.is_action_pressed("alt"):
+			rotating = false
+		else:
+			rotating = true
+		var rotat = mouse_input
+		held_object.rotate_y(rotat.x * .1 * delta)
+		held_object.rotate_z(-rotat.y * .1 * delta)
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
@@ -146,9 +149,10 @@ func move(delta):
 	if Input.is_action_just_pressed("slot1"):
 		rpc("change_tool", 1)
 	#view and rotation
-	camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
-	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x,-80,80)
-	head.rotation_degrees.y -= mouse_input.x * view_sensitivity * delta;
+	if (!rotating):
+		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x,-80,80)
+		head.rotation_degrees.y -= mouse_input.x * view_sensitivity * delta;
 	mouse_input =Vector2.ZERO
 	bodymesh.global_rotation.y = head.global_rotation.y
 
