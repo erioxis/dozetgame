@@ -181,6 +181,7 @@ func _input(event):
 		rpc("throw")
 	if event is InputEventMouseMotion:
 		mouse_input = event.relative;
+		rpc("send_input", mouse_input)
 
 func set_ui():
 	ui.set_health(health)
@@ -225,6 +226,10 @@ func pick_up(t: Tool):
 		t.global_position = hand.global_position
 		t.global_rotation = hand.global_rotation
 		t.pickup()
+
+@rpc("any_peer")
+func send_input(mi):
+	mouse_input = mi
 
 @rpc("any_peer", "call_local")
 func kill():
