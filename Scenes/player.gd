@@ -231,7 +231,7 @@ func interact():
 		held_object.hold = false
 		held_object = null
 		rotating = false
-		last_pos = hold_position
+		last_pos = hold_position.global_position
 		return
 	if (!_raycast.get_collider()):
 		return
@@ -239,6 +239,7 @@ func interact():
 		if (!_raycast.get_collider().hold):
 			held_object = _raycast.get_collider()
 			held_object.hold = true
+			last_pos = hold_position.global_position
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
