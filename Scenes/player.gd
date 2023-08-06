@@ -204,8 +204,8 @@ func throw():
 		var dir:Vector3 = hold_position.global_position - camera.global_position
 		var dist:float = dir.length()
 		held_object.apply_central_impulse(dir*dist*3)
-		held_object=null
 		held_object.hold = false
+		held_object=null
 		rotating = false
 
 @rpc("any_peer", "call_local")
