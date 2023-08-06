@@ -202,14 +202,12 @@ func throw():
 @rpc("any_peer", "call_local")
 func interact():
 	if (held_object):
-		held_object.set_multiplayer_authority(1)
 		held_object = null
 		return
 	if (!_raycast.get_collider()):
 		return
 	if _raycast.get_collider().is_in_group("prop"):
 		held_object = _raycast.get_collider()
-		held_object.set_multiplayer_authority(int(str(name)))
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
