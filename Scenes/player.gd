@@ -35,7 +35,7 @@ var tools: Array[Tool]
 var currentTool: Tool
 var currentSlot: int = 1
 
-var mouse_input = Vector2()
+@export var mouse_input = Vector2()
 
 var dead: bool
 var held_object: RigidBody3D
@@ -93,9 +93,13 @@ func _physics_process(delta):
 		held_object.linear_velocity = direct * min(1.2,dist) * 1000 * delta
 		if dist > 2.5: 
 			held_object = null
+			rotating = false
 			return
 		if rotating:
-			rpc("rotate_prop", mouse_input, delta)
+			var rotat = mouse_input
+			held_object.rotate_y(rotat.x * .1 * delta)
+			held_object.rotate_z(-rotat.y * .1 * delta)
+			held_object.angular_velocity = Vector3.ZERO
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
@@ -195,22 +199,17 @@ func throw():
 		held_object.apply_central_impulse(dir*dist*3)
 		held_object=null
 
-@rpc("call_local", "any_peer")
-func rotate_prop(rotat, delta):
-	if held_object:
-		held_object.rotate_y(rotat.x * .1 * delta)
-		held_object.rotate_z(-rotat.y * .1 * delta)
-		held_object.angular_velocity = Vector3.ZERO
-
 @rpc("any_peer", "call_local")
 func interact():
 	if (held_object):
+		held_object.set_multiplayer_authority(1)
 		held_object = null
 		return
 	if (!_raycast.get_collider()):
 		return
 	if _raycast.get_collider().is_in_group("prop"):
 		held_object = _raycast.get_collider()
+		held_object.set_multiplayer_authority(int(str(name)))
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
