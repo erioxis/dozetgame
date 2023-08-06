@@ -165,6 +165,7 @@ func move(delta):
 	if Input.is_action_just_pressed("slot1"):
 		rpc("change_tool", 1)
 	if Input.is_action_pressed("alt"):
+		#sa
 		rotating = true
 	else:
 		rotating = false
