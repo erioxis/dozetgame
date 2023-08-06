@@ -21,4 +21,5 @@ func pickup():
 	freeze = true
 	
 func drop():
-	pass
+	coll.disabled = false
+	freeze = false

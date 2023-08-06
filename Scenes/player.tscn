@@ -125,6 +125,18 @@ properties/9/path = NodePath(".:rotating")
 properties/9/spawn = true
 properties/9/sync = true
 properties/9/watch = false
+properties/10/path = NodePath(".:shift")
+properties/10/spawn = true
+properties/10/sync = true
+properties/10/watch = false
+properties/11/path = NodePath("Head/Camera3D/hold:position")
+properties/11/spawn = true
+properties/11/sync = true
+properties/11/watch = false
+properties/12/path = NodePath(".:last_pos")
+properties/12/spawn = true
+properties/12/sync = true
+properties/12/watch = false
 
 [sub_resource type="Animation" id="Animation_8jn3s"]
 length = 0.001

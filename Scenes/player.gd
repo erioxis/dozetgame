@@ -15,6 +15,8 @@ class_name Player
 @onready var feet = $feet
 @onready var hold_position = $Head/Camera3D/hold
 @export var view_sensitivity = 10.0
+
+@export var shift: bool = false
 var is_on_floor = false
 var move_input
 
@@ -26,6 +28,8 @@ var accel_multiplier = 1.0
 @export var speed = 25
 @export var max_speed = 50
 @export var stop_speed = 0.1
+
+@export var last_pos: Vector3
 
 @export var rotating: bool = false
 
@@ -90,7 +94,13 @@ func _physics_process(delta):
 	if (held_object):
 		var direct: Vector3 = hold_position.global_position - held_object.global_position
 		var dist: float = direct.length()
-		held_object.linear_velocity = direct * min(1.2,dist) * 1000 * delta
+		if (!shift):
+			held_object.linear_velocity = direct * min(1.2,dist) * 1000 * delta
+		else:
+			var ldirect: Vector3 = last_pos - held_object.global_position
+			var ldist: float = direct.length()
+			held_object.linear_velocity = ldirect * min(1.2,ldist) * 1000 * delta
+			
 		if dist > 2.5: 
 			held_object = null
 			rotating = false
@@ -157,6 +167,11 @@ func move(delta):
 		rotating = true
 	else:
 		rotating = false
+	if Input.is_action_just_pressed("shift"):
+		last_pos = hold_position.global_position
+		shift = true
+	elif Input.is_action_just_released("shift"):
+		shift = false
 	#view and rotation
 	if (!rotating or !held_object):
 		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
