@@ -102,6 +102,7 @@ func _physics_process(delta):
 			held_object.linear_velocity = ldirect * min(1.2,ldist) * 1000 * delta
 			
 		if dist > 2.5: 
+			held_object.hold = false
 			held_object = null
 			rotating = false
 			return
