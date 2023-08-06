@@ -205,6 +205,8 @@ func throw():
 		var dist:float = dir.length()
 		held_object.apply_central_impulse(dir*dist*3)
 		held_object=null
+		held_object.hold = false
+		rotating = false
 
 @rpc("any_peer", "call_local")
 func interact():
