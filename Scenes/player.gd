@@ -96,10 +96,16 @@ func _physics_process(delta):
 			rotating = false
 			return
 		if rotating:
-			var rotat = mouse_input
-			held_object.rotate_y(rotat.x * .1 * delta)
-			held_object.rotate_z(-rotat.y * .1 * delta)
+			#var rotat = mouse_input
+			#held_object.rotate_y(rotat.x * .1 * delta)
+			#held_object.rotate_z(-rotat.y * .1 * delta)
+			#held_object.angular_velocity = Vector3.ZERO
+			var x_axis = camera.get_camera_transform().basis[0]
+			var y_axis = camera.get_camera_transform().basis[1]
+			held_object.rotate(y_axis, mouse_input.x*delta/5)
+			held_object.rotate(x_axis, mouse_input.y*delta/5)
 			held_object.angular_velocity = Vector3.ZERO
+			
 
 	if not is_multiplayer_authority(): return
 	# Add the gravity.
