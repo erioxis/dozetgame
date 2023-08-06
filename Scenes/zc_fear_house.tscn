@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
 [ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
-[ext_resource type="PackedScene" path="res://Scenes/pumkin.tscn" id="10_vxakc"]
+[ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
 [ext_resource type="PackedScene" uid="uid://fymwmotqr1gi" path="res://Scenes/scary_sounds.tscn" id="11_njdd8"]
 [ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
@@ -229,9 +229,6 @@ material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../../floor10")
 
-[node name="pumkin" parent="." instance=ExtResource("10_vxakc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84573, 3.40029)
-
 [node name="floor9" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15.1248, 0, -61.6341)
 
@@ -326,3 +323,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220032, 0, 0.00811768)
 material_override = SubResource("ShaderMaterial_xf0ay")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
+
+[node name="Prop" parent="." instance=ExtResource("10_vxakc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)
