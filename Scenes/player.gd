@@ -219,7 +219,8 @@ func set_ui():
 
 @rpc("any_peer", "call_local")
 func change_tool(s):
-	if (tools.size() == s):
+
+	if (s>=tools.size()):
 		return
 	if (currentTool):
 		currentTool.pickup()
