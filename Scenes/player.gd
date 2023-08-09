@@ -134,9 +134,10 @@ func _physics_process(delta):
 	#if anim_player.current_animation == "shoot":
 	#	pass
 	if move_input != Vector2.ZERO and feet.is_colliding():
-		anim_player.play("walk")
+		#anim_player.play("walk")
+		anim_player.play("move")
 	else:
-		anim_player.play("RESET")
+		anim_player.play("idle")
 		
 	if (health<=0 and dead==false):
 		rpc("kill")

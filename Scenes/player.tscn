@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://o8xkgf8k8qiv"]
+[gd_scene load_steps=26 format=3 uid="uid://o8xkgf8k8qiv"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_e0slr"]
 [ext_resource type="ArrayMesh" uid="uid://48qh33iiniw7" path="res://assets/models/head.obj" id="2_mw7wf"]
@@ -143,79 +143,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body/foot:position")
+tracks/0/path = NodePath("Head/Camera3D/hand:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.678, -2.686, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/foot2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.678, -2.686, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera3D/hand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.381594, -0.263052, -0.513103)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 1.5708, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_iscec"]
-resource_name = "walk"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/foot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.678, -2.686, 0), Vector3(0.678, -2.29509, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/foot2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.678, -2.686, 0), Vector3(-0.678, -2.35206, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xf6hg"]
@@ -247,11 +194,32 @@ tracks/1/keys = {
 "values": [Vector3(0, 1.5708, 0), Vector3(6.8666e-09, 1.5708, -0.157743)]
 }
 
+[sub_resource type="Animation" id="Animation_ngv8q"]
+resource_name = "move"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2625, 0.5, 0.7625),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.327267, -0.248418, -0.513103), Vector3(0.381594, -0.263052, -0.513103), Vector3(0.426641, -0.238016, -0.513103)]
+}
+
+[sub_resource type="Animation" id="Animation_p0abt"]
+resource_name = "walk"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jm4uj"]
 _data = {
 "RESET": SubResource("Animation_8jn3s"),
 "idle": SubResource("Animation_xf6hg"),
-"walk": SubResource("Animation_iscec")
+"move": SubResource("Animation_ngv8q"),
+"walk": SubResource("Animation_p0abt")
 }
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
@@ -293,7 +261,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_vvngl")
 
 [node name="foot" type="MeshInstance3D" parent="body"]
-transform = Transform3D(-1.85217e-08, 0, 0.423729, 0, 0.423729, 0, -0.423729, 0, -1.85217e-08, 0.678, -2.686, 0)
+transform = Transform3D(-1.85217e-08, 0, 0.423729, 0, 0.423729, 0, -0.423729, 0, -1.85217e-08, 0.678, -2.63967, 0)
 mesh = ExtResource("11_7gggb")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_le8ik")
