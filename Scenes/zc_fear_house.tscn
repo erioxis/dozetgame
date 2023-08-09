@@ -126,6 +126,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952387, -0.0220327, 0.016
 shape = SubResource("BoxShape3D_n5sbf")
 
 [node name="Flat" type="MeshInstance3D" parent="wall2"]
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
@@ -262,9 +263,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
 
 [node name="glock" parent="." instance=ExtResource("14_e5f2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)
-
-[node name="bochka" parent="." instance=ExtResource("14_e5f2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0574, 5.23886, 0)
 
 [node name="fire" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0863559, -0.996264, 0, 0.996264, -0.0863559, 0, 8.22106, -197.404)

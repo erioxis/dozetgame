@@ -35,7 +35,7 @@ var accel_multiplier = 1.0
 
 var velocity = Vector3()
 
-var tools: Array[Tool]
+var tools: Array[Tool] = []
 var currentTool: Tool
 var currentSlot: int = 1
 
@@ -52,7 +52,6 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-	tools.resize(3)
 	dead = false
 	Utils.world = get_tree().get_root().get_node("World")
 	game_manager = get_tree().get_root().get_node("World").get_node("GameManager")
@@ -163,7 +162,12 @@ func move(delta):
 	if Input.is_action_just_pressed("interact"):
 		rpc("interact")
 	if Input.is_action_just_pressed("slot1"):
+		rpc("change_tool", 0)
+	if Input.is_action_just_pressed("slot2"):
 		rpc("change_tool", 1)
+	if Input.is_action_just_pressed("slot3"):
+		rpc("change_tool", 2)
+		
 	if Input.is_action_pressed("alt"):
 		#sa
 		rotating = true
@@ -214,7 +218,13 @@ func set_ui():
 
 @rpc("any_peer", "call_local")
 func change_tool(s):
-	pass
+	if (tools.size() == s):
+		return
+	if (currentTool):
+		currentTool.pickup()
+	currentSlot = s
+	currentTool = tools[s]
+	currentTool.drop()
 
 @rpc("call_local", "any_peer")
 func throw():
@@ -253,11 +263,11 @@ func damage(d):
 		Utils.world.create_blood(d, global_position)
 
 func pick_up(t: Tool):
-	if currentTool == null:
-		currentTool = t
-		t.global_position = hand.global_position
-		t.global_rotation = hand.global_rotation
-		t.pickup()
+	if (tools.size() >= 3):
+		return
+	t.pickup()
+	tools.push_back(t)
+	print(tools)
 
 @rpc("any_peer")
 func send_input(mi):

@@ -4,6 +4,7 @@ class_name Tool
 
 var pickuped: bool
 @onready var coll = $CollisionShape3D
+@onready var mesh = $Mesh
 
 func _ready():
 	pickuped = false
@@ -19,7 +20,9 @@ func shoot():
 func pickup():
 	coll.disabled = true
 	freeze = true
+	mesh.hide()
 	
 func drop():
 	coll.disabled = false
 	freeze = false
+	mesh.show()
