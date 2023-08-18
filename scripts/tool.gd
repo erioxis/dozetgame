@@ -3,6 +3,7 @@ extends RigidBody3D
 class_name Tool
 
 var pickuped: bool
+var pOwner
 @onready var coll = $CollisionShape3D
 @onready var mesh = $Mesh
 

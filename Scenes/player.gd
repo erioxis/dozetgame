@@ -123,7 +123,7 @@ func _physics_process(delta):
 	
 	move(delta)
 	
-	if Input.is_action_pressed("right_click"):
+	if Input.is_action_just_pressed("right_click"):
 		if (currentTool):
 			currentTool.rpc("use")
 		#rpc("play_shoot_effects")
@@ -268,6 +268,7 @@ func pick_up(t: Tool):
 	if (tools.size() >= 3):
 		return
 	t.pickup()
+	t.pOwner = self
 	tools.push_back(t)
 	print(tools)
 
