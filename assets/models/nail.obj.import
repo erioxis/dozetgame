@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cx5aphv0v1lt"
+path="res://.godot/imported/nail.obj-39653d3b4297c6769f1d1450e4e796d4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/nail.obj-39653d3b4297c6769f1d1450e4e796d4.mesh"]
+
+source_file="res://assets/models/nail.obj"
+dest_files=["res://.godot/imported/nail.obj-39653d3b4297c6769f1d1450e4e796d4.mesh", "res://.godot/imported/nail.obj-39653d3b4297c6769f1d1450e4e796d4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

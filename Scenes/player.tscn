@@ -279,7 +279,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 target_position = Vector3(0, 0, -2)
 
 [node name="hand" type="MeshInstance3D" parent="Head/Camera3D"]
-transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.381594, -0.263052, -0.513103)
+transform = Transform3D(-7.23998e-07, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.23998e-07, 0.381594, -0.263052, -0.513103)
 mesh = ExtResource("3_2keax")
 surface_material_override/0 = SubResource("ShaderMaterial_m8pri")
 

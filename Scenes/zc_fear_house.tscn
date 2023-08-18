@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=24 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dme07410n8fhi" path="res://tools/glock.tscn" id="14_e5f2t"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="14_tlktg"]
 [ext_resource type="PackedScene" uid="uid://bpraqik1ro8k" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
+[ext_resource type="PackedScene" uid="uid://l4n4i7xfipf4" path="res://tools/smg.tscn" id="16_5w2o4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -324,3 +325,6 @@ skeleton = NodePath("../..")
 
 [node name="Prop" parent="." instance=ExtResource("10_vxakc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)
+
+[node name="Smg" parent="." instance=ExtResource("16_5w2o4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60133, 0.477967, 0.676951)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://l4n4i7xfipf4"]
+
+[ext_resource type="PackedScene" uid="uid://0hkcayqkwf1b" path="res://Scenes/Tool.tscn" id="1_ue77m"]
+[ext_resource type="Script" path="res://tools/smg.gd" id="2_8qpqy"]
+[ext_resource type="ArrayMesh" uid="uid://4hfbvsxgoaus" path="res://assets/models/smg.obj" id="3_7gff8"]
+
+[node name="Smg" instance=ExtResource("1_ue77m")]
+script = ExtResource("2_8qpqy")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-1.15835e-08, 0, 0.265, 0, 0.265, 0, -0.265, 0, -1.15835e-08, 0.268269, 0.036889, -0.00530714)
+
+[node name="Mesh" parent="." index="1"]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.289738, -0.0625252, -0.00530714)
+mesh = ExtResource("3_7gff8")
