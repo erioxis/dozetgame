@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://di3c05utxrbmd"]
+[gd_scene load_steps=4 format=3 uid="uid://di3c05utxrbmd"]
 
 [ext_resource type="Script" path="res://scripts/prop.gd" id="1_p707n"]
+[ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="2_n6d28"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4ox0l"]
 properties/0/path = NodePath(".:position")
@@ -23,6 +24,26 @@ properties/4/path = NodePath(".:inertia")
 properties/4/spawn = true
 properties/4/sync = true
 properties/4/watch = false
+properties/5/path = NodePath(".:health")
+properties/5/spawn = true
+properties/5/sync = true
+properties/5/watch = false
+properties/6/path = NodePath(".:durability")
+properties/6/spawn = true
+properties/6/sync = true
+properties/6/watch = false
+properties/7/path = NodePath(".:nails")
+properties/7/spawn = true
+properties/7/sync = true
+properties/7/watch = false
+properties/8/path = NodePath(".:hold")
+properties/8/spawn = true
+properties/8/sync = true
+properties/8/watch = false
+properties/9/path = NodePath(".:caded")
+properties/9/spawn = true
+properties/9/sync = true
+properties/9/watch = false
 
 [node name="Prop" type="RigidBody3D" groups=["prop"]]
 script = ExtResource("1_p707n")
@@ -37,3 +58,16 @@ replication_config = SubResource("SceneReplicationConfig_4ox0l")
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Scenes/nail.tscn")
 spawn_path = NodePath("..")
+
+[node name="Health" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679314, 0)
+billboard = 1
+text = "health"
+font = ExtResource("2_n6d28")
+
+[node name="Durability" type="Label3D" parent="."]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0.512832, 0)
+billboard = 1
+modulate = Color(0.286275, 1, 1, 1)
+text = "durability"
+font = ExtResource("2_n6d28")

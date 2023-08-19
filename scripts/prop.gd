@@ -2,20 +2,27 @@ extends RigidBody3D
 
 class_name Prop
 
-var health: float
-var durability: float
-var nails: int
-var hold: bool = false
-var caded: bool = false
+@export var health: float
+@export var durability: float
+@export var nails: int
+@export var hold: bool = false
+@export var caded: bool = false
+const duraMult: float = 20
 const maxNails: int = 4
 var nailsObjects = []
 var nailScene = preload("res://Scenes/nail.tscn")
+@onready var heal = $Health
+@onready var dura = $Durability
 var joint: Generic6DOFJoint3D
 
 func _ready():
-	health = mass * global_transform.basis.x.length() * global_transform.basis.y.length() * global_transform.basis.z.length() / 10
-	durability = health * 3
+	health = mass * global_transform.basis.x.length() * global_transform.basis.y.length() * global_transform.basis.z.length() * duraMult
+	durability = health * 2.5
 	nails = 0
+	
+func _physics_process(delta):
+	heal.text = "health: "+str(health)
+	dura.text = "durability: "+str(durability)
 
 func cade(pos, rot, tar):
 	if nails >= maxNails:
