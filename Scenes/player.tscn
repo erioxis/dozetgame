@@ -275,6 +275,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
+[node name="worldDetect" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -3)
+collision_mask = 24
+
 [node name="RayCast" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -2)
 

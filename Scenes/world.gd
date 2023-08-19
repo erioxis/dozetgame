@@ -56,7 +56,7 @@ func create_blood(n, pos):
 	add_child(blood)
 	blood.global_position = pos
 	blood.boom(n)
-
+	
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
 	if player:

@@ -22,6 +22,7 @@ shader_parameter/albedo = ExtResource("3_a18au")
 size = Vector3(0.595067, 0.545632, 0.832367)
 
 [node name="Box" instance=ExtResource("1_5m03f")]
+collision_layer = 17
 
 [node name="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0, 0, 0)

@@ -24,6 +24,6 @@ func pickup():
 	mesh.hide()
 	
 func drop():
-	coll.disabled = false
+	coll.disabled = true
 	freeze = false
 	mesh.show()

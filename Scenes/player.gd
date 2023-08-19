@@ -3,7 +3,8 @@ extends RigidBody3D
 class_name Player
 
 @onready var camera = $Head/Camera3D
-@onready var _raycast = $Head/Camera3D/RayCast
+@onready var _raycast:RayCast3D = $Head/Camera3D/RayCast
+@onready var _worldDetect:RayCast3D = $Head/Camera3D/worldDetect
 @onready var _label = $Label3D
 @onready var bodymesh = $body
 @onready var ui = $player_ui
@@ -168,6 +169,11 @@ func move(delta):
 		rpc("change_tool", 1)
 	if Input.is_action_just_pressed("slot3"):
 		rpc("change_tool", 2)
+	if Input.is_action_just_pressed("left_click"):
+		rpc("throw")
+	if Input.is_action_just_pressed("uncade"):
+		if (currentTool is Hammer):
+			currentTool.uncade()
 		
 	if Input.is_action_pressed("alt"):
 		#sa
@@ -206,8 +212,6 @@ func _integrate_forces(state):
 #mouse input
 func _input(event):
 	if not is_multiplayer_authority(): return
-	if event is InputEventMouseButton:
-		rpc("throw")
 	if event is InputEventMouseMotion:
 		mouse_input = event.relative;
 		rpc("send_input", mouse_input)
@@ -249,7 +253,7 @@ func interact():
 	if (!_raycast.get_collider()):
 		return
 	if _raycast.get_collider().is_in_group("prop"):
-		if (!_raycast.get_collider().hold):
+		if (!_raycast.get_collider().hold and !_raycast.get_collider().caded):
 			held_object = _raycast.get_collider()
 			held_object.hold = true
 			last_pos = hold_position.global_position
@@ -270,7 +274,6 @@ func pick_up(t: Tool):
 	t.pickup()
 	t.pOwner = self
 	tools.push_back(t)
-	print(tools)
 
 @rpc("any_peer")
 func send_input(mi):

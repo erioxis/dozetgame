@@ -44,6 +44,7 @@ properties/1/sync = true
 properties/1/watch = false
 
 [node name="bochka" type="RigidBody3D"]
+collision_layer = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_ib73w")
