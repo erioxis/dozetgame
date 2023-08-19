@@ -3,7 +3,7 @@ extends RigidBody3D
 class_name Tool
 
 var pickuped: bool
-var pOwner
+@export var pOwner: Player
 @onready var coll = $CollisionShape3D
 @onready var mesh = $Mesh
 
@@ -11,11 +11,11 @@ func _ready():
 	pickuped = false
 
 @rpc("call_local","any_peer")
-func use():
+func use(user):
 	pass
 
 @rpc("call_local","any_peer")
-func shoot():
+func shoot(shooter):
 	pass
 	
 func pickup():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://babmfm14gpxjg"]
+[gd_scene load_steps=6 format=3 uid="uid://babmfm14gpxjg"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5aphv0v1lt" path="res://assets/models/nail.obj" id="1_102qf"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_k0wbr"]
@@ -17,9 +17,22 @@ shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_gw2k0")
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7ro7d"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
 [node name="Nail" type="Node3D"]
 
 [node name="Nail" type="MeshInstance3D" parent="."]
 transform = Transform3D(-6.1196e-09, 0, 0.14, 0, 0.14, 0, -0.14, 0, -6.1196e-09, 0, 0, 0)
 mesh = ExtResource("1_102qf")
 surface_material_override/0 = SubResource("ShaderMaterial_kfgea")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7ro7d")

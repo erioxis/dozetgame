@@ -24,11 +24,11 @@ func cade(pos, rot, tar):
 		joint = Generic6DOFJoint3D.new()
 		joint.node_a = self.get_path()
 		joint.node_b = tar.get_path()
-		add_child(joint)
+		add_child(joint, true)
 		caded = true
 	nails+=1
 	var nailobj = nailScene.instantiate()
-	add_child(nailobj)
+	add_child(nailobj, true)
 	nailsObjects.push_back(nailobj)
 	nailobj.global_position = pos
 	nailobj.global_rotation = rot

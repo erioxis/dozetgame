@@ -53,7 +53,7 @@ func add_player(peer_id):
 
 func create_blood(n, pos):
 	var blood = bloodexp.instantiate()
-	add_child(blood)
+	add_child(blood, true)
 	blood.global_position = pos
 	blood.boom(n)
 	

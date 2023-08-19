@@ -3,7 +3,7 @@ extends Tool
 #@onready var camera = $Head/Camera3D
 #@onready var nextshoot = 0
 @rpc("call_local","any_peer")
-func shoot():
+func shoot(shootern):
 	#nextshoot += 1
 	#print(nextshoot)
 	#if nextshoot > 5:
