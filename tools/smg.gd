@@ -4,5 +4,5 @@ extends Tool
 func shoot(shooter):
 	nextshoot += 1
 	if nextshoot > 5:
-		pass
+		print(Utils.dropDice(10))
 	pass
