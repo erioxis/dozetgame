@@ -47,6 +47,7 @@ func cade(pos, rot, tar):
 		nailobj.global_rotation = rot
 	
 func uncade():
+	print(nailsObjects)
 	if (nails==1):
 		caded = false
 		joint.queue_free()
@@ -54,13 +55,15 @@ func uncade():
 		for n in nailsObjects:
 			if (is_instance_valid(n)):
 				n.queue_free()
-		nailsObjects.clear()
+				nailsObjects.clear()
+		return
 	else:
 		nails-=1
 		var nobj = nailsObjects.pick_random()
 		if (is_instance_valid(nobj)):
 			nobj.queue_free()
 			nailsObjects.erase(nobj)
+		return
 		
 @rpc("call_local")
 func send_nail(n):
