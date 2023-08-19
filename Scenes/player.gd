@@ -127,18 +127,16 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("right_click"):
 		if (currentTool):
 			currentTool.rpc("use")
-		#rpc("play_shoot_effects")
+			rpc("play_use_effects")
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
 			currentTool.rpc("shoot")
 	
-	#if anim_player.current_animation == "shoot":
-	#	pass
-	if move_input != Vector2.ZERO and feet.is_colliding():
-		#anim_player.play("walk")
-		anim_player.play("move")
-	else:
-		anim_player.play("idle")
+	if !anim_player.current_animation == "use":
+		if move_input != Vector2.ZERO and feet.is_colliding():
+			anim_player.play("move")
+		else:
+			anim_player.play("idle")
 		
 	if (health<=0 and dead==false):
 		rpc("kill")
@@ -286,7 +284,7 @@ func kill():
 	ui.dead()
 	
 @rpc("call_local")
-func play_shoot_effects():
-	#anim_player.stop()
-	#anim_player.play("shoot")
+func play_use_effects():
+	anim_player.stop()
+	anim_player.play("use")
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://o8xkgf8k8qiv"]
+[gd_scene load_steps=27 format=3 uid="uid://o8xkgf8k8qiv"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_e0slr"]
 [ext_resource type="ArrayMesh" uid="uid://48qh33iiniw7" path="res://assets/models/head.obj" id="2_mw7wf"]
@@ -214,11 +214,40 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_p0abt"]
 resource_name = "walk"
 
+[sub_resource type="Animation" id="Animation_si1rv"]
+resource_name = "use"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.381594, -0.291979, -0.566921), Vector3(0.381594, -0.263052, -0.513103)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(5.79704e-07, 1.5708, -0.160832), Vector3(0, 1.5708, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jm4uj"]
 _data = {
 "RESET": SubResource("Animation_8jn3s"),
 "idle": SubResource("Animation_xf6hg"),
 "move": SubResource("Animation_ngv8q"),
+"use": SubResource("Animation_si1rv"),
 "walk": SubResource("Animation_p0abt")
 }
 
