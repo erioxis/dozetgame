@@ -7,8 +7,12 @@ class_name Prop
 @export var nails: int
 @export var hold: bool = false
 @export var caded: bool = false
-const duraMult: float = 20
+const duraMult: float = 50
 const maxNails: int = 4
+const minHealth: float = 200
+const maxHealth: int = 4600
+const massFactor: int = 0.85 * 3
+const volumeFactor: int = 0.85 * 4
 var nailsObjects = []
 var nailScene = preload("res://Scenes/nail.tscn")
 @onready var heal = $Health
@@ -16,7 +20,7 @@ var nailScene = preload("res://Scenes/nail.tscn")
 var joint: Generic6DOFJoint3D
 
 func _ready():
-	health = mass * global_transform.basis.x.length() * global_transform.basis.y.length() * global_transform.basis.z.length() * duraMult
+	health = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
 	durability = health * 2.5
 	nails = 0
 	
