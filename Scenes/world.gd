@@ -71,6 +71,9 @@ func kill_player(peer_id):
 		player.hide()
 		player.sleeping = true
 	print("Player "+str(peer_id)+" died")
+	
+func get_player_by_id(id: int):
+	return get_node_or_null(str(id))
 
 func upnp_setup():
 	var upnp = UPNP.new()

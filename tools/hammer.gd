@@ -6,7 +6,9 @@ var used: bool = false
 var lused: bool = false
 
 @rpc("call_local","any_peer")
-func use(user):
+func use(uid):
+	print(uid)
+	var user = Utils.world.get_player_by_id(int(str(uid)))
 	var prop
 	var world
 	var first: bool = true

@@ -27,11 +27,13 @@ func cade(pos, rot, tar):
 		add_child(joint, true)
 		caded = true
 	nails+=1
-	var nailobj = nailScene.instantiate()
-	add_child(nailobj, true)
-	nailsObjects.push_back(nailobj)
-	nailobj.global_position = pos
-	nailobj.global_rotation = rot
+	if (multiplayer.is_server()):
+		var nailobj = nailScene.instantiate()
+		add_child(nailobj, true)
+		nailsObjects.push_back(nailobj)
+		rpc("send_nail", nailobj)
+		nailobj.global_position = pos
+		nailobj.global_rotation = rot
 	
 func uncade():
 	if (nails==1):
@@ -46,3 +48,8 @@ func uncade():
 		var nobj = nailsObjects.pick_random()
 		nobj.queue_free()
 		nailsObjects.erase(nobj)
+		
+@rpc("call_local")
+func send_nail(n):
+	nailsObjects.push_back(n)
+		

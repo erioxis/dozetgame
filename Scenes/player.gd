@@ -79,6 +79,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 	camera.current = true
 
+
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 		
@@ -126,11 +127,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("right_click"):
 		if (currentTool):
-			currentTool.rpc("use", self)
+			currentTool.rpc("use", name)
 			rpc("play_use_effects")
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
-			currentTool.rpc("shoot", self)
+			currentTool.rpc("shoot", name)
 	
 	if !anim_player.current_animation == "use":
 		if move_input != Vector2.ZERO and feet.is_colliding():
