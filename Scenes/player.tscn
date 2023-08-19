@@ -211,9 +211,6 @@ tracks/0/keys = {
 "values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.327267, -0.248418, -0.513103), Vector3(0.381594, -0.263052, -0.513103), Vector3(0.426641, -0.238016, -0.513103)]
 }
 
-[sub_resource type="Animation" id="Animation_p0abt"]
-resource_name = "walk"
-
 [sub_resource type="Animation" id="Animation_si1rv"]
 resource_name = "use"
 length = 0.4
@@ -241,6 +238,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(5.79704e-07, 1.5708, -0.160832), Vector3(0, 1.5708, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_p0abt"]
+resource_name = "walk"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jm4uj"]
 _data = {

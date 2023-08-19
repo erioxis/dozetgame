@@ -37,6 +37,6 @@ func use(uid):
 func uncade():
 	if (!pOwner._worldDetect.get_collider()) : return
 	if pOwner._worldDetect.get_collider().is_in_group("prop"):
-		if (pOwner._raycast.get_collider().caded):
+		if (pOwner._worldDetect.get_collider().caded):
 			var prop = pOwner._raycast.get_collider() as Prop
 			prop.uncade()

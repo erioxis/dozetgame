@@ -48,13 +48,15 @@ func uncade():
 		joint.queue_free()
 		nails = 0
 		for n in nailsObjects:
-			n.queue_free()
-			nailsObjects.clear()
+			if (is_instance_valid(n)):
+				n.queue_free()
+		nailsObjects.clear()
 	else:
 		nails-=1
 		var nobj = nailsObjects.pick_random()
-		nobj.queue_free()
-		nailsObjects.erase(nobj)
+		if (is_instance_valid(nobj)):
+			nobj.queue_free()
+			nailsObjects.erase(nobj)
 		
 @rpc("call_local")
 func send_nail(n):
