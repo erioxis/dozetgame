@@ -7,6 +7,7 @@ class_name Prop
 @export var nails: int
 @export var hold: bool = false
 @export var caded: bool = false
+@export var uiHeight: float = 0.6
 const duraMult: float = 50
 const maxNails: int = 4
 const minHealth: float = 200
@@ -33,6 +34,9 @@ func _physics_process(delta):
 		ui.visible = true
 	else:
 		ui.visible = false
+	ui.global_position = global_position
+	ui.global_rotation = Vector3.ZERO
+	ui.global_position.y+=uiHeight
 
 @rpc("call_local", "any_peer")
 func cade(pos, rot, tar):
