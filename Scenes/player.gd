@@ -12,6 +12,7 @@ class_name Player
 @onready var head = $Head
 @onready var headmesh = $Head/Camera3D/head
 @onready var anim_player = $AnimationPlayer
+@onready var boots_player = $AnimationBoots
 @onready var body = $bodycol
 @onready var feet = $feet
 @onready var hold_position = $Head/Camera3D/hold
@@ -20,6 +21,8 @@ class_name Player
 @export var shift: bool = false
 var is_on_floor = false
 var move_input
+
+@export var isWalking: bool
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
@@ -86,9 +89,9 @@ func _unhandled_input(event):
 	pass
 
 func _process(delta):
-	if (currentTool):
-		currentTool.global_position = hand.global_position
-		currentTool.global_rotation = hand.global_rotation
+	for tl in tools:
+		tl.global_position = hand.global_position
+		tl.global_rotation = hand.global_rotation
 
 func _physics_process(delta):
 	if (held_object):
@@ -134,9 +137,16 @@ func _physics_process(delta):
 	
 	if !anim_player.current_animation == "use":
 		if move_input != Vector2.ZERO and feet.is_colliding():
+			isWalking = true
 			anim_player.play("move")
 		else:
+			isWalking = false
 			anim_player.play("idle")
+			
+	if isWalking:
+		boots_player.play("walk")
+	else:
+		boots_player.play("RESET")
 		
 	if (health<=0 and dead==false):
 		rpc("kill")
@@ -304,7 +314,7 @@ func dropTool(t: NodePath):
 	if (!pOwner): return
 	if (pOwner.currentTool == tl):
 		pOwner.currentTool = null
-	tl.global_position = pOwner.global_position
+	tl.global_position = pOwner.hand.global_position
 	tl.resetOwner()
 	tl.hold()
 	tl.drop()
