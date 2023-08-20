@@ -16,7 +16,6 @@ const volumeFactor: int = 0.85 * 4
 var nailScene = preload("res://Scenes/nail.tscn")
 @onready var heal = $Health
 @onready var dura = $Durability
-var joint: Generic6DOFJoint3D
 @onready var nailsnode = $nails
 
 func _ready():
@@ -31,23 +30,18 @@ func _physics_process(delta):
 func cade(pos, rot, tar):
 	if nails >= maxNails:
 		return
-	if (!caded):
-		joint = Generic6DOFJoint3D.new()
-		joint.node_a = self.get_path()
-		joint.node_b = tar.get_path()
-		add_child(joint, true)
-		caded = true
 	if (multiplayer.is_server()):
-		var nailobj = nailScene.instantiate()
+		var nailobj: Nail = nailScene.instantiate()
 		nailsnode.add_child(nailobj, true)
 		nailobj.global_position = pos
 		nailobj.global_rotation = rot
+		nailobj.attach(self.get_path(), tar.get_path())
+	caded = true
 	nails+=1
 	
 func uncade():
 	if (nails==1):
 		caded = false
-		joint.queue_free()
 		nails = 0
 		var nchild = nailsnode.get_children()
 		for n in nchild:
