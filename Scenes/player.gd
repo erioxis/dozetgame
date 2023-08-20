@@ -261,6 +261,7 @@ func interact():
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
+		print("a")
 		pick_up(t)
 
 @rpc("any_peer")
@@ -284,8 +285,8 @@ func send_input(mi):
 func kill():
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
-	currentTool.pOwner = null
-	currentTool = null
+	for t in tools:
+		dropTool(t)
 	ui.dead()
 
 @rpc("any_peer", "call_local")
@@ -294,6 +295,8 @@ func dropTool(t: Tool):
 	if (t.pOwner.currentTool == t):
 		t.pOwner.currentTool = null
 	t.pOwner = null
+	tools.erase(t)
+	t.drop()
 	
 @rpc("call_local")
 func play_use_effects():
