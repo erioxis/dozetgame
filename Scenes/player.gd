@@ -170,9 +170,11 @@ func move(delta):
 		rpc("change_tool", 2)
 	if Input.is_action_just_pressed("left_click"):
 		rpc("throw")
+	if Input.is_action_just_pressed("kill"):
+		rpc("kill")
 	if Input.is_action_just_pressed("uncade"):
 		if (currentTool is Hammer):
-			currentTool.uncade()
+			currentTool.uncade(int(self.name))
 		
 	if Input.is_action_pressed("alt"):
 		#sa
@@ -274,7 +276,7 @@ func pick_up(t: Tool):
 	if (tools.size() >= 3):
 		return
 	t.unhold()
-	t.pOwner = self
+	t.setOwner(int(str(self.name)))
 	tools.push_back(t)
 
 @rpc("any_peer")
@@ -286,17 +288,18 @@ func kill():
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
 	for t in tools:
-		print(t)
 		rpc("dropTool", t.get_path())
 	ui.dead()
 
 @rpc("any_peer", "call_local")
 func dropTool(t: NodePath):
-	var tl = get_node(t)
 	if (!t): return
-	if (tl.pOwner.currentTool == tl):
-		tl.pOwner.currentTool = null
-	tl.pOwner = null
+	var tl = get_node(t)
+	if (!tl): return
+	var pOwner = Utils.world.get_player_by_id(tl.pOwnerId)
+	if (pOwner.currentTool == tl):
+		pOwner.currentTool = null
+	tl.resetOwner()
 	tools.erase(tl)
 	tl.drop()
 	

@@ -3,7 +3,7 @@ extends RigidBody3D
 class_name Tool
 
 var pickuped: bool
-@export var pOwner: Player
+@export var pOwnerId: int
 @onready var coll = $CollisionShape3D
 @onready var mesh = $Mesh
 
@@ -35,3 +35,9 @@ func drop():
 	freeze = false
 	mesh.show()
 	freeze = false
+
+func setOwner(pId: int):
+	pOwnerId = pId
+	
+func resetOwner():
+	pOwnerId = 0
