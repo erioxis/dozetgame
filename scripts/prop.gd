@@ -19,6 +19,7 @@ var nailScene = preload("res://Scenes/nail.tscn")
 @onready var dura = $ui/Durability
 @onready var nailsnode = $nails
 @onready var nailslabel = $ui/Nails
+@onready var uncadeSound = $UncadeSound
 @onready var ui = $ui
 
 func _ready():
@@ -61,6 +62,7 @@ func uncade():
 			for n in nchild:
 				if (is_instance_valid(n)):
 					n.queue_free()
+					uncadeSound.play()
 		return
 	else:
 		nails-=1
@@ -68,5 +70,6 @@ func uncade():
 		if (multiplayer.is_server()):
 			if (is_instance_valid(nobj)):
 				nobj.queue_free()
+				uncadeSound.play()
 		return
 		

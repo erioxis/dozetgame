@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://o8xkgf8k8qiv"]
+[gd_scene load_steps=31 format=3 uid="uid://o8xkgf8k8qiv"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_e0slr"]
 [ext_resource type="ArrayMesh" uid="uid://48qh33iiniw7" path="res://assets/models/head.obj" id="2_mw7wf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b3y431k7l5qt7" path="res://assets/models/tcloth.jpg" id="8_e7ol0"]
 [ext_resource type="ArrayMesh" uid="uid://cdj6xi676jpl7" path="res://assets/models/boot.obj" id="11_7gggb"]
 [ext_resource type="Texture2D" uid="uid://dh4hpryuudumo" path="res://assets/models/boot.jpg" id="12_v6rtr"]
+[ext_resource type="AudioStream" uid="uid://cleyy3squrq16" path="res://assets/sound/step.wav" id="13_ftpqy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r4hfm"]
 friction = 0.0
@@ -412,3 +413,6 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_1rlte")
 }
+
+[node name="step" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_ftpqy")

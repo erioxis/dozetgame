@@ -16,6 +16,7 @@ class_name Player
 @onready var body = $bodycol
 @onready var feet = $feet
 @onready var hold_position = $Head/Camera3D/hold
+@onready var stepSound = $step
 @export var view_sensitivity = 10.0
 
 @export var shift: bool = false
@@ -145,6 +146,8 @@ func _physics_process(delta):
 			
 	if isWalking:
 		boots_player.play("walk")
+		if (!stepSound.playing):
+			stepSound.play()
 	else:
 		boots_player.play("RESET")
 		
