@@ -297,9 +297,12 @@ func dropTool(t: NodePath):
 	var tl = get_node(t)
 	if (!tl): return
 	var pOwner = Utils.world.get_player_by_id(tl.pOwnerId)
+	if (!pOwner): return
 	if (pOwner.currentTool == tl):
 		pOwner.currentTool = null
+	tl.global_position = pOwner.global_position
 	tl.resetOwner()
+	tl.hold()
 	tools.erase(tl)
 	tl.drop()
 	
