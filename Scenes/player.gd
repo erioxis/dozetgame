@@ -226,10 +226,10 @@ func change_tool(s):
 	if (s>=tools.size()):
 		return
 	if (currentTool):
-		currentTool.pickup()
+		currentTool.unhold()
 	currentSlot = s
 	currentTool = tools[s]
-	currentTool.drop()
+	currentTool.hold()
 
 @rpc("call_local", "any_peer")
 func throw():
@@ -270,7 +270,7 @@ func damage(d):
 func pick_up(t: Tool):
 	if (tools.size() >= 3):
 		return
-	t.pickup()
+	t.unhold()
 	t.pOwner = self
 	tools.push_back(t)
 

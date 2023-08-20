@@ -18,12 +18,12 @@ func use(user):
 func shoot(shooter):
 	pass
 	
-func pickup():
+func unhold():
 	coll.disabled = true
 	freeze = true
 	mesh.hide()
 	
-func drop():
+func hold():
 	coll.disabled = true
 	freeze = false
 	mesh.show()
