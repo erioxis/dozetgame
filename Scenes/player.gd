@@ -36,7 +36,7 @@ var accel_multiplier = 1.0
 
 var velocity = Vector3()
 
-var tools: Array[Tool] = []
+@export var tools: Array[Tool] = []
 var currentTool: Tool
 var currentSlot: int = 1
 
@@ -186,7 +186,8 @@ func move(delta):
 	else:
 		shift = false
 	if Input.is_action_just_pressed("drop"):
-		rpc("dropTool", currentTool)
+		if currentTool:
+			rpc("dropTool", currentTool.get_path())
 	#view and rotation
 	if (!rotating or !held_object):
 		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
@@ -261,7 +262,6 @@ func interact():
 	elif _raycast.get_collider() is Tool:
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
-		print("a")
 		pick_up(t)
 
 @rpc("any_peer")
@@ -286,17 +286,19 @@ func kill():
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
 	for t in tools:
-		dropTool(t)
+		print(t)
+		rpc("dropTool", t.get_path())
 	ui.dead()
 
 @rpc("any_peer", "call_local")
-func dropTool(t: Tool):
+func dropTool(t: NodePath):
+	var tl = get_node(t)
 	if (!t): return
-	if (t.pOwner.currentTool == t):
-		t.pOwner.currentTool = null
-	t.pOwner = null
-	tools.erase(t)
-	t.drop()
+	if (tl.pOwner.currentTool == tl):
+		tl.pOwner.currentTool = null
+	tl.pOwner = null
+	tools.erase(tl)
+	tl.drop()
 	
 @rpc("call_local")
 func play_use_effects():
