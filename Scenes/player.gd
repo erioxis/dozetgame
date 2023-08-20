@@ -183,7 +183,7 @@ func move(delta):
 		rpc("kill")
 	if Input.is_action_just_pressed("uncade"):
 		if (currentTool is Hammer):
-			currentTool.uncade(int(str(self.name)))
+			currentTool.rpc("uncade",int(str(self.name)))
 		
 	if Input.is_action_pressed("alt"):
 		#sa

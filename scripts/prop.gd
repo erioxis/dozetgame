@@ -17,6 +17,7 @@ var nailScene = preload("res://Scenes/nail.tscn")
 @onready var heal = $Health
 @onready var dura = $Durability
 @onready var nailsnode = $nails
+@onready var nailslabel = $Nails
 
 func _ready():
 	health = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
@@ -26,7 +27,9 @@ func _ready():
 func _physics_process(delta):
 	heal.text = "health: "+str(health)
 	dura.text = "durability: "+str(durability)
+	nailslabel.text = "nails: "+str(nails)+"/"+str(maxNails)
 
+@rpc("call_local", "any_peer")
 func cade(pos, rot, tar):
 	if nails >= maxNails:
 		return
@@ -38,20 +41,23 @@ func cade(pos, rot, tar):
 		nailobj.attach(self.get_path(), tar.get_path())
 	caded = true
 	nails+=1
-	
+
+@rpc("call_local", "any_peer")
 func uncade():
 	if (nails==1):
 		caded = false
 		nails = 0
 		var nchild = nailsnode.get_children()
-		for n in nchild:
-			if (is_instance_valid(n)):
-				n.queue_free()
+		if (multiplayer.is_server()):
+			for n in nchild:
+				if (is_instance_valid(n)):
+					n.queue_free()
 		return
 	else:
 		nails-=1
 		var nobj = nailsnode.get_child(0)
-		if (is_instance_valid(nobj)):
-			nobj.queue_free()
+		if (multiplayer.is_server()):
+			if (is_instance_valid(nobj)):
+				nobj.queue_free()
 		return
 		

@@ -74,4 +74,12 @@ modulate = Color(0.286275, 1, 1, 1)
 text = "durability"
 font = ExtResource("2_n6d28")
 
+[node name="Nails" type="Label3D" parent="."]
+transform = Transform3D(0.3136, 0, 0, 0, 0.3136, 0, 0, 0, 0.3136, 0, 0.400283, 0)
+billboard = 1
+texture_filter = 0
+modulate = Color(0.72549, 0.976471, 0.462745, 1)
+text = "durability"
+font = ExtResource("2_n6d28")
+
 [node name="nails" type="Node3D" parent="."]

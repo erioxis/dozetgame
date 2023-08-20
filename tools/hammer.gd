@@ -34,6 +34,7 @@ func use(uid):
 				user.rpc("throw")
 	user._worldDetect.clear_exceptions()
 	
+@rpc("call_local","any_peer")
 func uncade(uid):
 	var pOwner = Utils.world.get_player_by_id(uid)
 	if (!pOwner._worldDetect.get_collider()) : return
