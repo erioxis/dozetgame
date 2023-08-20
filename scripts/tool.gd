@@ -27,3 +27,8 @@ func hold():
 	coll.disabled = true
 	freeze = false
 	mesh.show()
+
+func drop():
+	coll.disabled = false
+	freeze = false
+	mesh.show()

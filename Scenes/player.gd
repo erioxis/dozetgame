@@ -185,6 +185,8 @@ func move(delta):
 		shift = true
 	else:
 		shift = false
+	if Input.is_action_just_pressed("drop"):
+		rpc("dropTool", currentTool)
 	#view and rotation
 	if (!rotating or !held_object):
 		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
@@ -285,11 +287,13 @@ func kill():
 	currentTool.pOwner = null
 	currentTool = null
 	ui.dead()
-	
+
+@rpc("any_peer", "call_local")
 func dropTool(t: Tool):
-	t.pOwner = null
+	if (!t): return
 	if (t.pOwner.currentTool == t):
 		t.pOwner.currentTool = null
+	t.pOwner = null
 	
 @rpc("call_local")
 func play_use_effects():
