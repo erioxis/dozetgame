@@ -282,6 +282,7 @@ func send_input(mi):
 func kill():
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
+	currentTool = null
 	ui.dead()
 	
 @rpc("call_local")
