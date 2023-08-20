@@ -44,10 +44,6 @@ properties/9/path = NodePath(".:caded")
 properties/9/spawn = true
 properties/9/sync = true
 properties/9/watch = false
-properties/10/path = NodePath(".:nailsObjects")
-properties/10/spawn = true
-properties/10/sync = true
-properties/10/watch = false
 
 [node name="Prop" type="RigidBody3D" groups=["prop"]]
 script = ExtResource("1_p707n")
@@ -61,17 +57,21 @@ replication_config = SubResource("SceneReplicationConfig_4ox0l")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Scenes/nail.tscn")
-spawn_path = NodePath("..")
+spawn_path = NodePath("../nails")
 
 [node name="Health" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679314, 0)
 billboard = 1
+texture_filter = 0
 text = "health"
 font = ExtResource("2_n6d28")
 
 [node name="Durability" type="Label3D" parent="."]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0.512832, 0)
 billboard = 1
+texture_filter = 0
 modulate = Color(0.286275, 1, 1, 1)
 text = "durability"
 font = ExtResource("2_n6d28")
+
+[node name="nails" type="Node3D" parent="."]

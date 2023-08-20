@@ -7,11 +7,11 @@ var lused: bool = false
 
 @rpc("call_local","any_peer")
 func use(uid):
-	print(uid)
 	var user = Utils.world.get_player_by_id(int(str(uid)))
 	var prop
 	var world
 	var first: bool = true
+	var point
 	var objects_collide = []
 	while user._worldDetect.is_colliding():
 		var obj = user._worldDetect.get_collider()
@@ -22,15 +22,17 @@ func use(uid):
 		if (first):
 			prop = obj
 			first = false
+			point = user._worldDetect.get_collision_point()
 			user._worldDetect.remove_exception( obj )	
 		else:
 			world = obj
 			user._worldDetect.remove_exception( obj )	
 			break	
+	print("")
 	if (prop and world):
 		if prop.is_in_group("prop"):
 			if ((world is StaticBody3D) or (world is Prop)) and (prop is Prop):
-				prop.cade(user._raycast.get_collision_point(), user._raycast.global_rotation, world)
+				prop.cade(point, user._worldDetect.global_rotation, world)
 				user.rpc("throw")
 	user._worldDetect.clear_exceptions()
 	
