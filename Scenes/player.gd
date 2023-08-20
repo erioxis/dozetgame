@@ -200,7 +200,6 @@ func move(delta):
 		if currentTool:
 			var toolToDrop = currentTool.get_path()
 			rpc("dropTool", toolToDrop)
-			rpc("eraseTool", toolToDrop)
 	#view and rotation
 	if (!rotating or !held_object):
 		camera.rotation_degrees.x -= mouse_input.y * view_sensitivity * delta;
@@ -298,11 +297,8 @@ func send_input(mi):
 func kill():
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
-	var toolsToDrop = tools
-	for t in toolsToDrop:
-		rpc("dropTool", t.get_path())
-	for t in toolsToDrop:
-		rpc("eraseTool", t.get_path())
+	rpc("dropAllTools")
+	tools.clear()
 	ui.dead()
 
 @rpc("any_peer", "call_local")
@@ -318,12 +314,17 @@ func dropTool(t: NodePath):
 	tl.resetOwner()
 	tl.hold()
 	tl.drop()
+	tools.erase(tl)
 	
 @rpc("any_peer", "call_local")
-func eraseTool(t: NodePath):
-	if (!t): return
-	var tl = get_node(t)
-	tools.erase(tl)
+func dropAllTools():
+	for tl in tools:
+		tl.global_position = hand.global_position
+		tl.resetOwner()
+		tl.hold()
+		tl.drop()
+	tools.clear()
+	
 	
 @rpc("call_local")
 func play_use_effects():
