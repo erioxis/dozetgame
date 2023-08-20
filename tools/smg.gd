@@ -5,4 +5,4 @@ func shoot(shooter):
 	nextshoot += 1
 	if nextshoot > 5:
 		print(Utils.dropDice(10))
-	pass
+		nextshoot = 0
