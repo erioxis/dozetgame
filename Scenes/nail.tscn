@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://babmfm14gpxjg"]
+[gd_scene load_steps=8 format=3 uid="uid://babmfm14gpxjg"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5aphv0v1lt" path="res://assets/models/nail.obj" id="1_102qf"]
 [ext_resource type="Script" path="res://scripts/nail.gd" id="1_gjwbf"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_k0wbr"]
 [ext_resource type="Texture2D" uid="uid://4xmmy4ep1k1l" path="res://assets/models/metal.jpg" id="3_gw2k0"]
+[ext_resource type="AudioStream" uid="uid://c4jkfu66meup2" path="res://assets/sound/bing1.wav" id="5_udfun"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kfgea"]
 render_priority = 0
@@ -40,3 +41,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_kfgea")
 replication_config = SubResource("SceneReplicationConfig_7ro7d")
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_udfun")
+volume_db = -20.0
