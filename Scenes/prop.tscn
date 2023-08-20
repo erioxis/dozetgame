@@ -59,14 +59,18 @@ replication_config = SubResource("SceneReplicationConfig_4ox0l")
 _spawnable_scenes = PackedStringArray("res://Scenes/nail.tscn")
 spawn_path = NodePath("../nails")
 
-[node name="Health" type="Label3D" parent="."]
+[node name="nails" type="Node3D" parent="."]
+
+[node name="ui" type="Node3D" parent="."]
+
+[node name="Health" type="Label3D" parent="ui"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679314, 0)
 billboard = 1
 texture_filter = 0
 text = "health"
 font = ExtResource("2_n6d28")
 
-[node name="Durability" type="Label3D" parent="."]
+[node name="Durability" type="Label3D" parent="ui"]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0.512832, 0)
 billboard = 1
 texture_filter = 0
@@ -74,12 +78,10 @@ modulate = Color(0.286275, 1, 1, 1)
 text = "durability"
 font = ExtResource("2_n6d28")
 
-[node name="Nails" type="Label3D" parent="."]
+[node name="Nails" type="Label3D" parent="ui"]
 transform = Transform3D(0.3136, 0, 0, 0, 0.3136, 0, 0, 0, 0.3136, 0, 0.400283, 0)
 billboard = 1
 texture_filter = 0
 modulate = Color(0.72549, 0.976471, 0.462745, 1)
 text = "durability"
 font = ExtResource("2_n6d28")
-
-[node name="nails" type="Node3D" parent="."]

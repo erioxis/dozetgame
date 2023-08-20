@@ -14,10 +14,11 @@ const maxHealth: int = 4600
 const massFactor: int = 0.85 * 3
 const volumeFactor: int = 0.85 * 4
 var nailScene = preload("res://Scenes/nail.tscn")
-@onready var heal = $Health
-@onready var dura = $Durability
+@onready var heal = $ui/Health
+@onready var dura = $ui/Durability
 @onready var nailsnode = $nails
-@onready var nailslabel = $Nails
+@onready var nailslabel = $ui/Nails
+@onready var ui = $ui
 
 func _ready():
 	health = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
@@ -28,6 +29,10 @@ func _physics_process(delta):
 	heal.text = "health: "+str(health)
 	dura.text = "durability: "+str(durability)
 	nailslabel.text = "nails: "+str(nails)+"/"+str(maxNails)
+	if(caded):
+		ui.visible = true
+	else:
+		ui.visible = false
 
 @rpc("call_local", "any_peer")
 func cade(pos, rot, tar):
