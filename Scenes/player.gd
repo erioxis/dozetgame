@@ -282,8 +282,14 @@ func send_input(mi):
 func kill():
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
+	currentTool.pOwner = null
 	currentTool = null
 	ui.dead()
+	
+func dropTool(t: Tool):
+	t.pOwner = null
+	if (t.pOwner.currentTool == t):
+		t.pOwner.currentTool = null
 	
 @rpc("call_local")
 func play_use_effects():
