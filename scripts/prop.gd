@@ -26,7 +26,7 @@ func _ready():
 	health = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
 	durability = health * 2.5
 	nails = 0
-	
+
 func _physics_process(delta):
 	heal.text = "health: "+str(health)
 	dura.text = "durability: "+str(durability)

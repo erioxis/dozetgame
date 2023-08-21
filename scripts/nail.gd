@@ -8,6 +8,7 @@ class_name Nail
 func attach(obj1, obj2):
 	joint.node_a = obj1
 	joint.node_b = obj2
+	
 
 func _ready():
 	sound.play()
