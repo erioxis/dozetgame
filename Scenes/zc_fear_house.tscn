@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
-[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/props/someone.tscn" id="9_fvj40"]
+[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
 [ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
@@ -93,21 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
 [node name="Sigil3" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7382, 4.89272, -2.53189)
 
-[node name="box4" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31522, 9.28797, -1.83168)
-
-[node name="box3" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13326, 8.18188, -1.05276)
-
-[node name="box2" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.862, 5.38249, 0.112446)
-
-[node name="box" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)
-
-[node name="box5" parent="." instance=ExtResource("7_4tei5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2314, 3.56467, -1.77282)
-
 [node name="wall1" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.497156, 0.867661, 0, -0.867661, -0.497156, 0, 0, 0, 5.18658, -15.5267, 24.4387, 0)
 collision_layer = 9
@@ -164,9 +149,6 @@ material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
-[node name="someone" parent="." instance=ExtResource("9_fvj40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110016, 8.61742, -160.314)
-
 [node name="floor5" type="StaticBody3D" parent="."]
 transform = Transform3D(1.45046, 0, 0, 0, -0.0457291, -1.93038, 0, 0.998954, -0.0883669, 0, 45.6817, -150.099)
 collision_layer = 9
@@ -219,9 +201,6 @@ shape = SubResource("BoxShape3D_n5sbf")
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
-
-[node name="amyth" parent="." instance=ExtResource("9_v2eck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79424, -12.922)
 
 [node name="floor10" type="StaticBody3D" parent="."]
 transform = Transform3D(-2.51386e-08, 0.575105, 0.818079, -3.57594e-08, 0.818079, -0.575105, -1, -4.37114e-08, 1.91069e-15, 0.673639, 23.6766, -68.6662)
@@ -291,12 +270,6 @@ skeleton = NodePath("../..")
 [node name="Death2" parent="." instance=ExtResource("5_qniop")]
 transform = Transform3D(1.46059, 0, 0, 0, 69.3564, 0, 0, 0, 0.219749, 0, 130.548, -195.262)
 
-[node name="bochka2" parent="." instance=ExtResource("15_xqmop")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23236, -176.014)
-
-[node name="glock2" parent="." instance=ExtResource("14_e5f2t")]
-transform = Transform3D(0.880075, -0.411077, 0.237665, -0.211116, 0.10958, 0.971299, -0.425322, -0.904991, 0.00965331, -23.7397, 26.4496, -55.4763)
-
 [node name="floor11" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 113.784)
 collision_layer = 9
@@ -337,8 +310,37 @@ material_override = SubResource("ShaderMaterial_xf0ay")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
-[node name="Prop" parent="." instance=ExtResource("10_vxakc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)
-
 [node name="Smg" parent="." instance=ExtResource("16_5w2o4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60133, 0.477967, 0.676951)
+
+[node name="props" type="Node3D" parent="."]
+
+[node name="box4" parent="props" instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31522, 9.28797, -1.83168)
+
+[node name="box3" parent="props" instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13326, 8.18188, -1.05276)
+
+[node name="box2" parent="props" instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.862, 5.38249, 0.112446)
+
+[node name="box" parent="props" instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)
+
+[node name="box5" parent="props" instance=ExtResource("7_4tei5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2314, 3.56467, -1.77282)
+
+[node name="someone" parent="props" instance=ExtResource("9_fvj40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110016, 8.61742, -160.314)
+
+[node name="amyth" parent="props" instance=ExtResource("9_v2eck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79424, -12.922)
+
+[node name="bochka2" parent="props" instance=ExtResource("15_xqmop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23236, -176.014)
+
+[node name="glock2" parent="props" instance=ExtResource("14_e5f2t")]
+transform = Transform3D(0.880075, -0.411077, 0.237665, -0.211116, 0.10958, 0.971299, -0.425322, -0.904991, 0.00965331, -23.7397, 26.4496, -55.4763)
+
+[node name="Prop" parent="props" instance=ExtResource("10_vxakc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)

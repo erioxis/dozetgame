@@ -4,6 +4,7 @@ extends Node
 @onready var address_enter = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEnter
 @onready var name_enter = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/NameEnter
 @onready var game_manager = $GameManager
+@onready var level = $Level
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
@@ -74,6 +75,7 @@ func kill_player(peer_id):
 	
 func get_player_by_id(id: int):
 	return get_node_or_null(str(id))
+	
 
 func upnp_setup():
 	var upnp = UPNP.new()

@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bfvwyoi7c0vh0" path="res://assets/models/flat.obj" id="4_a80cx"]
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_87wyk"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="7_hbkm3"]
-[ext_resource type="PackedScene" uid="uid://12y8bvv7s6k0" path="res://Scenes/box.tscn" id="7_v7gqm"]
+[ext_resource type="PackedScene" uid="uid://cncp6agnoowi7" path="res://Scenes/box.tscn" id="7_v7gqm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
