@@ -18,7 +18,7 @@ shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pcinf"]
 
-[node name="Prop" instance=ExtResource("1_vkmpw")]
+[node name="Prop2" instance=ExtResource("1_vkmpw")]
 collision_layer = 17
 
 [node name="MeshInstance3D" parent="." index="0"]

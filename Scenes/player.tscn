@@ -264,6 +264,33 @@ _data = {
 "walk": SubResource("Animation_p0abt")
 }
 
+[sub_resource type="Animation" id="Animation_pnbjj"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/foot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.678, -2.63967, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/foot2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.678, -2.686, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_owdv4"]
 resource_name = "walk"
 length = 0.6
@@ -293,33 +320,6 @@ tracks/1/keys = {
 "values": [Vector3(-0.679694, -2.686, 0), Vector3(-0.679694, -2.24065, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_pnbjj"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/foot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.678, -2.63967, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/foot2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.678, -2.686, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1rlte"]
 _data = {
 "RESET": SubResource("Animation_pnbjj"),
@@ -344,7 +344,6 @@ shape = SubResource("CapsuleShape3D_pxqxt")
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3, 0)
 billboard = 1
-shaded = true
 text = "player"
 font = ExtResource("7_ecrbp")
 font_size = 44

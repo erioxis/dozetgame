@@ -45,6 +45,10 @@ properties/9/path = NodePath(".:caded")
 properties/9/spawn = true
 properties/9/sync = true
 properties/9/watch = false
+properties/10/path = NodePath(".:sleeping")
+properties/10/spawn = true
+properties/10/sync = true
+properties/10/watch = false
 
 [node name="Prop" type="RigidBody3D" groups=["prop"]]
 script = ExtResource("1_p707n")

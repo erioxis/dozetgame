@@ -20,7 +20,7 @@ shader_parameter/albedo = ExtResource("4_v0wj3")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_65sds"]
 
-[node name="Prop" instance=ExtResource("1_2pg3g")]
+[node name="Prop2" instance=ExtResource("1_2pg3g")]
 collision_layer = 17
 
 [node name="MeshInstance3D" parent="." index="0"]
