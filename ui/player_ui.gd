@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var healthlabel:Label = $MarginContainer/down/Health
 @onready var sigilProgress: ProgressBar= $ProgressBar
 @onready var sigilText:Label = $ProgressBar/ProgressText
+@onready var hurt = $Hurt
 
 var game_manager
 
@@ -12,6 +13,9 @@ signal set(p)
 
 func set_func(p):
 	plabel.text = "Points: "+str(p)
+	
+func set_hurt(h):
+	hurt.color.a8 = h
 	
 func set_sigil(s, l):
 	sigilProgress.value = s

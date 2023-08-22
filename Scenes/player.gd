@@ -26,6 +26,8 @@ var move_input
 
 @export var isWalking: bool
 
+var hurt: float = 0
+
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 var currentSigil: Sigil
@@ -100,6 +102,8 @@ func _process(delta):
 		tl.global_rotation = hand.global_rotation
 
 func _physics_process(delta):
+	if (hurt>0):
+		hurt-=1
 	find_current_sigil()
 	if (held_object):
 		var direct: Vector3 = hold_position.global_position - held_object.global_position
@@ -161,11 +165,6 @@ func _physics_process(delta):
 		rpc("kill")
 		dead = true
 		
-	if (isTeleporting):
-		ui.sigilProgress.visible = true
-		ui.set_sigil(100-(int(float(teleportTimer.time_left) / float(3) * 100)), currentSigil.letter.text)
-	else:
-		ui.sigilProgress.visible = false
 
 func move(delta):
 	is_on_floor = false
@@ -195,7 +194,7 @@ func move(delta):
 	if Input.is_action_just_pressed("left_click"):
 		rpc("throw")
 	if Input.is_action_just_pressed("kill"):
-		rpc("kill")
+		rpc("damage", 20)
 	if Input.is_action_just_pressed("uncade"):
 		if (currentTool is Hammer):
 			currentTool.rpc("uncade",int(str(self.name)))
@@ -249,6 +248,12 @@ func set_ui():
 	ui.set_health(health)
 	ui.emit_signal("set", points)
 	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
+	ui.set_hurt(hurt)
+	if (isTeleporting):
+		ui.sigilProgress.visible = true
+		ui.set_sigil(100-(int(float(teleportTimer.time_left) / float(3) * 100)), currentSigil.letter.text)
+	else:
+		ui.sigilProgress.visible = false
 
 func find_current_sigil():
 	var sigils = Utils.world.level.get_sigils().get_children()
@@ -322,9 +327,10 @@ func interact():
 		selectedSigil = _raycast.get_collider() as Sigil
 		isTeleporting = true
 
-@rpc("any_peer")
+@rpc("call_local","any_peer")
 func damage(d):
 	health-=d
+	hurt+=d
 	if d > 0:
 		Utils.world.create_blood(d, global_position)
 
