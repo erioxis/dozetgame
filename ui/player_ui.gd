@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var plabel:Label = $MarginContainer/VBoxContainer/HBoxContainer/Label
 @onready var wavelabel:Label= $MarginContainer/VBoxContainer/Wave
 @onready var healthlabel:Label = $MarginContainer/down/Health
+@onready var sigilProgress: ProgressBar= $ProgressBar
+@onready var sigilText:Label = $ProgressBar/ProgressText
 
 var game_manager
 
@@ -10,6 +12,10 @@ signal set(p)
 
 func set_func(p):
 	plabel.text = "Points: "+str(p)
+	
+func set_sigil(s, l):
+	sigilProgress.value = s
+	sigilText.text = str(l)
 
 func set_wave(s,w,t):
 	var nam: String

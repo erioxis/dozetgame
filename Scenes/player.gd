@@ -29,6 +29,7 @@ var move_input
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 var currentSigil: Sigil
+var isTeleporting: bool
 
 @export var jump_velocity = 7
 @export var acceleration = 7
@@ -158,6 +159,12 @@ func _physics_process(delta):
 	if (health<=0 and dead==false):
 		rpc("kill")
 		dead = true
+		
+	if (isTeleporting):
+		ui.sigilProgress.visible = true
+		ui.set_sigil(100-(int(float(teleportTimer.time_left) / float(3) * 100)), currentSigil.letter.text)
+	else:
+		ui.sigilProgress.visible = false
 
 func move(delta):
 	is_on_floor = false
@@ -244,7 +251,6 @@ func set_ui():
 
 func find_current_sigil():
 	var sigils = Utils.world.level.get_sigils().get_children()
-	var currentSigil: Sigil
 	var rot: Vector3 = _raycast.global_rotation
 	var pos: Vector3 = _raycast.global_position
 	var dist = 9999999999
@@ -308,6 +314,7 @@ func interact():
 		pick_up(t)
 	elif _raycast.get_collider() is Sigil:
 		teleportTimer.start(3)
+		isTeleporting = true
 
 @rpc("any_peer")
 func damage(d):
@@ -368,3 +375,4 @@ func play_use_effects():
 
 func _on_teleport_timer_timeout():
 	Utils.world.rpc("teleport", self, currentSigil.global_position)
+	isTeleporting = false
