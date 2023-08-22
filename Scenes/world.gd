@@ -22,6 +22,8 @@ func _ready():
 		multiplayer.peer_disconnected.connect(remove_player)
 		game_manager.start_round()
 		print("Server on")
+	else:
+		Steam.steamInit()
 	Utils.world = self
 	init_sigils()
 
