@@ -12,6 +12,8 @@ const duraMult: float = 50
 const maxNails: int = 4
 const minHealth: float = 200
 const maxHealth: int = 4600
+var baseHeatlh: int
+const nailPerHealth: int = 75
 const massFactor: int = 0.85 * 3
 const volumeFactor: int = 0.85 * 4
 var nailScene = preload("res://Scenes/nail.tscn")
@@ -23,7 +25,8 @@ var nailScene = preload("res://Scenes/nail.tscn")
 @onready var ui = $ui
 
 func _ready():
-	health = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
+	baseHeatlh = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
+	health = baseHeatlh
 	durability = health * 2.5
 	nails = 0
 
@@ -51,12 +54,14 @@ func cade(pos, rot, tar):
 		nailobj.attach(self.get_path(), tar.get_path())
 	caded = true
 	nails+=1
+	health+=nailPerHealth
 
 @rpc("call_local", "any_peer")
 func uncade():
 	if (nails==1):
 		caded = false
 		nails = 0
+		health = baseHeatlh
 		var nchild = nailsnode.get_children()
 		if (multiplayer.is_server()):
 			for n in nchild:
@@ -66,6 +71,7 @@ func uncade():
 		return
 	else:
 		nails-=1
+		health-=nailPerHealth
 		var nobj = nailsnode.get_child(0)
 		if (multiplayer.is_server()):
 			if (is_instance_valid(nobj)):

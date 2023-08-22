@@ -6,6 +6,8 @@ extends Node
 @onready var game_manager = $GameManager
 @onready var level = $Level
 
+const alph = ['A', 'B', 'C']
+
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 const Player = preload("res://Scenes/player.tscn")
@@ -21,6 +23,7 @@ func _ready():
 		game_manager.start_round()
 		print("Server on")
 	Utils.world = self
+	init_sigils()
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
@@ -57,6 +60,12 @@ func create_blood(n, pos):
 	add_child(blood, true)
 	blood.global_position = pos
 	blood.boom(n)
+	
+func init_sigils():
+	var sigils = level.get_sigils().get_children()
+	for s in sigils.size():
+		sigils[s].set_letter(alph[s])
+	
 	
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))

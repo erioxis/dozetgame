@@ -84,15 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77651, 0)
 [node name="Death" parent="." instance=ExtResource("5_qniop")]
 transform = Transform3D(18.387, 0, 0, 0, 1, 0, 0, 0, 21.425, 0, -0.706749, 0)
 
-[node name="Sigil" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
-
-[node name="Sigil2" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
-
-[node name="Sigil3" parent="." groups=["sigil"] instance=ExtResource("6_to7d0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7382, 4.89272, -2.53189)
-
 [node name="wall1" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.497156, 0.867661, 0, -0.867661, -0.497156, 0, 0, 0, 5.18658, -15.5267, 24.4387, 0)
 collision_layer = 9
@@ -344,3 +335,14 @@ transform = Transform3D(0.880075, -0.411077, 0.237665, -0.211116, 0.10958, 0.971
 
 [node name="Prop" parent="props" instance=ExtResource("10_vxakc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)
+
+[node name="sigils" type="Node3D" parent="."]
+
+[node name="Sigil" parent="sigils" groups=["sigil"] instance=ExtResource("6_to7d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65917, 0.5, -2.54509)
+
+[node name="Sigil2" parent="sigils" groups=["sigil"] instance=ExtResource("6_to7d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
+
+[node name="Sigil3" parent="sigils" groups=["sigil"] instance=ExtResource("6_to7d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7382, 4.89272, -2.53189)
