@@ -8,14 +8,14 @@ class_name Prop
 @export var hold: bool = false
 @export var caded: bool = false
 @export var uiHeight: float = 0.6
-const duraMult: float = 50
+const duraMult: float = 10
 const maxNails: int = 4
-const minHealth: float = 200
+const minHealth: float = 100
 const maxHealth: int = 4600
 var baseHeatlh: int
 const nailPerHealth: int = 75
-const massFactor: int = 0.85 * 3
-const volumeFactor: int = 0.85 * 4
+const massFactor: int = 10
+
 var nailScene = preload("res://Scenes/nail.tscn")
 @onready var heal = $ui/Health
 @onready var dura = $ui/Durability
@@ -25,10 +25,11 @@ var nailScene = preload("res://Scenes/nail.tscn")
 @onready var ui = $ui
 
 func _ready():
-	baseHeatlh = clamp((mass *  massFactor + (global_transform.basis.x.length() + global_transform.basis.y.length() + global_transform.basis.z.length()) * duraMult * massFactor), minHealth, maxHealth)
+	baseHeatlh = clamp((mass  * duraMult * massFactor), minHealth, maxHealth)
 	health = baseHeatlh
 	durability = health * 2.5
 	nails = 0
+	uiHeight = ui.global_position.y - global_position.y
 
 func _physics_process(delta):
 	heal.text = "health: "+str(health)
