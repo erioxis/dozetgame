@@ -29,6 +29,7 @@ var move_input
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 var currentSigil: Sigil
+var selectedSigil: Sigil
 var isTeleporting: bool
 
 @export var jump_velocity = 7
@@ -271,7 +272,11 @@ func find_current_sigil():
 		if d>dist:
 			dist = d
 			currentSigil = s
-
+	
+	if (selectedSigil):
+		if (pos.distance_to(selectedSigil.global_position)>=7):
+			isTeleporting = false
+			selectedSigil = null
 @rpc("any_peer", "call_local")
 func change_tool(s):
 
@@ -314,6 +319,7 @@ func interact():
 		pick_up(t)
 	elif _raycast.get_collider() is Sigil:
 		teleportTimer.start(3)
+		selectedSigil = _raycast.get_collider() as Sigil
 		isTeleporting = true
 
 @rpc("any_peer")
@@ -374,5 +380,7 @@ func play_use_effects():
 
 
 func _on_teleport_timer_timeout():
+	if !isTeleporting: return
 	Utils.world.rpc("teleport", self, currentSigil.global_position)
 	isTeleporting = false
+	selectedSigil = null
