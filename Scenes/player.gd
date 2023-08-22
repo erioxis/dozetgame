@@ -347,6 +347,7 @@ func send_input(mi):
 
 @rpc("any_peer", "call_local")
 func kill():
+	ui.set_health(health)
 	Utils.world.create_blood(20, global_position)
 	Utils.world.kill_player(name)
 	rpc("dropAllTools")

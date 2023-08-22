@@ -15,7 +15,7 @@ func set_func(p):
 	plabel.text = "Points: "+str(p)
 	
 func set_hurt(h):
-	hurt.color.a8 = h
+	hurt.color.a8 = clamp(h, 10, 100)
 	
 func set_sigil(s, l):
 	sigilProgress.value = s
