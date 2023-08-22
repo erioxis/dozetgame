@@ -28,7 +28,7 @@ var move_input
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
-var currentSigil
+var currentSigil: Sigil
 
 @export var jump_velocity = 7
 @export var acceleration = 7
@@ -244,9 +244,27 @@ func set_ui():
 
 func find_current_sigil():
 	var sigils = Utils.world.level.get_sigils().get_children()
+	var currentSigil: Sigil
 	var rot: Vector3 = _raycast.global_rotation
 	var pos: Vector3 = _raycast.global_position
+	var dist = 9999999999
+	var aim = _raycast.get_global_transform().basis
+	var forward = -aim.z
+	for s in sigils:
+		var d: float = s.global_position.distance_to(_raycast.global_position)
+		if d<dist:
+			dist = d
+			currentSigil = s
+			
+	dist = -1
 	
+	for s in sigils:
+		if s==currentSigil: continue
+		var spos = s.global_position - _raycast.global_position
+		var d = spos.dot(forward)
+		if d>dist:
+			dist = d
+			currentSigil = s
 
 @rpc("any_peer", "call_local")
 func change_tool(s):
