@@ -58,18 +58,7 @@ func cade(pos, rot, tar):
 
 @rpc("call_local", "any_peer")
 func uncade():
-	if (nails==1):
-		caded = false
-		nails = 0
-		health = baseHeatlh
-		var nchild = nailsnode.get_children()
-		if (multiplayer.is_server()):
-			for n in nchild:
-				if (is_instance_valid(n)):
-					n.queue_free()
-					uncadeSound.play()
-		return
-	else:
+	if (nails>0):
 		nails-=1
 		health-=nailPerHealth
 		var nobj = nailsnode.get_child(0)
@@ -77,5 +66,6 @@ func uncade():
 			if (is_instance_valid(nobj)):
 				nobj.queue_free()
 				uncadeSound.play()
-		return
+		if (nails==0):
+			caded=false
 		
