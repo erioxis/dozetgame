@@ -85,6 +85,10 @@ func kill_player(peer_id):
 func get_player_by_id(id: int):
 	return get_node_or_null(str(id))
 	
+@rpc("call_local", "any_peer")
+func teleport(p, pos):
+	p.global_position = pos	
+	
 
 func upnp_setup():
 	var upnp = UPNP.new()

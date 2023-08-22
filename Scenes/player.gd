@@ -17,6 +17,7 @@ class_name Player
 @onready var feet = $feet
 @onready var hold_position = $Head/Camera3D/hold
 @onready var stepSound = $step
+@onready var teleportTimer: Timer = $teleportTimer
 @export var view_sensitivity = 10.0
 
 @export var shift: bool = false
@@ -26,6 +27,8 @@ var move_input
 @export var isWalking: bool
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
+
+var currentSigil
 
 @export var jump_velocity = 7
 @export var acceleration = 7
@@ -95,6 +98,7 @@ func _process(delta):
 		tl.global_rotation = hand.global_rotation
 
 func _physics_process(delta):
+	find_current_sigil()
 	if (held_object):
 		var direct: Vector3 = hold_position.global_position - held_object.global_position
 		var dist: float = direct.length()
@@ -238,6 +242,12 @@ func set_ui():
 	ui.emit_signal("set", points)
 	ui.set_wave(game_manager.state, game_manager.wave, game_manager.timer.time_left)
 
+func find_current_sigil():
+	var sigils = Utils.world.level.get_sigils().get_children()
+	var rot: Vector3 = _raycast.global_rotation
+	var pos: Vector3 = _raycast.global_position
+	
+
 @rpc("any_peer", "call_local")
 func change_tool(s):
 
@@ -278,6 +288,8 @@ func interact():
 		var t:Tool = _raycast.get_collider() as Tool
 		if (t.pickuped): return
 		pick_up(t)
+	elif _raycast.get_collider() is Sigil:
+		teleportTimer.start(3)
 
 @rpc("any_peer")
 func damage(d):
@@ -334,3 +346,7 @@ func play_use_effects():
 	anim_player.stop()
 	anim_player.play("use")
 	pass
+
+
+func _on_teleport_timer_timeout():
+	Utils.world.rpc("teleport", self, currentSigil.global_position)
