@@ -19,7 +19,7 @@ func set_hurt(h):
 	
 func set_sigil(s, l):
 	sigilProgress.value = s
-	sigilText.text = str(l)
+	sigilText.text = Utils.translate_get("Teleporting to sigil")+" "+str(l)
 
 func set_wave(s,w,t):
 	var nam: String
