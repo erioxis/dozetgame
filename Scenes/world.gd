@@ -24,6 +24,7 @@ func _ready():
 		print("Server on")
 	else:
 		Steam.steamInit()
+
 	Utils.world = self
 	init_sigils()
 
