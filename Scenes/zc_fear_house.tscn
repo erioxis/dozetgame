@@ -238,9 +238,11 @@ mesh = ExtResource("4_32rhn")
 
 [node name="hammer2" parent="." instance=ExtResource("11_dhaxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12546, 0.955934, 4.53704)
+pOwnerId = null
 
 [node name="hammer" parent="." instance=ExtResource("11_dhaxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
+pOwnerId = null
 
 [node name="glock" parent="." instance=ExtResource("14_e5f2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)

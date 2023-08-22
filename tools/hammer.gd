@@ -42,4 +42,4 @@ func uncade(uid):
 		if (pOwner._worldDetect.get_collider().caded):
 			var prop = pOwner._raycast.get_collider() as Prop
 			if (prop):
-				prop.uncade()
+				prop.uncade(pOwner._raycast.get_collision_point())

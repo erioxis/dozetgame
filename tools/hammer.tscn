@@ -24,6 +24,7 @@ shader_parameter/albedo = ExtResource("4_chh6h")
 
 [node name="Hammer" instance=ExtResource("1_chdno")]
 script = ExtResource("2_6day0")
+pOwnerId = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-1.15835e-08, 0, 0.265, 0, 0.265, 0, -0.265, 0, -1.15835e-08, 0.00905204, 0.0574984, -0.00530714)

@@ -57,11 +57,17 @@ func cade(pos, rot, tar):
 	health+=nailPerHealth
 
 @rpc("call_local", "any_peer")
-func uncade():
+func uncade(hit):
 	if (nails>0):
 		nails-=1
 		health-=nailPerHealth
+		
 		var nobj = nailsnode.get_child(0)
+		
+		for n in nailsnode.get_children():
+			if (hit.distance_to(n.global_position)<= hit.distance_to(nobj.global_position)):
+				nobj = n
+		
 		if (multiplayer.is_server()):
 			if (is_instance_valid(nobj)):
 				nobj.queue_free()
