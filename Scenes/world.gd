@@ -56,7 +56,10 @@ func _on_join_button_pressed():
 func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
+	var sigils = level.get_sigils().get_children()
+	var random_sigil = randi() % level.get_sigils().get_child_count()
 	add_child(player)
+	teleport(player.name, sigils[random_sigil].global_position.x, sigils[random_sigil].global_position.y, sigils[random_sigil].global_position.z)
 	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
 	print("Player "+str(peer_id)+" is connected")
 
@@ -97,7 +100,7 @@ func get_player_by_id(id: int):
 	
 @rpc("call_local", "any_peer")
 func teleport(id, x, y, z):
-	get_player_by_id(id).global_position = Vector3(x,y,z)
+	get_player_by_id(int(str(id))).global_position = Vector3(x,y,z)
 	
 @rpc("call_local", "any_peer")
 func create_bullet(pos, rot, o, damage, l):
