@@ -17,7 +17,10 @@ enum WHO
 	PLAYER,
 	ZOMBIE
 }
-
+enum LANG {
+	RUS,
+	ENG
+}
 func dropDice(num: int):
 	if (randi()%num+1==num):
 		return true
