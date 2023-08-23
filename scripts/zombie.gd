@@ -39,7 +39,7 @@ var velocity = Vector3()
 @export var mouse_input = Vector2()
 
 var dead: bool
-var health:float = 255
+var health:float = 100
 
 var game_manager
 
