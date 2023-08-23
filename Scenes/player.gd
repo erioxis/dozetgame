@@ -388,7 +388,7 @@ func play_use_effects():
 	anim_player.play("use")
 	pass
 
-@rpc("call_local")
+@rpc("call_local", "any_peer")
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
