@@ -147,12 +147,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
 			currentTool.rpc("shoot", name)
-	if Input.is_action_just_pressed("left_click"):
-		if (currentTool):
-			currentTool.isFirstShoot = true
-	if Input.is_action_just_released("left_click"):
-		if (currentTool):
-			currentTool.isFirstShoot = true
 	
 	if !anim_player.current_animation == "use" and !anim_player.current_animation == "shoot":
 		if move_input != Vector2.ZERO and feet.is_colliding():

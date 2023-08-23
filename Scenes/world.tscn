@@ -99,7 +99,7 @@ placeholder_text = "Name"
 alignment = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://tools/hammer.tscn", "res://tools/glock.tscn", "res://Scenes/props/amyth.tscn", "res://Scenes/zombie.tscn", "res://Scenes/respawn.tscn")
+_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://tools/hammer.tscn", "res://tools/glock.tscn", "res://Scenes/props/amyth.tscn", "res://Scenes/zombie.tscn", "res://Scenes/bullet.tscn")
 spawn_path = NodePath("..")
 
 [node name="Level" parent="." instance=ExtResource("4_epgrf")]

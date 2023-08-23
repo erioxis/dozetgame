@@ -12,6 +12,7 @@ var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 const Player = preload("res://Scenes/player.tscn")
 const Zombie = preload("res://Scenes/zombie.tscn")
+const Bullet = preload("res://Scenes/bullet.tscn")
 const PORT = 3120
 var enet_peer = ENetMultiplayerPeer.new()
 
@@ -98,6 +99,12 @@ func get_player_by_id(id: int):
 func teleport(id, x, y, z):
 	get_player_by_id(id).global_position = Vector3(x,y,z)
 	
+@rpc("call_local", "any_peer")
+func create_bullet(pos, rot, o, damage, l):
+	if multiplayer.is_server():
+		var bullet = Bullet.instantiate()
+		add_child(bullet, true)
+		bullet.rpc("init",pos, rot, o, damage, l)
 
 func upnp_setup():
 	var upnp = UPNP.new()

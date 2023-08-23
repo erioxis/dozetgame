@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://bl7y01pqy1n73"]
+[gd_scene load_steps=2 format=3 uid="uid://bl7y01pqy1n73"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_65a67"]
 
 [node name="Bullet" type="Node3D"]
+script = ExtResource("1_65a67")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 100)
+debug_shape_custom_color = Color(0.835294, 0.14902, 0.866667, 1)

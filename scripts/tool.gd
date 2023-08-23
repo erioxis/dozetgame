@@ -4,7 +4,6 @@ class_name Tool
 
 var toolType: Utils.TOOLTYPE
 var pickuped: bool
-var isFirstShoot: bool
 @export var pOwnerId: int
 @onready var coll = $CollisionShape3D
 @onready var mesh = $Mesh
