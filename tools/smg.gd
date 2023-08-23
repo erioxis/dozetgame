@@ -6,6 +6,9 @@ func _ready():
 
 @rpc("call_local","any_peer")
 func shoot(shooter):
+	if (isFirstShoot):
+		nextshoot = 5
+		isFirstShoot = false
 	nextshoot += 1
 	if nextshoot > 5:
 		nextshoot = 0
