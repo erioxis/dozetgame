@@ -2,6 +2,7 @@ extends RigidBody3D
 
 class_name Tool
 
+var toolType: Utils.TOOLTYPE
 var pickuped: bool
 @export var pOwnerId: int
 @onready var coll = $CollisionShape3D

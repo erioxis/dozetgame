@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://o8xkgf8k8qiv"]
+[gd_scene load_steps=26 format=3 uid="uid://o8xkgf8k8qiv"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_e0slr"]
 [ext_resource type="ArrayMesh" uid="uid://48qh33iiniw7" path="res://assets/models/head.obj" id="2_mw7wf"]
@@ -13,6 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cdj6xi676jpl7" path="res://assets/models/boot.obj" id="11_7gggb"]
 [ext_resource type="Texture2D" uid="uid://dh4hpryuudumo" path="res://assets/models/boot.jpg" id="12_v6rtr"]
 [ext_resource type="AudioStream" uid="uid://cleyy3squrq16" path="res://assets/sound/step.wav" id="13_ftpqy"]
+[ext_resource type="AnimationLibrary" uid="uid://ugovw75qlkgs" path="res://anims/player.res" id="13_hsyuc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r4hfm"]
 friction = 0.0
@@ -150,167 +151,6 @@ properties/15/path = NodePath(".:isWalking")
 properties/15/spawn = true
 properties/15/sync = true
 properties/15/watch = false
-
-[sub_resource type="Animation" id="Animation_8jn3s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera3D/hand2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.398389, -0.263052, -0.513103)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Head/Camera3D/hand2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.334388, 1.5708, 1.25771e-06)]
-}
-
-[sub_resource type="Animation" id="Animation_xf6hg"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0), Vector3(6.8666e-09, 1.5708, -0.157743)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.381594, -0.306728, -0.513103)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera3D/hand2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.398389, -0.263052, -0.513103), Vector3(-0.398389, -0.321626, -0.513103)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Head/Camera3D/hand2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.334388, 1.5708, 1.25771e-06), Vector3(0.313601, 1.45277, -0.366978)]
-}
-
-[sub_resource type="Animation" id="Animation_ngv8q"]
-resource_name = "move"
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2625, 0.5, 0.7625),
-"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
-"update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.327267, -0.248418, -0.513103), Vector3(0.381594, -0.263052, -0.513103), Vector3(0.426641, -0.238016, -0.513103)]
-}
-
-[sub_resource type="Animation" id="Animation_si1rv"]
-resource_name = "use"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(5.79704e-07, 1.5708, -0.160832), Vector3(0, 1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(0.381594, -0.291979, -0.566921), Vector3(0.381594, -0.263052, -0.513103)]
-}
-
-[sub_resource type="Animation" id="Animation_p0abt"]
-resource_name = "walk"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jm4uj"]
-_data = {
-"RESET": SubResource("Animation_8jn3s"),
-"idle": SubResource("Animation_xf6hg"),
-"move": SubResource("Animation_ngv8q"),
-"use": SubResource("Animation_si1rv"),
-"walk": SubResource("Animation_p0abt")
-}
 
 [sub_resource type="Animation" id="Animation_pnbjj"]
 resource_name = "RESET"
@@ -454,7 +294,7 @@ replication_config = SubResource("SceneReplicationConfig_u24kw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jm4uj")
+"": ExtResource("13_hsyuc")
 }
 
 [node name="AnimationBoots" type="AnimationPlayer" parent="."]

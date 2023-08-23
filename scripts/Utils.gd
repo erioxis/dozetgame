@@ -5,10 +5,19 @@ var nickname
 
 var resp = preload("res://Scenes/respawn.tscn")
 
-enum WHO{
+enum TOOLTYPE
+{
+	TOOL,
+	GUN,
+	OTHER
+}
+
+enum WHO
+{
 	PLAYER,
 	ZOMBIE
 }
+
 func dropDice(num: int):
 	if (randi()%num+1==num):
 		return true

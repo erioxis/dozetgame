@@ -142,12 +142,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("right_click"):
 		if (currentTool):
 			currentTool.rpc("use", name)
+		if currentTool.toolType == Utils.TOOLTYPE.TOOL:
 			rpc("play_use_effects")
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
 			currentTool.rpc("shoot", name)
 	
-	if !anim_player.current_animation == "use":
+	if !anim_player.current_animation == "use" and !anim_player.current_animation == "shoot":
 		if move_input != Vector2.ZERO and feet.is_colliding():
 			isWalking = true
 			anim_player.play("move")
@@ -387,6 +388,11 @@ func play_use_effects():
 	anim_player.play("use")
 	pass
 
+@rpc("call_local")
+func play_shoot_effects():
+	anim_player.stop()
+	anim_player.play("shoot")
+	pass
 
 func _on_teleport_timer_timeout():
 	if !isTeleporting: return

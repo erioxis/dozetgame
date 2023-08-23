@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://daj3jwyn8ifsj"]
+[gd_scene load_steps=25 format=3 uid="uid://daj3jwyn8ifsj"]
 
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_2ndm8"]
 [ext_resource type="ArrayMesh" uid="uid://oj08edbhgco1" path="res://assets/models/zombiehand.obj" id="1_8ctoe"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="7_xcw8c"]
 [ext_resource type="Texture2D" uid="uid://dh4hpryuudumo" path="res://assets/models/boot.jpg" id="8_sk0pa"]
 [ext_resource type="Texture2D" uid="uid://c4qui3iejki8r" path="res://assets/models/cloth.png" id="9_jp3rl"]
+[ext_resource type="AnimationLibrary" uid="uid://du5dm8ykrq8fg" path="res://anims/zombie.res" id="13_iy5im"]
 [ext_resource type="AudioStream" uid="uid://cleyy3squrq16" path="res://assets/sound/step.wav" id="14_608s3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov53r"]
@@ -127,179 +128,6 @@ properties/10/path = NodePath(".:isWalking")
 properties/10/spawn = true
 properties/10/sync = true
 properties/10/watch = false
-
-[sub_resource type="Animation" id="Animation_j0skc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera3D/hand2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.398389, -0.263052, -0.513103)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Head/Camera3D/hand2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.334388, 1.5708, 1.25771e-06)]
-}
-
-[sub_resource type="Animation" id="Animation_xng2s"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0), Vector3(-0.0860447, 1.5708, -0.157743)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.381594, -0.306728, -0.513103)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera3D/hand2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(-0.398389, -0.263052, -0.513103), Vector3(-0.398, -0.307, -0.513)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Head/Camera3D/hand2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.334388, 1.5708, 1.25771e-06), Vector3(0.314159, 1.5708, -0.15708)]
-}
-
-[sub_resource type="Animation" id="Animation_t4hxj"]
-resource_name = "move"
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2625, 0.5, 0.7625),
-"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
-"update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.327267, -0.248418, -0.513103), Vector3(0.381594, -0.263052, -0.513103), Vector3(0.426641, -0.238016, -0.513103)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
-"update": 0,
-"values": [Vector3(-0.398, -0.264624, -0.513), Vector3(-0.352639, -0.252095, -0.513), Vector3(-0.398, -0.264624, -0.513), Vector3(-0.435847, -0.244584, -0.513)]
-}
-
-[sub_resource type="Animation" id="Animation_58k4t"]
-resource_name = "use"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(5.79704e-07, 1.5708, -0.160832), Vector3(0, 1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(0.381594, -0.291979, -0.566921), Vector3(0.381594, -0.263052, -0.513103)]
-}
-
-[sub_resource type="Animation" id="Animation_m7fnr"]
-resource_name = "walk"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d31gv"]
-_data = {
-"RESET": SubResource("Animation_j0skc"),
-"idle": SubResource("Animation_xng2s"),
-"move": SubResource("Animation_t4hxj"),
-"use": SubResource("Animation_58k4t"),
-"walk": SubResource("Animation_m7fnr")
-}
 
 [sub_resource type="Animation" id="Animation_pnbjj"]
 resource_name = "RESET"
@@ -417,7 +245,7 @@ mesh = ExtResource("1_8ctoe")
 surface_material_override/0 = SubResource("ShaderMaterial_llb8a")
 
 [node name="hand2" type="MeshInstance3D" parent="Head/Camera3D"]
-transform = Transform3D(-6.89128e-07, 0.0656382, 0.188922, 2.37609e-07, 0.188922, -0.0656382, -0.2, -1.71676e-09, -7.2894e-07, -0.398389, -0.263052, -0.513103)
+transform = Transform3D(-6.41444e-07, 0.0656381, 0.188922, 2.37609e-07, 0.188922, -0.0656381, -0.2, 1.39322e-08, -6.83896e-07, -0.398389, -0.263052, -0.513103)
 mesh = ExtResource("1_8ctoe")
 surface_material_override/0 = SubResource("ShaderMaterial_llb8a")
 
@@ -433,7 +261,7 @@ replication_config = SubResource("SceneReplicationConfig_e2hkj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_d31gv")
+"": ExtResource("13_iy5im")
 }
 
 [node name="AnimationBoots" type="AnimationPlayer" parent="."]

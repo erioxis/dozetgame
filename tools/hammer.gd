@@ -5,6 +5,9 @@ class_name Hammer
 var used: bool = false
 var lused: bool = false
 
+func _ready():
+	toolType = Utils.TOOLTYPE.TOOL
+
 @rpc("call_local","any_peer")
 func use(uid):
 	var user = Utils.world.get_player_by_id(int(str(uid)))
