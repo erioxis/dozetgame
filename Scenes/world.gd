@@ -95,8 +95,8 @@ func get_player_by_id(id: int):
 	return get_node_or_null(str(id))
 	
 @rpc("call_local", "any_peer")
-func teleport(p, pos):
-	p.global_position = pos	
+func teleport(id, x, y, z):
+	get_player_by_id(id).global_position = Vector3(x,y,z)
 	
 
 func upnp_setup():

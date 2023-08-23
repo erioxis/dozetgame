@@ -403,6 +403,6 @@ func play_shoot_effects():
 
 func _on_teleport_timer_timeout():
 	if !isTeleporting: return
-	Utils.world.rpc("teleport", self, currentSigil.global_position)
+	Utils.world.rpc("teleport", int(str(self.name)), currentSigil.global_position.x,currentSigil.global_position.y,currentSigil.global_position.z)
 	isTeleporting = false
 	selectedSigil = null
