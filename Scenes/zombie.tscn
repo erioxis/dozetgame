@@ -417,7 +417,7 @@ mesh = ExtResource("1_8ctoe")
 surface_material_override/0 = SubResource("ShaderMaterial_llb8a")
 
 [node name="hand2" type="MeshInstance3D" parent="Head/Camera3D"]
-transform = Transform3D(-6.89128e-07, 0.0656382, 0.188922, 2.37609e-07, 0.188922, -0.0656382, -0.2, -1.71676e-09, -7.2894e-07, -0.398389, -0.263052, -0.513103)
+transform = Transform3D(-6.41444e-07, 0.0656381, 0.188922, 2.37609e-07, 0.188922, -0.0656381, -0.2, 1.39322e-08, -6.83896e-07, -0.398389, -0.263052, -0.513103)
 mesh = ExtResource("1_8ctoe")
 surface_material_override/0 = SubResource("ShaderMaterial_llb8a")
 
