@@ -8,6 +8,5 @@ func _ready():
 func shoot(shooter):
 	nextshoot += 1
 	if nextshoot > 15:
-		print(Utils.dropDice(10))
 		Utils.world.get_player_by_id(pOwnerId).rpc("play_shoot_effects")
 		nextshoot = 0
