@@ -9,6 +9,7 @@ func shoot(s):
 	var shooter = Utils.world.get_player_by_id(s)
 	if shooter.isFirstShot:
 		nextshoot = 15
+		shooter.isFirstShot = false
 	nextshoot += 1
 	if nextshoot > 5:
 		Utils.world.create_bullet(shooter._raycast.global_position, shooter._raycast.global_rotation, shooter, 10, 100)
