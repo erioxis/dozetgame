@@ -186,10 +186,10 @@ func send_input(mi):
 func kill():
 	ui.set_health(health)
 	Utils.world.create_blood(20, global_position)
-	Utils.world.kill_player("z"+name)
-	rpc("dropAllTools")
+	Utils.world.kill_player(name)
 	ui.dead()
-	Utils.respawn(int(str(name)), Utils.WHO.ZOMBIE, 5)
+	if (multiplayer.is_server()):
+		Utils.respawn(int(str(name)), Utils.WHO.ZOMBIE, 5)
 	
 @rpc("call_local")
 func play_use_effects():

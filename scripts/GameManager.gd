@@ -40,7 +40,7 @@ func start_chill():
 	timer.wait_time = chill_time
 	timer.start()
 	
-@rpc("call_local")
+@rpc("any_peer","call_local")
 func set_round_info(s,w,t):
 	state = s
 	wave = w
