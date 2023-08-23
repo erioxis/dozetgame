@@ -16,7 +16,7 @@ func _ready():
 func use(user):
 	pass
 
-@rpc("call_local","any_peer")
+@rpc("call_local", "any_peer")
 func shoot(shooter):
 	pass
 	

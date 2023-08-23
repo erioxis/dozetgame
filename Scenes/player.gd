@@ -52,6 +52,8 @@ var velocity = Vector3()
 var currentTool: Tool
 var currentSlot: int = 1
 
+var isFirstShot : bool = false
+
 @export var mouse_input = Vector2()
 
 var dead: bool
@@ -144,9 +146,13 @@ func _physics_process(delta):
 			currentTool.rpc("use", name)
 		if currentTool.toolType == Utils.TOOLTYPE.TOOL:
 			rpc("play_use_effects")
+	if Input.is_action_just_pressed("left_click"):
+		isFirstShot = true
+	elif Input.is_action_just_released("left_click"):
+		isFirstShot = false
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
-			currentTool.rpc("shoot", name)
+			currentTool.rpc("shoot", int(str(name)))
 	
 	if !anim_player.current_animation == "use" and !anim_player.current_animation == "shoot":
 		if move_input != Vector2.ZERO and feet.is_colliding():
