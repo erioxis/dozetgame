@@ -35,7 +35,7 @@ func _unhandled_input(_event):
 		get_tree().quit()
 
 func _on_host_button_pressed():
-	Utils.nickname = name_enter.text
+	Utils.nickname = Steam.getFriendPersonaName(Steam.getSteamID())
 	main_menu.hide()
 	
 	enet_peer.create_server(PORT)
@@ -47,7 +47,7 @@ func _on_host_button_pressed():
 	game_manager.start_round()
 
 func _on_join_button_pressed():
-	Utils.nickname = name_enter.text
+	Utils.nickname = Steam.getFriendPersonaName(Steam.getSteamID())
 	main_menu.hide()
 	
 	enet_peer.create_client(address_enter.text, PORT)
