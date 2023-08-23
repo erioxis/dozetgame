@@ -10,3 +10,4 @@ func shoot(shooter):
 	if nextshoot > 15:
 		Utils.world.get_player_by_id(pOwnerId).rpc("play_shoot_effects")
 		nextshoot = 0
+		shootSound.play()

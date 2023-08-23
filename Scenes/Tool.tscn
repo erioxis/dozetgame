@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://0hkcayqkwf1b"]
+[gd_scene load_steps=7 format=3 uid="uid://0hkcayqkwf1b"]
 
 [ext_resource type="Script" path="res://scripts/tool.gd" id="1_bnp81"]
+[ext_resource type="AudioStream" uid="uid://c0gvcd82uyfqh" path="res://assets/sound/gunshot-fast.wav" id="2_mkn8s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8a5dw"]
 size = Vector3(0.480708, 1.11203, 1.54188)
@@ -64,3 +65,7 @@ skeleton = NodePath("")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_lpsq0")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mkn8s")
+volume_db = -11.27

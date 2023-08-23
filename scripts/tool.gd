@@ -7,6 +7,7 @@ var pickuped: bool
 @export var pOwnerId: int
 @onready var coll = $CollisionShape3D
 @onready var mesh = $Mesh
+@onready var shootSound = $ShootSound
 
 func _ready():
 	pickuped = false
