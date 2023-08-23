@@ -361,7 +361,8 @@ func kill():
 	rpc("dropAllTools")
 	tools.clear()
 	ui.dead()
-	Utils.respawn(int(str(name)), Utils.WHO.ZOMBIE, 5)
+	if (multiplayer.is_server()):
+		Utils.respawn(int(str(name)), Utils.WHO.ZOMBIE, 5)
 
 @rpc("any_peer", "call_local")
 func dropTool(t: NodePath):

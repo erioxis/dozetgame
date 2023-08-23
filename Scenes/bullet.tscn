@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bl7y01pqy1n73"]
+
+[node name="Bullet" type="Node3D"]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 100)
