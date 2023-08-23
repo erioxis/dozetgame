@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1irhveuvktve" path="res://Scenes/Death.tscn" id="5_qniop"]
 [ext_resource type="PackedScene" uid="uid://dkv26l5o2ya1n" path="res://Scenes/sigil.tscn" id="6_to7d0"]
 [ext_resource type="PackedScene" uid="uid://bihe3vjkrm26t" path="res://Scenes/props/box.tscn" id="7_4tei5"]
-[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/someone.tscn" id="9_fvj40"]
+[ext_resource type="PackedScene" uid="uid://d24vbswh4xlj8" path="res://Scenes/props/someone.tscn" id="9_fvj40"]
 [ext_resource type="PackedScene" uid="uid://hx43qw30upy1" path="res://Scenes/props/amyth.tscn" id="9_v2eck"]
 [ext_resource type="PackedScene" uid="uid://bnyj5fwfw63ej" path="res://Scenes/props/pumkin.tscn" id="10_vxakc"]
 [ext_resource type="PackedScene" uid="uid://cb8rfrmnm2130" path="res://tools/hammer.tscn" id="11_dhaxf"]
@@ -78,9 +78,6 @@ material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
 
-[node name="Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77651, 0)
-
 [node name="Death" parent="." instance=ExtResource("5_qniop")]
 transform = Transform3D(18.387, 0, 0, 0, 1, 0, 0, 0, 21.425, 0, -0.706749, 0)
 
@@ -123,9 +120,6 @@ shape = SubResource("BoxShape3D_n5sbf")
 material_override = SubResource("ShaderMaterial_x1yfp")
 mesh = ExtResource("4_32rhn")
 skeleton = NodePath("../..")
-
-[node name="Spawn2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77651, 15.739)
 
 [node name="floor3" type="StaticBody3D" parent="."]
 transform = Transform3D(2.23818, 0, 0, 0, 1, 0, 0, 0, 11.071, 0, 25.9591, -7.66543)

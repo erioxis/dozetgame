@@ -18,6 +18,7 @@ class_name Player
 @onready var hold_position = $Head/Camera3D/hold
 @onready var stepSound = $step
 @onready var teleportTimer: Timer = $teleportTimer
+@onready var coll: CollisionShape3D = $bodycol
 @export var view_sensitivity = 10.0
 
 @export var shift: bool = false
@@ -349,10 +350,11 @@ func send_input(mi):
 func kill():
 	ui.set_health(health)
 	Utils.world.create_blood(20, global_position)
-	Utils.world.kill_player(name)
+	Utils.world.kill_player(int(str(name)))
 	rpc("dropAllTools")
 	tools.clear()
 	ui.dead()
+	Utils.respawn(int(str(name)), Utils.WHO.ZOMBIE, 5)
 
 @rpc("any_peer", "call_local")
 func dropTool(t: NodePath):

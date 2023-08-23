@@ -3,7 +3,12 @@ extends Node
 var world
 var nickname
 
+var resp = preload("res://Scenes/respawn.tscn")
 
+enum WHO{
+	PLAYER,
+	ZOMBIE
+}
 func dropDice(num: int):
 	if (randi()%num+1==num):
 		return true
@@ -21,3 +26,8 @@ func translate_get(id):
 		if LANGUAGE[j].get(id) is String: #можешь возвращать оригинальный если инглиш,базу я +- подготовил
 			return LANGUAGE[j].get(id)
 	return "@"+id+"@"
+
+func respawn(id, who:Utils.WHO, t):
+	var r = resp.instantiate()
+	world.add_child(r, true)
+	r.init(int(str(id)), who, t)

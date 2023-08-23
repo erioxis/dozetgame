@@ -156,26 +156,50 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:position")
+tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103)]
+"values": [Vector3(0, 1.5708, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:rotation")
+tracks/1/path = NodePath("Head/Camera3D/hand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1.5708, 0)]
+"values": [Vector3(0.381594, -0.263052, -0.513103)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/hand2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.398389, -0.263052, -0.513103)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head/Camera3D/hand2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.334388, 1.5708, 1.25771e-06)]
 }
 
 [sub_resource type="Animation" id="Animation_xf6hg"]
@@ -185,26 +209,50 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:position")
+tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.381594, -0.306728, -0.513103)]
+"values": [Vector3(0, 1.5708, 0), Vector3(6.8666e-09, 1.5708, -0.157743)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:rotation")
+tracks/1/path = NodePath("Head/Camera3D/hand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector3(0, 1.5708, 0), Vector3(6.8666e-09, 1.5708, -0.157743)]
+"values": [Vector3(0.381594, -0.263052, -0.513103), Vector3(0.381594, -0.306728, -0.513103)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/hand2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.398389, -0.263052, -0.513103), Vector3(-0.398389, -0.321626, -0.513103)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head/Camera3D/hand2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.334388, 1.5708, 1.25771e-06), Vector3(0.313601, 1.45277, -0.366978)]
 }
 
 [sub_resource type="Animation" id="Animation_ngv8q"]
@@ -230,26 +278,26 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/hand:position")
+tracks/0/path = NodePath("Head/Camera3D/hand:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector3(0.381594, -0.291979, -0.566921), Vector3(0.381594, -0.263052, -0.513103)]
+"values": [Vector3(5.79704e-07, 1.5708, -0.160832), Vector3(0, 1.5708, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/hand:rotation")
+tracks/1/path = NodePath("Head/Camera3D/hand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector3(5.79704e-07, 1.5708, -0.160832), Vector3(0, 1.5708, 0)]
+"values": [Vector3(0.381594, -0.291979, -0.566921), Vector3(0.381594, -0.263052, -0.513103)]
 }
 
 [sub_resource type="Animation" id="Animation_p0abt"]
@@ -327,6 +375,7 @@ _data = {
 }
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
+collision_mask = 9
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

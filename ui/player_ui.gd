@@ -20,6 +20,11 @@ func set_hurt(h):
 func set_sigil(s, l):
 	sigilProgress.value = s
 	sigilText.text = Utils.translate_get("Teleporting to sigil")+" "+str(l)
+	
+func zombificate():
+	sigilProgress.visible = false
+	sigilText.visible = false
+	plabel.visible = false
 
 func set_wave(s,w,t):
 	var nam: String

@@ -11,6 +11,7 @@ const alph = ['A', 'B', 'C']
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
 
 const Player = preload("res://Scenes/player.tscn")
+const Zombie = preload("res://Scenes/zombie.tscn")
 const PORT = 3120
 var enet_peer = ENetMultiplayerPeer.new()
 
@@ -71,19 +72,24 @@ func init_sigils():
 	
 	
 func remove_player(peer_id):
-	var player = get_node_or_null(str(peer_id))
+	var player = get_player_by_id(peer_id)
 	if player:
 		create_blood(15, player.global_position)
 		player.queue_free()
 	print("Player "+str(peer_id)+" has removed")
 	
 func kill_player(peer_id):
-	var player = get_node_or_null(str(peer_id))
+	var player = get_player_by_id(int(str(peer_id)))
 	if player:
-		player.set_physics_process(false)
-		player.hide()
-		player.sleeping = true
+		player.queue_free()
 	print("Player "+str(peer_id)+" died")
+	
+func zombificate(peer_id):
+	var zombie = Zombie.instantiate()
+	zombie.name = str(peer_id)
+	add_child(zombie)
+	
+	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
 	
 func get_player_by_id(id: int):
 	return get_node_or_null(str(id))
