@@ -9,7 +9,7 @@ func _ready():
 func shoot(s):
 	var shooter = Utils.world.get_player_by_id(s)
 	if shooter.isFirstShot:
-		nextshoot = 5
+		nextshoot = 15
 		shooter.isFirstShot = false
 	nextshoot += 1
 	if nextshoot > 15:
