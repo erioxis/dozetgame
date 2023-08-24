@@ -70,6 +70,7 @@ func _ready():
 	dead = false
 	Utils.world = get_tree().get_root().get_node("World")
 	game_manager = get_tree().get_root().get_node("World").get_node("GameManager")
+	_raycast.add_exception(self)
 	
 	if not is_multiplayer_authority():
 		ui.hide()

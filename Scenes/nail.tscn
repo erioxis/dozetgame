@@ -24,18 +24,6 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/sync = true
-properties/1/watch = false
-properties/2/path = NodePath("Generic6DOFJoint3D:position")
-properties/2/spawn = true
-properties/2/sync = true
-properties/2/watch = false
-properties/3/path = NodePath("Generic6DOFJoint3D:rotation")
-properties/3/spawn = true
-properties/3/sync = true
-properties/3/watch = false
 
 [node name="Nail" type="Node3D"]
 script = ExtResource("1_gjwbf")
@@ -48,8 +36,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_kfgea")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_7ro7d")
 
-[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
-
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_udfun")
 volume_db = -20.0
+
+[node name="JoltGeneric6DOFJoint3D" type="JoltGeneric6DOFJoint3D" parent="."]
