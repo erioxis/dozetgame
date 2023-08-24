@@ -7,6 +7,7 @@ var damage: float
 @rpc("any_peer", "call_local")
 func init(pos, rot, o, damage, l):
 	if (!multiplayer.is_server()): return
+	raycast.add_exception(o)
 	global_position = pos
 	global_rotation = rot
 	powner =  o
