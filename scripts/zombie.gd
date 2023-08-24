@@ -177,6 +177,7 @@ func set_ui():
 
 @rpc("any_peer","call_local")
 func attack():
+	if (attackTimer.time_left>0): return
 	anim_player.play("hit")
 	attackTimer.start(atkTime)
 
