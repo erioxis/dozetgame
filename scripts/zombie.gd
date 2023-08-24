@@ -16,6 +16,7 @@ class_name Zombie
 @onready var feet = $feet
 @onready var stepSound = $step
 @onready var multiSync = $MultiplayerSynchronizer
+@onready var attackTimer = $attackTimer
 @export var view_sensitivity = 10.0
 
 var is_on_floor = false
@@ -40,6 +41,10 @@ var velocity = Vector3()
 
 var dead: bool
 var health:float = 100
+var baseDamage:float = 20
+var baseAttackTime:float = 0.8
+var atkTime:float = baseAttackTime
+var dmg = baseDamage
 
 var game_manager
 
@@ -90,7 +95,10 @@ func _physics_process(delta):
 	
 	move(delta)
 	
-	if !anim_player.current_animation == "use":
+	if Input.is_action_pressed("left_click"):
+		rpc("attack")
+	
+	if !anim_player.current_animation == "hit":
 		if move_input != Vector2.ZERO and feet.is_colliding():
 			isWalking = true
 			anim_player.play("move")
@@ -167,6 +175,11 @@ func set_ui():
 	ui.set_hurt(hurt)
 
 
+@rpc("any_peer","call_local")
+func attack():
+	anim_player.play("hit")
+	attackTimer.start(atkTime)
+
 @rpc("any_peer", "call_local")
 func interact():
 	pass
@@ -196,3 +209,11 @@ func play_use_effects():
 	anim_player.stop()
 	anim_player.play("use")
 	pass
+
+
+func _on_attack_timer_timeout():
+	_raycast.add_exception(self)
+	if (_raycast.get_collider()):
+		var target = _raycast.get_collider()
+		if target is Player:
+			target.rpc("damage",dmg)

@@ -177,7 +177,7 @@ func _physics_process(delta):
 
 func move(delta):
 	is_on_floor = false
-	move_input = Vector2.ZERO
+#	move_input = Vector2.ZERO
 	var dir = Vector3()
 	#movement input
 	move_input = Input.get_vector("left","right","down","up")
