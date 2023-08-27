@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7m0r8eym18l"]
+
+[ext_resource type="Script" path="res://scripts/damage.gd" id="1_a1rmo"]
+[ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="1_rnmo4"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_a1rmo")
+
+[node name="Label3D" type="Label3D" parent="."]
+billboard = 1
+modulate = Color(0.984314, 0.262745, 0.196078, 1)
+text = "damage"
+font = ExtResource("1_rnmo4")

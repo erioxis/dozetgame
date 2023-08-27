@@ -4,6 +4,7 @@ var world
 var nickname
 
 var resp = preload("res://Scenes/respawn.tscn")
+var damage = preload("res://Scenes/damage.tscn")
 
 enum TOOLTYPE
 {
@@ -40,3 +41,10 @@ func respawn(id, who:Utils.WHO, t):
 	var r = resp.instantiate()
 	world.add_child(r, true)
 	r.init(int(str(id)), who, t)
+
+@rpc("call_local", "any_peer")
+func create_damage(dmg, pos):
+	var d = damage.instantiate()
+	world.add_child(d , true)
+	d.global_position = pos
+	d.set_label(dmg)

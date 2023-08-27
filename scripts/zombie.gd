@@ -218,3 +218,4 @@ func _on_attack_timer_timeout():
 		var target = _raycast.get_collider()
 		if target is Player:
 			target.rpc("damage",dmg)
+			Utils.rpc("create_damage", dmg, _raycast.get_collision_point())
