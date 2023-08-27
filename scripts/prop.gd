@@ -22,6 +22,7 @@ var nailScene = preload("res://Scenes/nail.tscn")
 @onready var nailsnode = $nails
 @onready var nailslabel = $ui/Nails
 @onready var uncadeSound = $UncadeSound
+@onready var impactSound = $ImpactSound
 @onready var ui = $ui
 
 func _ready():
@@ -42,6 +43,10 @@ func _physics_process(delta):
 	ui.global_position = global_position
 	ui.global_rotation = Vector3.ZERO
 	ui.global_position.y+=uiHeight
+	
+	if (health<=0):
+		uncadeSound.play()
+		queue_free()
 
 @rpc("call_local", "any_peer")
 func cade(pos, rot, tar):
@@ -75,4 +80,9 @@ func uncade(hit):
 				uncadeSound.play()
 		if (nails==0):
 			caded=false
-		
+
+@rpc("call_local", "any_peer", "reliable")
+func damage(dmg):
+	impactSound.play()
+	health -= dmg
+	

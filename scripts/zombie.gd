@@ -16,7 +16,6 @@ class_name Zombie
 @onready var feet = $feet
 @onready var stepSound = $step
 @onready var multiSync = $MultiplayerSynchronizer
-@onready var attackTimer = $attackTimer
 @export var view_sensitivity = 10.0
 
 var is_on_floor = false
@@ -177,9 +176,8 @@ func set_ui():
 
 @rpc("any_peer","call_local")
 func attack():
-	if (attackTimer.time_left>0): return
+	if (anim_player.current_animation == "hit"): return
 	anim_player.play("hit")
-	attackTimer.start(atkTime)
 
 @rpc("any_peer", "call_local")
 func interact():
@@ -212,10 +210,12 @@ func play_use_effects():
 	pass
 
 
-func _on_attack_timer_timeout():
+func _on_animation_player_animation_finished(anim_name):
+	if (anim_name!="hit"): return
 	_raycast.add_exception(self)
 	if (_raycast.get_collider()):
 		var target = _raycast.get_collider()
-		if target is Player:
-			target.rpc("damage",dmg)
-			Utils.rpc("create_damage", dmg, _raycast.get_collision_point())
+		if target is Player or target is Prop:
+			if (multiplayer.is_server()):
+				target.rpc("damage",dmg)
+				Utils.rpc("create_damage",dmg, _raycast.get_collision_point())

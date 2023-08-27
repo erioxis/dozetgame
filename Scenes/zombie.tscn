@@ -237,7 +237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="RayCast" type="RayCast3D" parent="Head/Camera3D"]
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -3)
 
 [node name="hand" type="MeshInstance3D" parent="Head/Camera3D"]
 transform = Transform3D(-7.23998e-07, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.23998e-07, 0.381594, -0.263052, -0.513103)
@@ -272,7 +272,4 @@ libraries = {
 [node name="step" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("14_608s3")
 
-[node name="attackTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

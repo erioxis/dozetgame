@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://di3c05utxrbmd"]
+[gd_scene load_steps=6 format=3 uid="uid://di3c05utxrbmd"]
 
 [ext_resource type="Script" path="res://scripts/prop.gd" id="1_p707n"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="2_n6d28"]
 [ext_resource type="AudioStream" uid="uid://dl2lsj20rf54g" path="res://assets/sound/wood.wav" id="3_rklv8"]
+[ext_resource type="AudioStream" uid="uid://bic1krxu3s2w5" path="res://assets/sound/impact.wav" id="4_quajr"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4ox0l"]
 properties/0/path = NodePath(".:position")
@@ -95,3 +96,7 @@ font = ExtResource("2_n6d28")
 [node name="UncadeSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_rklv8")
 volume_db = -7.0
+
+[node name="ImpactSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_quajr")
+volume_db = -20.18

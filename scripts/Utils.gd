@@ -42,7 +42,7 @@ func respawn(id, who:Utils.WHO, t):
 	world.add_child(r, true)
 	r.init(int(str(id)), who, t)
 
-@rpc("call_local", "any_peer")
+@rpc("call_local", "any_peer", "reliable")
 func create_damage(dmg, pos):
 	var d = damage.instantiate()
 	world.add_child(d , true)

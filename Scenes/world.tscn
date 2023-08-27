@@ -29,6 +29,7 @@ script = ExtResource("1_gba76")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965514, 0.260353, 0, -0.260353, 0.965514, -22.6672, 32.7564, -46.6993)
+current = true
 
 [node name="GameManager" parent="." instance=ExtResource("2_j27st")]
 
@@ -99,7 +100,7 @@ placeholder_text = "Name"
 alignment = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://tools/hammer.tscn", "res://tools/glock.tscn", "res://Scenes/props/amyth.tscn", "res://Scenes/zombie.tscn", "res://Scenes/bullet.tscn")
+_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://tools/hammer.tscn", "res://tools/glock.tscn", "res://Scenes/props/amyth.tscn", "res://Scenes/zombie.tscn", "res://Scenes/bullet.tscn", "res://Scenes/props/box.tscn")
 spawn_path = NodePath("..")
 
 [node name="Level" parent="." instance=ExtResource("4_epgrf")]

@@ -336,7 +336,7 @@ func interact():
 		selectedSigil = _raycast.get_collider() as Sigil
 		isTeleporting = true
 
-@rpc("call_local","any_peer")
+@rpc("call_local","any_peer", "reliable")
 func damage(d):
 	health-=d
 	hurt+=d
