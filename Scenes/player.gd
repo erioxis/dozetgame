@@ -144,8 +144,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("right_click"):
 		if (currentTool):
 			currentTool.rpc("use", name)
-			if currentTool.toolType == Utils.TOOLTYPE.TOOL:
-				rpc("play_use_effects")
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
 

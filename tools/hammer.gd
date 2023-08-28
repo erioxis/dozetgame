@@ -10,7 +10,10 @@ func _ready():
 
 @rpc("call_local","any_peer")
 func use(uid):
+	if (!useTimer.is_stopped()): return
+	useTimer.start(0.5)
 	var user = Utils.world.get_player_by_id(int(str(uid)))
+	user.rpc("play_use_effects")
 	var prop
 	var world
 	var first: bool = true
