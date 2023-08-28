@@ -12,7 +12,7 @@ const duraMult: float = 10
 const maxNails: int = 4
 const minHealth: float = 100
 const maxHealth: int = 4600
-var baseHeatlh: int
+var baseHealth: int
 const nailPerHealth: int = 75
 const massFactor: int = 10
 
@@ -25,9 +25,10 @@ var nailScene = preload("res://Scenes/nail.tscn")
 @onready var impactSound = $ImpactSound
 @onready var ui = $ui
 
+
 func _ready():
-	baseHeatlh = clamp((mass  * duraMult * massFactor), minHealth, maxHealth)
-	health = baseHeatlh
+	baseHealth = clamp((mass  * duraMult * massFactor), minHealth, maxHealth)
+	health = baseHealth
 	durability = health * 2.5
 	nails = 0
 	uiHeight = ui.global_position.y - global_position.y
@@ -36,6 +37,13 @@ func _physics_process(delta):
 	heal.text = "health: "+str(health)
 	dura.text = "durability: "+str(durability)
 	nailslabel.text = "nails: "+str(nails)+"/"+str(maxNails)
+	if ($MeshInstance3D.get_surface_override_material(0) is ShaderMaterial):
+		var material:ShaderMaterial = $MeshInstance3D.get_surface_override_material(0)
+		var color:Color = material.get_shader_parameter("albedo_color")
+		var brit = clamp(health/baseHealth,0,1)
+		color = Color(1,brit, brit)
+		material.set_shader_parameter("albedo_color", color)
+		$MeshInstance3D.material_override = material
 	if(caded):
 		ui.visible = true
 	else:
