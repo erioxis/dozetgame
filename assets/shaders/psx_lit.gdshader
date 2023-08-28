@@ -47,6 +47,8 @@ uniform sampler2D emission: hint_default_black, filter_nearest;
 uniform float jitter: hint_range(0.0, 1.0) = 0.5;
 
 uniform float brit = 1;
+uniform bool loot = false;
+uniform float loottimer = 0;
 
 // If disabled, jitter will not affect the Z coordinate
 // of the vertex.
@@ -106,6 +108,12 @@ void fragment() {
 	vec3 red = vec3(1.0, brit, brit);
 	
 	ALBEDO = albedo_color.rgb * texture(albedo, uv).rgb * red;
+	
+	if (loot)
+	{
+		vec3 pink = vec3(1,0.2,0.6)*loottimer;
+		ALBEDO = albedo_color.rgb * texture(albedo, uv).rgb * pink ;
+	}
 	
 	ALPHA = texture(albedo, uv).a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor;

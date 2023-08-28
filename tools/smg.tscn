@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://l4n4i7xfipf4"]
+[gd_scene load_steps=7 format=3 uid="uid://l4n4i7xfipf4"]
 
 [ext_resource type="PackedScene" uid="uid://0hkcayqkwf1b" path="res://Scenes/Tool.tscn" id="1_ue77m"]
 [ext_resource type="Script" path="res://tools/smg.gd" id="2_8qpqy"]
 [ext_resource type="ArrayMesh" uid="uid://4hfbvsxgoaus" path="res://assets/models/smg.obj" id="3_7gff8"]
+[ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="4_kvnwl"]
+[ext_resource type="Texture2D" uid="uid://c1oghqh0v3wj6" path="res://assets/models/smg.jpg" id="5_clptt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qysso"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_kvnwl")
+shader_parameter/jitter = 0.5
+shader_parameter/brit = 1.0
+shader_parameter/loot = false
+shader_parameter/loottimer = 0.0
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("5_clptt")
 
 [node name="Smg" instance=ExtResource("1_ue77m")]
 script = ExtResource("2_8qpqy")
@@ -13,3 +32,4 @@ transform = Transform3D(-1.15835e-08, 0, 0.265, 0, 0.265, 0, -0.265, 0, -1.15835
 [node name="Mesh" parent="." index="1"]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.289738, -0.0625252, -0.00530714)
 mesh = ExtResource("3_7gff8")
+surface_material_override/0 = SubResource("ShaderMaterial_qysso")

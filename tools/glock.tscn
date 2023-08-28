@@ -7,9 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://xdvjil4uubk8" path="res://assets/models/glock.png" id="4_mc60x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kf060"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_2025k")
 shader_parameter/jitter = 0.5
+shader_parameter/brit = 1.0
+shader_parameter/loot = false
+shader_parameter/loottimer = 0.0
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true

@@ -10,9 +10,13 @@
 size = Vector3(0.586113, 2.5168, 1.33171)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qc4pk"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_4dsn8")
 shader_parameter/jitter = 0.5
+shader_parameter/brit = 1.0
+shader_parameter/loot = false
+shader_parameter/loottimer = 0.0
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
