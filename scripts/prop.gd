@@ -37,13 +37,6 @@ func _physics_process(delta):
 	heal.text = "health: "+str(health)
 	dura.text = "durability: "+str(durability)
 	nailslabel.text = "nails: "+str(nails)+"/"+str(maxNails)
-	if ($MeshInstance3D.get_surface_override_material(0) is ShaderMaterial):
-		var material:ShaderMaterial = $MeshInstance3D.get_surface_override_material(0)
-		var color:Color = material.get_shader_parameter("albedo_color")
-		var brit = clamp(health/baseHealth,0,1)
-		color = Color(1,brit, brit)
-		material.set_shader_parameter("albedo_color", color)
-		$MeshInstance3D.material_override = material
 	if(caded):
 		ui.visible = true
 	else:
@@ -93,4 +86,9 @@ func uncade(hit):
 func damage(dmg):
 	impactSound.play()
 	health -= dmg
+	if ($MeshInstance3D.get_surface_override_material(0) is ShaderMaterial):
+		var material:ShaderMaterial = $MeshInstance3D.get_surface_override_material(0)
+		var brit = clamp(health/baseHealth,0,1)
+		material.set_shader_parameter("brit", brit)
+		$MeshInstance3D.material_override = material
 	

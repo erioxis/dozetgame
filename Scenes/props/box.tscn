@@ -5,10 +5,12 @@
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_f0pim"]
 [ext_resource type="Texture2D" uid="uid://c8m44uqmluvj6" path="res://assets/models/box.jpg" id="3_a18au"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vsdr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6davw"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_f0pim")
 shader_parameter/jitter = 0.5
+shader_parameter/brit = 1.0
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
@@ -27,7 +29,7 @@ collision_layer = 17
 [node name="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0, 0, 0)
 mesh = ExtResource("1_u8n5t")
-surface_material_override/0 = SubResource("ShaderMaterial_1vsdr")
+surface_material_override/0 = SubResource("ShaderMaterial_6davw")
 
 [node name="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019319, 0)

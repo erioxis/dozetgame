@@ -46,6 +46,8 @@ uniform sampler2D emission: hint_default_black, filter_nearest;
 // The "jumpiness" of vertices.
 uniform float jitter: hint_range(0.0, 1.0) = 0.5;
 
+uniform float brit = 1;
+
 // If disabled, jitter will not affect the Z coordinate
 // of the vertex.
 uniform bool jitter_z_coordinate = true;
@@ -101,7 +103,9 @@ void fragment() {
 	uv /= texture_size;
 	
 	// Overlay albedo color with the albedo texture.
-	ALBEDO = albedo_color.rgb * texture(albedo, uv).rgb;
+	vec3 red = vec3(1.0, brit, brit);
+	
+	ALBEDO = albedo_color.rgb * texture(albedo, uv).rgb * red;
 	
 	ALPHA = texture(albedo, uv).a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor;

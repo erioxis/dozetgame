@@ -5,10 +5,12 @@
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="3_75hk3"]
 [ext_resource type="Texture2D" uid="uid://cmajsqubopwd3" path="res://assets/models/zombieface.png" id="4_v0wj3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7d5g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcb65"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_75hk3")
 shader_parameter/jitter = 0.5
+shader_parameter/brit = 1.0
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
@@ -26,7 +28,7 @@ mass = 5.0
 
 [node name="MeshInstance3D" parent="." index="0"]
 mesh = ExtResource("2_35xi2")
-surface_material_override/0 = SubResource("ShaderMaterial_p7d5g")
+surface_material_override/0 = SubResource("ShaderMaterial_vcb65")
 
 [node name="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.00521696, 0)
