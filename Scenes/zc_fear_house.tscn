@@ -238,15 +238,12 @@ mesh = ExtResource("4_32rhn")
 
 [node name="hammer2" parent="." instance=ExtResource("11_dhaxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12546, 0.955934, 4.53704)
-pOwnerId = 0
 
 [node name="hammer" parent="." instance=ExtResource("11_dhaxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06273, 0.477967, 2.26852)
-pOwnerId = 0
 
 [node name="glock" parent="." instance=ExtResource("14_e5f2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63262, 0.477967, 5.09243)
-pOwnerId = 0
 
 [node name="fire" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0863559, -0.996264, 0, 0.996264, -0.0863559, 0, 8.22106, -197.404)
@@ -306,7 +303,6 @@ skeleton = NodePath("../..")
 
 [node name="Smg" parent="." instance=ExtResource("16_5w2o4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60133, 0.477967, 0.676951)
-pOwnerId = 0
 
 [node name="props" type="Node3D" parent="."]
 
@@ -336,7 +332,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23236, -176.014)
 
 [node name="glock2" parent="props" instance=ExtResource("14_e5f2t")]
 transform = Transform3D(0.880075, -0.411077, 0.237665, -0.211116, 0.10958, 0.971299, -0.425322, -0.904991, 0.00965331, -23.7397, 26.4496, -55.4763)
-pOwnerId = 0
 
 [node name="Prop" parent="props" instance=ExtResource("10_vxakc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)
