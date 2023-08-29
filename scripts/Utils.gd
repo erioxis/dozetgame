@@ -48,3 +48,6 @@ func create_damage(dmg, pos):
 	world.add_child(d , true)
 	d.global_position = pos
 	d.set_label(dmg)
+	
+func push(target:RigidBody3D, where:Vector3):
+	target.apply_central_impulse(where)

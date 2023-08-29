@@ -44,6 +44,7 @@ var baseDamage:float = 20
 var baseAttackTime:float = 0.8
 var atkTime:float = baseAttackTime
 var dmg = baseDamage
+var pushMult:float = 6
 
 var game_manager
 
@@ -219,3 +220,5 @@ func _on_animation_player_animation_finished(anim_name):
 			if (multiplayer.is_server()):
 				target.rpc("damage",dmg)
 				Utils.rpc("create_damage",dmg, _raycast.get_collision_point())
+				var where:Vector3 = (target.global_position-global_position)*pushMult
+				Utils.push(target, where)
