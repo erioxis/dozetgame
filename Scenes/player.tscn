@@ -150,22 +150,14 @@ properties/11/path = NodePath("Head/Camera3D/hold:position")
 properties/11/spawn = true
 properties/11/sync = true
 properties/11/watch = false
-properties/12/path = NodePath(".:last_pos")
+properties/12/path = NodePath("AnimationBoots:current_animation")
 properties/12/spawn = true
 properties/12/sync = true
 properties/12/watch = false
-properties/13/path = NodePath(".:tools")
+properties/13/path = NodePath(".:isWalking")
 properties/13/spawn = true
 properties/13/sync = true
 properties/13/watch = false
-properties/14/path = NodePath("AnimationBoots:current_animation")
-properties/14/spawn = true
-properties/14/sync = true
-properties/14/watch = false
-properties/15/path = NodePath(".:isWalking")
-properties/15/spawn = true
-properties/15/sync = true
-properties/15/watch = false
 
 [sub_resource type="Animation" id="Animation_pnbjj"]
 resource_name = "RESET"

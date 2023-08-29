@@ -59,6 +59,7 @@ func cade(pos, rot, tar):
 		nailobj.global_position = pos
 		nailobj.global_rotation = rot
 		nailobj.attach(self.get_path(), tar.get_path())
+		nailobj.rpc("sync_rot",rot)
 	caded = true
 	nails+=1
 	health+=nailPerHealth

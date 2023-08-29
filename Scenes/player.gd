@@ -208,6 +208,7 @@ func move(delta):
 		rotating = false
 	if Input.is_action_just_pressed("shift"):
 		last_pos = hold_position.global_position
+		rpc("set_last_pos", hold_position.global_position)
 	if Input.is_action_pressed("shift"):
 		shift = true
 	else:
@@ -294,6 +295,11 @@ func change_tool(s):
 	currentSlot = s
 	currentTool = tools[s]
 	currentTool.hold()
+
+@rpc("call_local", "any_peer")
+func set_last_pos(pos):
+	if multiplayer.is_server():
+		last_pos = pos
 
 @rpc("call_local", "any_peer")
 func throw():
@@ -386,7 +392,7 @@ func dropAllTools():
 	tools.clear()
 	
 	
-@rpc("call_local")
+@rpc("call_local", "any_peer")
 func play_use_effects():
 	anim_player.stop()
 	anim_player.play("use")

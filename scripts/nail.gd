@@ -11,3 +11,7 @@ func attach(obj1, obj2):
 	
 func _ready():
 	sound.play()
+	
+@rpc("any_peer","call_local")
+func sync_rot(rot):
+	global_rotation = rot
