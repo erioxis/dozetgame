@@ -15,5 +15,5 @@ func shoot(s):
 	if shootTimer.is_stopped():
 		shootTimer.start(whenshoot)
 		Utils.world.create_bullet(shooter._raycast.global_position, shooter._raycast.global_rotation, shooter, damage, 100)
-		shooter.shoot_effects()
+		shooter.rpc("play_shoot_effects")
 		shootSound.play()

@@ -146,6 +146,7 @@ func _physics_process(delta):
 			currentTool.rpc("use", name)
 	if Input.is_action_pressed("left_click"):
 		if (currentTool):
+
 			currentTool.rpc("shoot", int(str(name)))
 	
 	if !anim_player.current_animation == "use" and !anim_player.current_animation == "shoot":
@@ -391,9 +392,6 @@ func play_use_effects():
 	anim_player.stop()
 	anim_player.play("use")
 	pass
-
-func shoot_effects():
-	rpc("play_shoot_effects")
 
 @rpc("call_local", "any_peer")
 func play_shoot_effects():
