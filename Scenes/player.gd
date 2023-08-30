@@ -60,6 +60,8 @@ var held_object: Prop
 var points:int = 15
 var health:float = 100
 
+var propDamageMult = 0.2
+
 var game_manager
 
 func _enter_tree():
@@ -338,6 +340,7 @@ func interact():
 
 func damage(d):
 	health-=d
+	health = round(health)
 	hurt+=d
 	if d > 0:
 		Utils.world.create_blood(d, global_position)
@@ -415,4 +418,8 @@ func _on_teleport_timer_timeout():
 
 
 func _on_body_entered(body):
-	print("S")
+	if (!multiplayer.is_server()): return
+	if body is Prop:
+		var dmg = abs(body.mass*body.linear_velocity.x*body.linear_velocity.y*propDamageMult)
+		if dmg>10:
+			damage(dmg)

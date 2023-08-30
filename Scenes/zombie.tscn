@@ -207,6 +207,8 @@ _data = {
 }
 
 [node name="Zombie" type="RigidBody3D"]
+max_contacts_reported = 5
+contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_2ndm8")
 
@@ -287,4 +289,5 @@ libraries = {
 [node name="step" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("14_608s3")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

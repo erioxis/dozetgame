@@ -23,6 +23,8 @@ var move_input
 
 @export var isWalking: bool
 
+var propDamageMult = 0.2
+
 var hurt: float = 0
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
@@ -228,3 +230,11 @@ func punch():
 				Utils.rpc("create_damage",dmg, _raycast.get_collision_point())
 				var where:Vector3 = (target.global_position-global_position)*pushMult
 				Utils.push(target, where)
+
+
+func _on_body_entered(body):
+	if (!multiplayer.is_server()): return
+	if body is Prop:
+		var dmg = abs(body.mass*body.linear_velocity.x*body.linear_velocity.y*propDamageMult)
+		if dmg>10:
+			damage(dmg)

@@ -227,6 +227,7 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_r4hfm")
+max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_e0slr")
 acceleration = 20

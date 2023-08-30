@@ -46,8 +46,7 @@ func _physics_process(delta):
 	ui.global_position.y+=uiHeight
 	
 	if (health<=0):
-		uncadeSound.play()
-		queue_free()
+		rpc("destroy")
 
 @rpc("call_local", "any_peer")
 func cade(pos, rot, tar):
@@ -63,6 +62,11 @@ func cade(pos, rot, tar):
 	caded = true
 	nails+=1
 	health+=nailPerHealth
+
+@rpc("any_peer","call_local")
+func destroy():
+	uncadeSound.play()
+	queue_free()
 
 @rpc("call_local", "any_peer")
 func uncade(hit):
@@ -84,15 +88,16 @@ func uncade(hit):
 			caded=false
 
 func damage(dmg):
+	if (multiplayer.is_server()):
+		rpc("cl_dmg")
+		health -= dmg
+
+@rpc("any_peer", "call_local")
+func cl_dmg():
 	impactSound.play()
-	rpc("play_dmg_sound")
-	health -= dmg
 	if ($MeshInstance3D.get_surface_override_material(0) is ShaderMaterial):
 		var material:ShaderMaterial = $MeshInstance3D.get_surface_override_material(0)
 		var brit = clamp(health/baseHealth,0,1)
 		material.set_shader_parameter("brit", brit)
 		$MeshInstance3D.material_override = material
-
-@rpc("any_peer")
-func play_dmg_sound():
-	impactSound.play()
+	
