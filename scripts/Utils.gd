@@ -51,3 +51,6 @@ func create_damage(dmg, pos):
 	
 func push(target:RigidBody3D, where:Vector3):
 	target.apply_central_impulse(where)
+	
+func linear_push(target:RigidBody3D, where:Vector3):
+	target.linear_velocity = where

@@ -60,7 +60,7 @@ var held_object: Prop
 var points:int = 15
 var health:float = 100
 
-var propDamageMult = 0.2
+var propDamageMult = 1
 
 var game_manager
 
@@ -365,6 +365,9 @@ func kill():
 	rpc("dropAllTools")
 	tools.clear()
 	ui.dead()
+	if held_object:
+		held_object.hold = false
+	held_object = null
 	if (multiplayer.is_server()):
 		Utils.respawn(int(str(name)), Utils.WHO.ZOMBIE, 5)
 
@@ -420,6 +423,8 @@ func _on_teleport_timer_timeout():
 func _on_body_entered(body):
 	if (!multiplayer.is_server()): return
 	if body is Prop:
+		if body.hold: return
 		var dmg = abs(body.mass*body.linear_velocity.x*body.linear_velocity.y*propDamageMult)
+		print(dmg)
 		if dmg>10:
 			damage(dmg)

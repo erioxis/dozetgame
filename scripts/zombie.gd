@@ -46,7 +46,7 @@ var baseDamage:float = 20
 var baseAttackTime:float = 0.8
 var atkTime:float = baseAttackTime
 var dmg = baseDamage
-var pushMult:float = 6
+var pushMult:float = 60
 
 var game_manager
 
@@ -229,12 +229,13 @@ func punch():
 				target.damage(dmg)
 				Utils.rpc("create_damage",dmg, _raycast.get_collision_point())
 				var where:Vector3 = (target.global_position-global_position)*pushMult
-				Utils.push(target, where)
+				Utils.linear_push(target, where)
 
 
 func _on_body_entered(body):
 	if (!multiplayer.is_server()): return
 	if body is Prop:
+		if body.hold: return
 		var dmg = abs(body.mass*body.linear_velocity.x*body.linear_velocity.y*propDamageMult)
 		if dmg>10:
 			damage(dmg)
