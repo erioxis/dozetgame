@@ -80,6 +80,7 @@ func remove_player(peer_id):
 	if player:
 		create_blood(15, player.global_position)
 		player.queue_free()
+		player.dropAllTools()
 	print("Player "+str(peer_id)+" has removed")
 	
 func kill_player(peer_id):

@@ -423,7 +423,7 @@ func _on_teleport_timer_timeout():
 func _on_body_entered(body):
 	if (!multiplayer.is_server()): return
 	if body is Prop:
-		if body.hold: return
+		if body.hold or body.caded: return
 		var dmg = abs(body.mass*body.linear_velocity.x*body.linear_velocity.y*propDamageMult)
 		print(dmg)
 		if dmg>10:
