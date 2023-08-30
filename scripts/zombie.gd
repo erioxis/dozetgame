@@ -213,12 +213,18 @@ func play_use_effects():
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name!="hit"): return
-	_raycast.add_exception(self)
-	if (_raycast.get_collider()):
-		var target = _raycast.get_collider()
-		if target is Player or target is Prop:
-			if (multiplayer.is_server()):
-				target.rpc("damage",dmg)
+	if (!multiplayer.is_server()): return
+	rpc("punch")
+
+@rpc("call_local", "any_peer")
+func punch():
+	if (multiplayer.is_server()):
+		_raycast.add_exception(self)
+		_raycast.force_raycast_update()
+		if (_raycast.get_collider()):
+			var target = _raycast.get_collider()
+			if (target is Player) or (target is Prop):
+				target.damage(dmg)
 				Utils.rpc("create_damage",dmg, _raycast.get_collision_point())
 				var where:Vector3 = (target.global_position-global_position)*pushMult
 				Utils.push(target, where)

@@ -196,7 +196,7 @@ func move(delta):
 	if Input.is_action_just_pressed("left_click"):
 		rpc("throw")
 	if Input.is_action_just_pressed("kill"):
-		rpc("damage", 20)
+		damage(20)
 	if Input.is_action_just_pressed("uncade"):
 		if (currentTool is Hammer):
 			currentTool.rpc("uncade",int(str(self.name)))
@@ -245,7 +245,8 @@ func _input(event):
 	if not is_multiplayer_authority(): return
 	if event is InputEventMouseMotion:
 		mouse_input = event.relative;
-		rpc("send_input", mouse_input)
+		if rotating:
+			rpc("send_input", mouse_input)
 
 func set_ui():
 	ui.set_health(health)
@@ -335,7 +336,6 @@ func interact():
 		selectedSigil = _raycast.get_collider() as Sigil
 		isTeleporting = true
 
-@rpc("call_local","any_peer", "reliable")
 func damage(d):
 	health-=d
 	hurt+=d
@@ -412,3 +412,7 @@ func _on_teleport_timer_timeout():
 	Utils.world.rpc("teleport", int(str(self.name)), currentSigil.global_position.x,currentSigil.global_position.y,currentSigil.global_position.z)
 	isTeleporting = false
 	selectedSigil = null
+
+
+func _on_body_entered(body):
+	print("S")

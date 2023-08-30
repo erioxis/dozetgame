@@ -227,6 +227,7 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_r4hfm")
+contact_monitor = true
 script = ExtResource("1_e0slr")
 acceleration = 20
 speed = 20
@@ -316,4 +317,5 @@ stream = ExtResource("13_ftpqy")
 wait_time = 3.0
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="teleportTimer" to="." method="_on_teleport_timer_timeout"]

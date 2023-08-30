@@ -308,24 +308,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60133, 0.477967, 0.676951)
 
 [node name="box4" parent="props" instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31522, 9.28797, -1.83168)
+contact_monitor = false
 
 [node name="box3" parent="props" instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13326, 8.18188, -1.05276)
+contact_monitor = false
 
 [node name="box2" parent="props" instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.862, 5.38249, 0.112446)
+contact_monitor = false
 
 [node name="box" parent="props" instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61532, 0)
+contact_monitor = false
 
 [node name="box5" parent="props" instance=ExtResource("7_4tei5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2314, 3.56467, -1.77282)
+contact_monitor = false
 
 [node name="someone" parent="props" instance=ExtResource("9_fvj40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110016, 8.61742, -160.314)
 
 [node name="amyth" parent="props" instance=ExtResource("9_v2eck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79424, -12.922)
+contact_monitor = false
 
 [node name="bochka2" parent="props" instance=ExtResource("15_xqmop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23236, -176.014)
@@ -335,6 +341,7 @@ transform = Transform3D(0.880075, -0.411077, 0.237665, -0.211116, 0.10958, 0.971
 
 [node name="Prop" parent="props" instance=ExtResource("10_vxakc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58724, 5.42343)
+contact_monitor = false
 
 [node name="sigils" type="Node3D" parent="."]
 

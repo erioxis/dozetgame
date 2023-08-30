@@ -83,13 +83,16 @@ func uncade(hit):
 		if (nails==0):
 			caded=false
 
-@rpc("call_local", "any_peer", "reliable")
 func damage(dmg):
 	impactSound.play()
+	rpc("play_dmg_sound")
 	health -= dmg
 	if ($MeshInstance3D.get_surface_override_material(0) is ShaderMaterial):
 		var material:ShaderMaterial = $MeshInstance3D.get_surface_override_material(0)
 		var brit = clamp(health/baseHealth,0,1)
 		material.set_shader_parameter("brit", brit)
 		$MeshInstance3D.material_override = material
-	
+
+@rpc("any_peer")
+func play_dmg_sound():
+	impactSound.play()

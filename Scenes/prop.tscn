@@ -52,6 +52,7 @@ properties/10/sync = true
 properties/10/watch = false
 
 [node name="Prop" type="RigidBody3D" groups=["prop"]]
+contact_monitor = true
 script = ExtResource("1_p707n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
