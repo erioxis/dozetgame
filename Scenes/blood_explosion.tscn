@@ -10,6 +10,9 @@
 render_priority = 0
 shader = ExtResource("2_4nipx")
 shader_parameter/jitter = 0.5
+shader_parameter/brit = 1.0
+shader_parameter/loot = false
+shader_parameter/loottimer = 0.0
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true

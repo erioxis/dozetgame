@@ -1,28 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxg3v4dqcjupl"]
+[gd_scene load_steps=5 format=3 uid="uid://dxg3v4dqcjupl"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_gba76"]
 [ext_resource type="PackedScene" uid="uid://udhgs1mvvntt" path="res://Scenes/game_manager.tscn" id="2_j27st"]
 [ext_resource type="PackedScene" uid="uid://ig18jglq27rs" path="res://Scenes/zc_fear_house.tscn" id="4_epgrf"]
 [ext_resource type="FontFile" uid="uid://cy70efx6hnu4t" path="res://assets/font/ghoulfriaoe_upd.ttf" id="4_hyq7g"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1tvc"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_3u0w6"]
-sky_material = SubResource("ProceduralSkyMaterial_w1tvc")
-
-[sub_resource type="Environment" id="Environment_hxlte"]
-background_mode = 1
-background_energy_multiplier = 1.5
-sky = SubResource("Sky_3u0w6")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-tonemap_mode = 2
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
-fog_density = 0.03
 
 [node name="World" type="Node"]
 script = ExtResource("1_gba76")
@@ -32,9 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 0.965514, 0.260353, 0, -0.260353, 0.965514, 
 current = true
 
 [node name="GameManager" parent="." instance=ExtResource("2_j27st")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_hxlte")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

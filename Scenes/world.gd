@@ -63,6 +63,7 @@ func add_player(peer_id):
 	game_manager.rpc_id(peer_id,"set_round_info", game_manager.state, game_manager.wave, game_manager.timer.time_left)
 	print("Player "+str(peer_id)+" is connected")
 
+@rpc("any_peer","call_local")
 func create_blood(n, pos):
 	var blood = bloodexp.instantiate()
 	add_child(blood, true)
@@ -80,7 +81,8 @@ func remove_player(peer_id):
 	if player:
 		create_blood(15, player.global_position)
 		player.queue_free()
-		player.dropAllTools()
+		if (player is Player):
+			player.dropAllTools()
 	print("Player "+str(peer_id)+" has removed")
 	
 func kill_player(peer_id):
@@ -98,7 +100,8 @@ func zombificate(peer_id):
 	
 func get_player_by_id(id: int):
 	return get_node_or_null(str(id))
-	
+
+
 @rpc("call_local", "any_peer")
 func teleport(id, x, y, z):
 	get_player_by_id(int(str(id))).global_position = Vector3(x,y,z)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ig18jglq27rs"]
+[gd_scene load_steps=26 format=3 uid="uid://ig18jglq27rs"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_6sltn"]
 [ext_resource type="Shader" path="res://assets/shaders/psx_lit.gdshader" id="2_njjey"]
@@ -16,6 +16,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="14_tlktg"]
 [ext_resource type="PackedScene" uid="uid://bpraqik1ro8k" path="res://Scenes/props/bochka.tscn" id="15_xqmop"]
 [ext_resource type="PackedScene" uid="uid://l4n4i7xfipf4" path="res://tools/smg.tscn" id="16_5w2o4"]
+[ext_resource type="PackedScene" uid="uid://b083px3r3jewg" path="res://Scenes/zgas.tscn" id="17_up2g6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5sbf"]
 size = Vector3(57.3245, 1, 57.1686)
@@ -68,6 +69,14 @@ shader_parameter/albedo_color = Color(0.301961, 0.521569, 0.454902, 1)
 shader_parameter/emission_color = Color(0.87451, 0.0705882, 0.498039, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 shader_parameter/albedo = SubResource("CanvasTexture_0qjov")
+
+[sub_resource type="Environment" id="Environment_pprcx"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.33
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0317
+volumetric_fog_emission = Color(0.631373, 0.631373, 0.631373, 1)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_6sltn")
@@ -353,3 +362,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13789, 0.5, 10.4135)
 
 [node name="Sigil3" parent="sigils" groups=["sigil"] instance=ExtResource("6_to7d0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7382, 4.89272, -2.53189)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pprcx")
+
+[node name="zgases" type="Node3D" parent="."]
+
+[node name="Zgas" parent="zgases" instance=ExtResource("17_up2g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4504, 2.96411, -48.7827)

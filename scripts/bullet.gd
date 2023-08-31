@@ -17,5 +17,5 @@ func init(pos, rot, o, damage, l):
 		var target = raycast.get_collider()
 		if target is Zombie:
 			target.rpc("damage",damage)
-			Utils.create_damage(damage, raycast.get_collision_point())
+			Utils.rpc("create_damage",damage, raycast.get_collision_point(), target.name, Color(255,0,0))
 	#queue_free()

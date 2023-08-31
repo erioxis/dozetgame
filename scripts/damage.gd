@@ -5,6 +5,9 @@ extends Node3D
 func set_label(l):
 	label.text = str(l)
 	
+func set_color(c):
+	label.modulate = c
+	
 func _physics_process(delta):
 	global_position.y+=delta
 	if label.modulate.a8 <= 10:

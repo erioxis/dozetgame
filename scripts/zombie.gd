@@ -191,7 +191,7 @@ func damage(d):
 	health-=d
 	hurt+=d
 	if d > 0:
-		Utils.world.create_blood(d, global_position)
+		Utils.world.rpc("create_blood",d, global_position)
 
 @rpc("any_peer")
 func send_input(mi):
@@ -200,7 +200,7 @@ func send_input(mi):
 @rpc("any_peer", "call_local")
 func kill():
 	ui.set_health(health)
-	Utils.world.create_blood(20, global_position)
+	Utils.world.rpc("create_blood",20, global_position)
 	Utils.world.kill_player(name)
 	ui.dead()
 	if (multiplayer.is_server()):
@@ -225,11 +225,17 @@ func punch():
 		_raycast.force_raycast_update()
 		if (_raycast.get_collider()):
 			var target = _raycast.get_collider()
-			if (target is Player) or (target is Prop):
+			if (target is Player):
 				target.damage(dmg)
-				Utils.rpc("create_damage",dmg, _raycast.get_collision_point())
+				Utils.rpc("create_damage",dmg, _raycast.get_collision_point(), target.name, Color(255,0,0))
 				var where:Vector3 = (target.global_position-global_position)*pushMult
 				Utils.linear_push(target, where)
+			elif (target is Prop):
+				target.damage(dmg)
+				Utils.rpc("create_damage",dmg, _raycast.get_collision_point(), target.name, Color(255,255,255))
+				var where:Vector3 = (target.global_position-global_position)*pushMult
+				Utils.linear_push(target, where)
+				
 
 
 func _on_body_entered(body):

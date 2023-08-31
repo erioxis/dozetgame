@@ -343,7 +343,7 @@ func damage(d):
 	health = round(health)
 	hurt+=d
 	if d > 0:
-		Utils.world.create_blood(d, global_position)
+		Utils.world.rpc("create_blood",d, global_position)
 
 func pick_up(t: Tool):
 	if (tools.size() >= 3):
@@ -360,7 +360,7 @@ func send_input(mi):
 @rpc("any_peer", "call_local")
 func kill():
 	ui.set_health(health)
-	Utils.world.create_blood(20, global_position)
+	Utils.world.rpc("create_blood",20, global_position)
 	Utils.world.kill_player(int(str(name)))
 	rpc("dropAllTools")
 	tools.clear()

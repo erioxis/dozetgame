@@ -42,13 +42,15 @@ func respawn(id, who:Utils.WHO, t):
 	world.add_child(r, true)
 	r.init(int(str(id)), who, t)
 
-@rpc("call_local", "any_peer", "reliable")
-func create_damage(dmg, pos):
+@rpc("call_local", "any_peer")
+func create_damage(dmg, pos, tar:StringName, color:Color):
+	if (multiplayer.get_unique_id()==int(str(tar))): return
 	var d = damage.instantiate()
 	world.add_child(d , true)
 	d.global_position = pos
 	d.set_label(dmg)
-	
+	d.set_color(color)
+
 func push(target:RigidBody3D, where:Vector3):
 	target.apply_central_impulse(where)
 	
