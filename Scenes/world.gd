@@ -27,20 +27,11 @@ const PORT = 3120
 var client = Nakama.create_client(KEY, "127.0.0.1", 7350, "http")
 var device_id = OS.get_unique_id()
 var session
-var enet_peer = ENetMultiplayerPeer.new()
 var socket
-var multiplayer_bridge
+var multiplayer_bridge : NakamaMultiplayerBridge
 
 func _ready():
-	if "--server" in OS.get_cmdline_args():
-		enet_peer.create_server(PORT)
-		multiplayer.multiplayer_peer = enet_peer
-		multiplayer.peer_connected.connect(add_player)
-		multiplayer.peer_disconnected.connect(remove_player)
-		game_manager.start_round()
-		print("Server on")
-	else:
-		Steam.steamInit()
+	Steam.steamInit()
 		
 	client.timeout = 10
 
@@ -67,11 +58,9 @@ func _on_host_button_pressed():
 	Utils.nickname = Steam.getFriendPersonaName(Steam.getSteamID())
 	main_menu.hide()
 	
-	enet_peer.create_server(PORT)
-	multiplayer.multiplayer_peer = enet_peer
-	multiplayer.peer_connected.connect(add_player)
-	multiplayer.peer_disconnected.connect(remove_player)
-	multiplayer_bridge.create_match()
+	await multiplayer_bridge.create_match()
+	get_tree().get_multiplayer().peer_connected.connect(self.add_player)
+	get_tree().get_multiplayer().peer_disconnected.connect(self.remove_player)
 	
 	add_player(multiplayer.get_unique_id())
 	game_manager.start_round()
@@ -80,9 +69,9 @@ func _on_join_button_pressed():
 	Utils.nickname = Steam.getFriendPersonaName(Steam.getSteamID())
 	main_menu.hide()
 	
-	enet_peer.create_client(address_enter.text, PORT)
-	multiplayer.multiplayer_peer = enet_peer
-	multiplayer_bridge.create_match()
+	#enet_peer.create_client(address_enter.text, PORT)
+	#multiplayer.multiplayer_peer = enet_peer
+	multiplayer_bridge.join_match(address_enter.text)
 
 func add_player(peer_id):
 	var player = Player.instantiate()

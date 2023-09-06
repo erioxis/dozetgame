@@ -68,7 +68,7 @@ text = "Join"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hyq7g")
 theme_override_font_sizes/font_size = 20
-placeholder_text = "localhost"
+placeholder_text = "match id"
 alignment = 1
 
 [node name="NameEnter" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
