@@ -71,6 +71,7 @@ func _on_host_button_pressed():
 	multiplayer.multiplayer_peer = enet_peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(remove_player)
+	multiplayer_bridge.create_match()
 	
 	add_player(multiplayer.get_unique_id())
 	game_manager.start_round()
@@ -81,6 +82,7 @@ func _on_join_button_pressed():
 	
 	enet_peer.create_client(address_enter.text, PORT)
 	multiplayer.multiplayer_peer = enet_peer
+	multiplayer_bridge.create_match()
 
 func add_player(peer_id):
 	var player = Player.instantiate()
@@ -189,5 +191,11 @@ func init_sockets():
 	print("Socket connected.")
 	multiplayer_bridge = NakamaMultiplayerBridge.new(socket)
 	multiplayer_bridge.match_join_error.connect(self._on_match_join_error)
-	multiplayer_bridge.match_joined.connect(self._on_match_joined)
+	multiplayer_bridge.match_joined.connect(self._on_match_join)
 	get_tree().get_multiplayer().set_multiplayer_peer(multiplayer_bridge.multiplayer_peer)
+
+func _on_match_join_error(error):
+	print ("Unable to join match: ", error.message)
+
+func _on_match_join() -> void:
+	print ("Joined match with id: ", multiplayer_bridge.match_id)
