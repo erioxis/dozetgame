@@ -6,6 +6,16 @@ extends Node
 @onready var game_manager = $GameManager
 @onready var level = $Level
 
+@onready var auth_menu = $CanvasLayer/AuthMenu
+@onready var login_enter = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/LoginEnter
+@onready var pass_enter = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/PassEnter
+@onready var user_name_enter = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/UserNameEnter
+@onready var reg_button = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/RegButton
+
+@onready var error_label = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/Error
+
+const KEY := "nakama_dozet_server"
+
 const alph = ['A', 'B', 'C']
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
@@ -14,7 +24,12 @@ const Player = preload("res://Scenes/player.tscn")
 const Zombie = preload("res://Scenes/zombie.tscn")
 const Bullet = preload("res://Scenes/bullet.tscn")
 const PORT = 3120
+var client = Nakama.create_client(KEY, "127.0.0.1", 7350, "http")
+var device_id = OS.get_unique_id()
+var session
 var enet_peer = ENetMultiplayerPeer.new()
+var socket
+var multiplayer_bridge
 
 func _ready():
 	if "--server" in OS.get_cmdline_args():
@@ -26,9 +41,23 @@ func _ready():
 		print("Server on")
 	else:
 		Steam.steamInit()
+		
+	client.timeout = 10
 
 	Utils.world = self
 	init_sigils()
+
+func _physics_process(delta):
+	if (user_name_enter.text == ""):
+		reg_button.disabled = true
+		return
+	if (login_enter.text == ""):
+		reg_button.disabled = true
+		return
+	if (pass_enter.text == "" or pass_enter.text.length() < 8):
+		reg_button.disabled = true
+		return
+	reg_button.disabled = false
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
@@ -129,3 +158,36 @@ func upnp_setup():
 		"UPNP Discover Failed! Error %s" % discover_result)
 		
 	print("Success! Join Address: %s" % upnp.query_external_address())
+
+
+func _on_reg_button_pressed():
+	session = await client.authenticate_email_async(login_enter.text, pass_enter.text, user_name_enter.text, true)
+	if session.is_exception():
+		error_label.text = str(session.exception.message)
+		return
+	main_menu.show()
+	auth_menu.hide()
+	init_sockets()
+
+
+func _on_log_button_pressed():
+	session = await client.authenticate_email_async(login_enter.text, pass_enter.text, user_name_enter.text, false)
+	if session.is_exception():
+		error_label.text = str(session.exception.message)
+		return
+	main_menu.show()
+	auth_menu.hide()
+	init_sockets()
+
+	
+func init_sockets():
+	socket = Nakama.create_socket_from(client)
+	var connected : NakamaAsyncResult = await socket.connect_async(session)
+	if connected.is_exception():
+		print("An error occurred: %s" % connected)
+		return
+	print("Socket connected.")
+	multiplayer_bridge = NakamaMultiplayerBridge.new(socket)
+	multiplayer_bridge.match_join_error.connect(self._on_match_join_error)
+	multiplayer_bridge.match_joined.connect(self._on_match_joined)
+	get_tree().get_multiplayer().set_multiplayer_peer(multiplayer_bridge.multiplayer_peer)
