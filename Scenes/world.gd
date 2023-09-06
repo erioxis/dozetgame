@@ -14,6 +14,10 @@ extends Node
 
 @onready var error_label = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/Error
 
+@onready var server_list_menu = $CanvasLayer/ServerList
+
+@onready var item_list = $CanvasLayer/ServerList/MarginContainer/VBoxContainer/ItemList
+
 const KEY := "nakama_dozet_server"
 
 const alph = ['A', 'B', 'C']
@@ -188,3 +192,21 @@ func _on_match_join_error(error):
 
 func _on_match_join() -> void:
 	print ("Joined match with id: ", multiplayer_bridge.match_id)
+
+
+func _on_server_list_button_pressed():
+	main_menu.hide()
+	server_list_menu.show()
+	var min_players = 0
+	var max_players = 100
+	var limit = 10
+	var authoritative = true
+	var label = ""
+	var query = ""
+	var result = await client.list_matches_async(session, min_players, max_players, limit, authoritative, label, query)
+	print(result)
+	for m in result.matches:
+		print(m)
+		item_list.add_item(m.label)
+		
+
