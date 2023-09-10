@@ -17,7 +17,6 @@ current = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,6 +83,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Name"
 alignment = 1
 
+<<<<<<< HEAD
 [node name="ServerList" type="Panel" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
@@ -204,6 +204,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
+=======
+>>>>>>> parent of 63729c8 (network rework start)
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://tools/hammer.tscn", "res://tools/glock.tscn", "res://Scenes/props/amyth.tscn", "res://Scenes/zombie.tscn", "res://Scenes/bullet.tscn", "res://Scenes/props/box.tscn")
 spawn_path = NodePath("..")
@@ -213,5 +215,3 @@ spawn_path = NodePath("..")
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/ServerListButton" to="." method="_on_server_list_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/RegButton" to="." method="_on_reg_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/LogButton" to="." method="_on_log_button_pressed"]
