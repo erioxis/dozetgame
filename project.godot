@@ -18,6 +18,7 @@ config/windows_native_icon="res://assets/icon.ico"
 [autoload]
 
 Utils="*res://scripts/Utils.gd"
+Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 
 [filesystem]
 

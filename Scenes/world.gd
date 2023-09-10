@@ -6,7 +6,6 @@ extends Node
 @onready var game_manager = $GameManager
 @onready var level = $Level
 
-<<<<<<< HEAD
 @onready var auth_menu = $CanvasLayer/AuthMenu
 @onready var login_enter = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/LoginEnter
 @onready var pass_enter = $CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/PassEnter
@@ -21,8 +20,6 @@ extends Node
 
 const KEY := "nakama_dozet_server"
 
-=======
->>>>>>> parent of 63729c8 (network rework start)
 const alph = ['A', 'B', 'C']
 
 var bloodexp = preload("res://Scenes/blood_explosion.tscn")
@@ -31,7 +28,6 @@ const Player = preload("res://Scenes/player.tscn")
 const Zombie = preload("res://Scenes/zombie.tscn")
 const Bullet = preload("res://Scenes/bullet.tscn")
 const PORT = 3120
-<<<<<<< HEAD
 var client = Nakama.create_client(KEY, "127.0.0.1", 7350, "http")
 var device_id = OS.get_unique_id()
 var session
@@ -42,23 +38,21 @@ func _ready():
 	Steam.steamInit()
 		
 	client.timeout = 10
-=======
-var enet_peer = ENetMultiplayerPeer.new()
-
-func _ready():
-	if "--server" in OS.get_cmdline_args():
-		enet_peer.create_server(PORT)
-		multiplayer.multiplayer_peer = enet_peer
-		multiplayer.peer_connected.connect(add_player)
-		multiplayer.peer_disconnected.connect(remove_player)
-		game_manager.start_round()
-		print("Server on")
-	else:
-		Steam.steamInit()
->>>>>>> parent of 63729c8 (network rework start)
 
 	Utils.world = self
 	init_sigils()
+
+func _physics_process(delta):
+	if (user_name_enter.text == ""):
+		reg_button.disabled = true
+		return
+	if (login_enter.text == ""):
+		reg_button.disabled = true
+		return
+	if (pass_enter.text == "" or pass_enter.text.length() < 8):
+		reg_button.disabled = true
+		return
+	reg_button.disabled = false
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
@@ -159,7 +153,6 @@ func upnp_setup():
 		"UPNP Discover Failed! Error %s" % discover_result)
 		
 	print("Success! Join Address: %s" % upnp.query_external_address())
-<<<<<<< HEAD
 
 
 func _on_reg_button_pressed():
@@ -217,5 +210,3 @@ func _on_server_list_button_pressed():
 		item_list.add_item(m.label)
 		
 
-=======
->>>>>>> parent of 63729c8 (network rework start)
