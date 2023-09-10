@@ -17,7 +17,6 @@ current = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,85 +77,6 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Name"
 alignment = 1
 
-[node name="AuthMenu" type="Panel" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 354.0
-offset_top = 150.0
-offset_right = -354.0
-offset_bottom = -128.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/AuthMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/AuthMenu/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="Label" type="Label" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 32
-text = "login"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="UserNameEnter" type="LineEdit" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 20
-placeholder_text = "nickname"
-alignment = 1
-
-[node name="LoginEnter" type="LineEdit" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 20
-placeholder_text = "email"
-alignment = 1
-
-[node name="PassEnter" type="LineEdit" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 20
-placeholder_text = "password"
-alignment = 1
-secret = true
-
-[node name="RegButton" type="Button" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 20
-text = "register"
-
-[node name="LogButton" type="Button" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 20
-text = "login"
-
-[node name="Error" type="Label" parent="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hyq7g")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
-
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://tools/hammer.tscn", "res://tools/glock.tscn", "res://Scenes/props/amyth.tscn", "res://Scenes/zombie.tscn", "res://Scenes/bullet.tscn", "res://Scenes/props/box.tscn")
 spawn_path = NodePath("..")
@@ -165,5 +85,3 @@ spawn_path = NodePath("..")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/RegButton" to="." method="_on_reg_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/AuthMenu/MarginContainer/VBoxContainer/LogButton" to="." method="_on_log_button_pressed"]
